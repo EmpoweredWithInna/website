@@ -152,7 +152,7 @@ export function Hero() {
                 <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                 <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50">
                   <img
-                    src="/inna.jpg"
+                    src="/Inna.jpg"
                     alt="Inna, Functional Nutritionist"
                     width={400}
                     height={400}
