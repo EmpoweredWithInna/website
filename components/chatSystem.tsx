@@ -229,7 +229,7 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
           currentStep: 'complete'
         }));
         
-        addMessage(`Perfect! I've got ${message}. You'll receive some valuable gut health tips over the next week, and I'll personally follow up to see how you're feeling and answer any questions that come up. In the meantime, feel free to check out Inna's resources or just reach out if anything changes!`, true);
+        addMessage(`Perfect! I've got ${message}. You'll receive some valuable gut health tips over the next week, and I'll personally follow up to see how you're feeling and answer any questions that come up. In the meantime, feel free to check out Inna's resources or just reach out if anything changes!\n\n📧 **Stay in Touch**\n\n✅ Get Weekly Tips & Follow-up\nI'll check in with you next week, plus you'll get valuable gut health insights!`, true);
       }, 1000);
     }
   };
@@ -272,7 +272,7 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
   };
 
   const handleThinkingAboutIt = (userData: any) => {
-    addMessage(`I totally understand, ${userData.name}. This is an important decision. How about I send you some valuable gut health tips over the next week? No pressure at all - just helpful information that might give you some relief while you're deciding. What's your email?`, true);
+    addMessage(`I completely understand, ${userData.name}. This is an important decision and I respect that you want to think it through. Can I get your email so I can follow up with you in a week? I'll also send you some helpful gut health tips in the meantime - no pressure at all.`, true);
     
     setChatState(prev => ({
       ...prev,

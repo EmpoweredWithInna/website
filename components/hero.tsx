@@ -71,7 +71,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/10"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10 py-20">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 pt-28 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
           {/* Left Column - Content */}
           <div className="space-y-8">
@@ -151,7 +151,7 @@ export function Hero() {
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                 <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50">
-                  <Image
+                  <img
                     src="/inna.jpg"
                     alt="Inna, Functional Nutritionist"
                     width={400}

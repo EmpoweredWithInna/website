@@ -72,7 +72,7 @@ export function MyStory() {
             <div className="relative group">
               {/* Main Image Container */}
               <div className="relative bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 shadow-2xl">
-                <Image
+                <img
                   src="/inna.jpg"
                   alt="Inna Topiler, Functional Nutritionist"
                   width={400}

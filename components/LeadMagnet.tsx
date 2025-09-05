@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from 'react';
 
-export function LeadMagnet() {
+interface LeadMagnetProps {
+  autoOpen?: boolean;
+}
+
+export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -45,32 +49,20 @@ export function LeadMagnet() {
     }
   }, [isOpen]);
 
+  // Auto-open popup when component mounts if autoOpen is true
+  useEffect(() => {
+    if (autoOpen) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 2000); // Show popup after 2 seconds
+      
+      return () => clearTimeout(timer);
+    }
+  }, [autoOpen]);
+
   return (
     <>
-      {/* Trigger Button - Fixed Position */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <button
-          onClick={() => setIsOpen(true)}
-          className="group bg-gradient-to-r from-emerald-500 to-teal-500 text-white p-4 rounded-2xl shadow-2xl hover:from-emerald-400 hover:to-teal-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-        >
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-              </svg>
-            </div>
-            <div className="hidden sm:block text-left">
-              <div className="font-bold text-sm">Free Guide</div>
-              <div className="text-xs opacity-90">Symptom Tracker</div>
-            </div>
-          </div>
-          
-          {/* Pulse animation */}
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 animate-ping opacity-20"></div>
-        </button>
-      </div>
-
-      {/* Modal Overlay */}
+      {/* Modal Overlay - No trigger button needed for auto-popup */}
       {isOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className={`bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[95vh] overflow-y-auto relative transition-all duration-500 ${
@@ -167,30 +159,6 @@ export function LeadMagnet() {
                       </p>
                     </div>
                   </form>
-
-                  {/* Social Proof */}
-                  <div className="mt-8 pt-8 border-t border-gray-200">
-                    <div className="text-center">
-                      <p className="text-sm text-gray-600 mb-4">Trusted by 5,000+ women worldwide</p>
-                      <div className="flex justify-center items-center space-x-6">
-                        <div className="flex -space-x-2">
-                          {[1, 2, 3, 4, 5].map((i) => (
-                            <div key={i} className="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-400 rounded-full border-2 border-white shadow-md"></div>
-                          ))}
-                        </div>
-                        <div className="flex items-center">
-                          <div className="flex text-yellow-400 mr-2">
-                            {[1, 2, 3, 4, 5].map((i) => (
-                              <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                              </svg>
-                            ))}
-                          </div>
-                          <span className="text-gray-600 text-sm font-medium">4.9/5 rating</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             ) : (

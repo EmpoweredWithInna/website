@@ -5,31 +5,36 @@ import { Header } from '../components/header';
 import { Footer } from '../components/footer';
 import { ChatProvider } from '../components/chatProvider';
 import { StructuredData } from '../components/structuredData';
+import { LeadMagnet } from '../components/LeadMagnet';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Rosales Yard Maintenance - Austin\'s Premier Lawn Care Service | Buda, Kyle, Manchaca',
-    template: '%s | Rosales Yard Maintenance'
+    default: 'Root-Cause Nutrition for Fatigue & Gut Health | Empowered Nutrition with Inna',
+    template: '%s | Empowered Nutrition with Inna'
   },
-  description: 'Professional lawn care and landscaping services in Austin, Buda, Kyle & Manchaca. Owner-operated since 2019. Get instant quotes, 100% satisfaction guaranteed. Call (512) 694-1773',
+  description: 'Transform your health with functional testing and personalized nutrition. Specialized care for women 30-55 experiencing fatigue, anxiety, gut issues, and perimenopause symptoms.',
   keywords: [
-    'lawn care Austin TX',
-    'landscaping services Buda',
-    'yard maintenance Kyle Texas',
-    'professional lawn mowing Manchaca',
-    'Austin lawn service',
-    'South Austin landscaping',
-    'lawn care near me',
-    'yard cleanup Austin'
+    'functional nutrition',
+    'gut health specialist',
+    'chronic fatigue treatment',
+    'functional medicine testing',
+    'GI-MAP testing',
+    'DUTCH hormone testing',
+    'digestive health',
+    'women\'s health nutrition',
+    'perimenopause support',
+    'anxiety nutrition therapy',
+    'brain fog treatment',
+    'IBS functional nutrition'
   ],
-  authors: [{ name: 'John Rosales', url: 'https://rosalesyard.com' }],
-  creator: 'Rosales Yard Maintenance',
-  publisher: 'Rosales Yard Maintenance',
-  metadataBase: new URL('https://rosalesyard.com'),
+  authors: [{ name: 'Inna Topiler', url: 'https://empowerednutritionwithinna.com' }],
+  creator: 'Empowered Nutrition with Inna',
+  publisher: 'Empowered Nutrition with Inna',
+  metadataBase: new URL('https://empowerednutritionwithinna.com'),
   alternates: {
-    canonical: 'https://rosalesyard.com',
+    canonical: 'https://empowerednutritionwithinna.com',
   },
   formatDetection: {
     email: false,
@@ -37,16 +42,16 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'Rosales Yard Maintenance - Austin\'s Premier Lawn Care Service',
-    description: 'Professional lawn care serving Austin, Buda, Kyle & Manchaca since 2019. 500+ satisfied customers. Get instant quotes!',
-    url: 'https://rosalesyard.com',
-    siteName: 'Rosales Yard Maintenance',
+    title: 'Root-Cause Nutrition for Fatigue & Gut Health | Empowered Nutrition with Inna',
+    description: 'Functional testing + personalized nutrition for women seeking energy, clarity, and relief from chronic symptoms',
+    url: 'https://empowerednutritionwithinna.com',
+    siteName: 'Empowered Nutrition with Inna',
     images: [
       {
-        url: '/og-home.jpg',
+        url: '/inna.jpg',
         width: 1200,
         height: 630,
-        alt: 'Beautiful lawn transformation by Rosales Yard Maintenance in Austin, Texas',
+        alt: 'Inna Topiler, Functional Nutritionist specializing in gut health and women\'s wellness',
       },
     ],
     locale: 'en_US',
@@ -54,10 +59,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rosales Yard Maintenance - Austin\'s Premier Lawn Care',
-    description: 'Professional lawn care serving Austin area since 2019. 500+ satisfied customers.',
-    images: ['/twitter-home.jpg'],
-    creator: '@RosalesYard',
+    title: 'Root-Cause Nutrition for Fatigue & Gut Health',
+    description: 'Functional testing + personalized nutrition for women seeking energy and gut health.',
+    images: ['/inna.jpg'],
+    creator: '@InnaTopiler',
   },
   robots: {
     index: true,
@@ -77,12 +82,11 @@ export const metadata: Metadata = {
     yandex: 'your-yandex-verification',
   },
   category: 'business',
-  classification: 'Lawn Care and Landscaping Services',
+  classification: 'Functional Nutrition and Health Services',
   other: {
-    'geo.region': 'US-TX',
-    'geo.placename': 'Austin',
-    'geo.position': '30.2672;-97.7431',
-    'ICBM': '30.2672, -97.7431',
+    'practice.type': 'Functional Nutrition',
+    'specialization': 'Women\'s Health, Gut Health, Hormone Balance',
+    'certification': 'FDN-P Certified',
   },
 };
 
@@ -98,7 +102,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#2E7D32" />
+        <meta name="theme-color" content="#256439" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="format-detection" content="telephone=no" />
@@ -113,6 +117,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <LeadMagnet autoOpen={true} />
           </div>
         </ChatProvider>
       </body>
