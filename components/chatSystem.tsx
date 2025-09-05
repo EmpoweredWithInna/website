@@ -10,27 +10,56 @@ interface ChatSystemProps {
   setChatState: (state: ChatSystemState | ((prev: ChatSystemState) => ChatSystemState)) => void;
 }
 
-const PRICING_CONFIG = {
-  small: { min: 80, max: 120 },   // 0-4,500 sq ft
-  medium: { min: 120, max: 180 }, // 4,501-6,500 sq ft
-  large: { min: 180, max: 250 },  // 6,501-8,500 sq ft
-  xl: 'contact'                   // 8,500+ sq ft
-};
-
-const AREAS = {
-  austin: 'South Austin',
-  buda: 'Buda, TX', 
-  kyle: 'Kyle, TX',
-  manchaca: 'Manchaca, TX',
-  other: 'Other Austin Area'
-};
-
-const SERVICES = {
-  mowing: '✂️ Lawn mowing & maintenance',
-  maintenance: '🌿 Full maintenance package',
-  landscaping: '🌺 Landscape design & installation',
-  cleanup: '🍂 Seasonal cleanup services'
-};
+const CHAT_FLOW = [
+  {
+    type: 'bot',
+    message: "Hi! I'm Inna's health assistant. I'm here to help you discover if functional nutrition could be the solution you've been searching for. What's your first name?",
+    inputType: 'text'
+  },
+  {
+    type: 'bot',
+    message: "Nice to meet you, {name}! I'd love to learn more about your health journey. What's the main challenge you're facing right now?",
+    options: [
+      "Chronic fatigue that doesn't improve with sleep",
+      "Persistent anxiety or mood swings",
+      "Digestive issues (bloating, IBS, food sensitivities)",
+      "Brain fog and concentration problems",
+      "Perimenopause/hormone-related symptoms",
+      "Multiple symptoms with no clear diagnosis"
+    ]
+  },
+  {
+    type: 'bot',
+    message: "I hear you on {issue}. That can be so frustrating. How long have you been dealing with this?",
+    options: [
+      "Less than 6 months",
+      "6 months to 2 years", 
+      "2-5 years",
+      "More than 5 years"
+    ]
+  },
+  {
+    type: 'bot',
+    message: "And have you tried working with other healthcare providers for this issue?",
+    options: [
+      "Yes, but haven't found answers",
+      "Yes, but treatments didn't work long-term",
+      "Some improvement but not enough",
+      "This is my first time seeking help"
+    ]
+  },
+  {
+    type: 'bot',
+    message: "I completely understand, {name}. You're definitely not alone - 88% of our clients have been exactly where you are. Based on what you've shared, you could be a great fit for Inna's functional nutrition approach. Would you like to schedule a free 15-minute consultation to discuss your specific situation?",
+    options: [
+      "Yes, I'd love to schedule a call",
+      "Tell me more about the approach first",
+      "What would we discuss in the consultation?",
+      "How much do your programs cost?",
+      "I need to think about it"
+    ]
+  }
+];
 
 export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
   const { closeChat } = useChat();
@@ -55,38 +84,21 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
   const initializeChat = () => {
     const welcomeMessage: ChatMessage = {
       id: '1',
-      text: `Hi! I'm here to help transform your Austin-area yard! 🌹<br><br><strong>John and the team have helped 500+ homeowners</strong> in Buda, Kyle, Manchaca, and South Austin get the beautiful lawn they want.<br><br><strong>Which service interests you most?</strong>`,
+      text: CHAT_FLOW[0].message,
       isBot: true,
       timestamp: new Date(),
-      options: [
-        {
-          id: 'mowing',
-          text: '✂️ Lawn mowing & maintenance',
-          value: 'mowing',
-          featured: true
-        },
-        {
-          id: 'maintenance', 
-          text: '🌿 Full maintenance package',
-          value: 'maintenance'
-        },
-        {
-          id: 'landscaping',
-          text: '🌺 Landscape design & installation', 
-          value: 'landscaping'
-        },
-        {
-          id: 'cleanup',
-          text: '🍂 Seasonal cleanup services',
-          value: 'cleanup'
-        }
-      ]
+      options: CHAT_FLOW[0].options ? CHAT_FLOW[0].options.map((option, index) => ({
+        id: `option_${index}`,
+        text: option,
+        value: option
+      })) : undefined
     };
 
     setChatState(prev => ({
       ...prev,
       messages: [welcomeMessage],
-      currentStep: 'welcome'
+      currentStep: 'name_input',
+      chatStep: 0
     }));
   };
 
@@ -114,279 +126,158 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
     setChatState(prev => ({ ...prev, isTyping: false }));
   };
 
-  const selectService = (serviceId: string) => {
-    const serviceName = SERVICES[serviceId as keyof typeof SERVICES];
-    addMessage(serviceName, false);
+  const selectOption = (option: string) => {
+    // Add user message immediately
+    addMessage(option, false);
+    
+    const currentStep = chatState.chatStep || 0;
     
     showTyping();
     setTimeout(() => {
       hideTyping();
       
-      if (serviceId === 'mowing') {
+      // Store user data based on current step
+      let updatedUserData = { ...chatState.userData };
+      
+      if (currentStep === 1) {
+        updatedUserData.issue = option;
+      } else if (currentStep === 2) {
+        updatedUserData.duration = option;
+      } else if (currentStep === 3) {
+        updatedUserData.previousTreatments = option;
+      } else if (currentStep === 4) {
+        handleFinalStepResponse(option, updatedUserData);
+        return;
+      }
+      
+      const nextStep = currentStep + 1;
+      
+      if (nextStep < CHAT_FLOW.length) {
+        let nextMessage = CHAT_FLOW[nextStep].message;
+        
+        // Replace placeholders
+        if (updatedUserData.name) {
+          nextMessage = nextMessage.replace('{name}', updatedUserData.name);
+        }
+        if (updatedUserData.issue) {
+          nextMessage = nextMessage.replace('{issue}', updatedUserData.issue.toLowerCase());
+        }
+        
+        const nextOptions = CHAT_FLOW[nextStep].options ? CHAT_FLOW[nextStep].options.map((opt, index) => ({
+          id: `option_${index}`,
+          text: opt,
+          value: opt
+        })) : undefined;
+        
         setChatState(prev => ({
           ...prev,
-          currentStep: 'area',
-          userData: { ...prev.userData, service: serviceId }
+          userData: updatedUserData,
+          chatStep: nextStep
         }));
         
-        addMessage(
-          'Perfect! For lawn mowing, I can give you instant pricing. Let me get a few quick details:',
-          true
-        );
-        
-        setTimeout(() => showAreaOptions(), 1000);
-      } else {
-        setChatState(prev => ({
-          ...prev,
-          currentStep: 'contact',
-          userData: { ...prev.userData, service: serviceId }
-        }));
-        
-        addMessage(
-          `Great choice! ${serviceName} requires a custom estimate based on your specific needs.<br><br>Let me connect you with John for a free consultation and personalized quote.<br><br><strong>What's the best phone number to reach you?</strong>`,
-          true
-        );
-      }
-    }, 1500);
-  };
-
-  const showAreaOptions = () => {
-    const areaOptions: ChatOption[] = [
-      { id: 'austin', text: '🏙️ South Austin', value: 'austin' },
-      { id: 'buda', text: '🏡 Buda', value: 'buda' },
-      { id: 'kyle', text: '🌳 Kyle', value: 'kyle' },
-      { id: 'manchaca', text: '🏞️ Manchaca', value: 'manchaca' },
-      { id: 'other', text: '📍 Other Austin area', value: 'other' }
-    ];
-
-    addMessage(
-      'What area is your property in? This helps us with scheduling and routing:',
-      true,
-      areaOptions
-    );
-  };
-
-  const selectArea = (areaId: string) => {
-    const areaName = AREAS[areaId as keyof typeof AREAS];
-    addMessage(areaName, false);
-    
-    setChatState(prev => ({
-      ...prev,
-      userData: { ...prev.userData, area: areaId }
-    }));
-
-    showTyping();
-    setTimeout(() => {
-      hideTyping();
-      
-      let response = 'Great! ';
-      switch(areaId) {
-        case 'buda':
-          response += 'Buda is one of our core service areas with lots of happy customers! 🏡';
-          break;
-        case 'kyle':
-          response += 'Kyle is growing fast and we have many satisfied customers there! 🌳';
-          break;
-        case 'manchaca':
-          response += 'Manchaca is one of our favorite areas - beautiful properties! 🏞️';
-          break;
-        case 'austin':
-          response += 'South Austin is where we started - tons of experience there! 🏙️';
-          break;
-        default:
-          response += 'We serve most of the greater Austin area! 📍';
-      }
-      
-      addMessage(response, true);
-      setChatState(prev => ({ ...prev, currentStep: 'size' }));
-      setTimeout(() => showSizeOptions(), 1500);
-    }, 1000);
-  };
-
-  const showSizeOptions = () => {
-    const sizeOptions: ChatOption[] = [
-      { id: 'small', text: '🏠 Small Yard\n0-4,500 sq ft', value: 'small' },
-      { id: 'medium', text: '🏡 Medium Yard\n4,501-6,500 sq ft', value: 'medium' },
-      { id: 'large', text: '🏘️ Large Yard\n6,501-8,500 sq ft', value: 'large' },
-      { id: 'xl', text: '🏞️ Extra Large\n8,500+ sq ft', value: 'xl' }
-    ];
-
-    addMessage(
-      'What\'s your property size? This helps me give you accurate pricing:',
-      true,
-      sizeOptions
-    );
-  };
-
-  const selectSize = (sizeId: string) => {
-    const sizeLabels = {
-      small: '🏠 Small yard (0-4,500 sq ft)',
-      medium: '🏡 Medium yard (4,501-6,500 sq ft)', 
-      large: '🏘️ Large yard (6,501-8,500 sq ft)',
-      xl: '🏞️ Extra Large yard (8,500+ sq ft)'
-    };
-
-    addMessage(sizeLabels[sizeId as keyof typeof sizeLabels], false);
-    
-    setChatState(prev => ({
-      ...prev,
-      userData: { ...prev.userData, size: sizeId }
-    }));
-
-    showTyping();
-    setTimeout(() => {
-      hideTyping();
-      
-      if (sizeId === 'xl') {
-        setChatState(prev => ({ ...prev, currentStep: 'contact' }));
-        addMessage(
-          'For extra large properties, we provide custom quotes to ensure accurate pricing. Let me connect you with John for a free estimate!<br><br><strong>What\'s the best phone number to reach you?</strong>',
-          true
-        );
-      } else {
-        setChatState(prev => ({ ...prev, currentStep: 'pricing' }));
-        showPricing(sizeId);
+        addMessage(nextMessage, true, nextOptions);
       }
     }, 1000);
   };
 
-  const showPricing = (size: string) => {
-    const pricing = PRICING_CONFIG[size as keyof typeof PRICING_CONFIG] as { min: number; max: number };
-    const areaName = AREAS[chatState.userData.area as keyof typeof AREAS] || 'Austin area';
-
-    addMessage(
-      `<div style="color: #111827 !important;">
-        🎉 Here's your instant quote for lawn mowing service!<br><br>
-        💰 <strong style="color: #111827 !important;">Spring Special Active:</strong> $20 OFF your first service when you book 2 services!<br><br>
-        <div class="bg-gradient-to-r from-accent-green to-primary-green p-4 rounded-lg text-center mt-3" style="color: #000000 !important;">
-          <div class="text-2xl font-bold" style="color: #000000 !important;">$${pricing.min} - $${pricing.max}</div>
-          <div class="text-sm opacity-90" style="color: #000000 !important;">Per mowing service in ${areaName}</div>
-        </div><br>
-        <button style="color: #000000 !important;" class="w-full bg-warm-orange hover:bg-orange-600 text-white py-3 px-6 rounded-full font-semibold transition-all mt-3" onclick="window.chatInstance?.bookService()">
-          📅 Book Service & Save $20
-          <span class="ml-2 bg-white/20 px-2 py-1 rounded-full text-xs">SPRING SPECIAL</span>
-        </button>
-      </div>`,
-      true
-    );
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleTextInput(inputMessage.trim());
   };
-
-  const bookService = () => {
-    addMessage('📅 Book Service & Save $20', false);
-    
-    showTyping();
-    setTimeout(() => {
-      hideTyping();
-      setChatState(prev => ({ ...prev, currentStep: 'contact' }));
-      addMessage(
-        '🎉 Awesome! You\'re getting our Spring Special - $20 OFF your first service when you book 2 services!<br><br><strong>What\'s the best phone number for John to call you back within 2 hours?</strong><br><br>Or call us now at <strong>(512) 694-1773</strong> 📞',
-        true
-      );
-    }, 1000);
-  };
-
+  
   const handleTextInput = (message: string) => {
+    if (!message) return;
+    
     addMessage(message, false);
     setInputMessage('');
-
-    if (chatState.currentStep === 'contact') {
-      handleContactInput(message);
-    } else {
-      handleGeneralInput(message);
-    }
-  };
-
-  const handleContactInput = (message: string) => {
-    showTyping();
     
-    if (!chatState.userData.phone) {
-      setChatState(prev => ({
-        ...prev,
-        userData: { ...prev.userData, phone: message }
-      }));
-      
+    const currentStep = chatState.chatStep || 0;
+    
+    // Handle name input (first step)
+    if (currentStep === 0) {
+      showTyping();
       setTimeout(() => {
         hideTyping();
-        addMessage('Perfect! <strong>And what\'s your first name?</strong>', true);
+        
+        const updatedUserData = { ...chatState.userData, name: message };
+        const nextStep = 1;
+        let nextMessage = CHAT_FLOW[nextStep].message.replace('{name}', message);
+        
+        const nextOptions = CHAT_FLOW[nextStep].options?.map((opt, index) => ({
+          id: `option_${index}`,
+          text: opt,
+          value: opt
+        }));
+        
+        setChatState(prev => ({
+          ...prev,
+          userData: updatedUserData,
+          chatStep: nextStep
+        }));
+        
+        addMessage(nextMessage, true, nextOptions);
       }, 1000);
-    } else if (!chatState.userData.name) {
-      setChatState(prev => ({
-        ...prev,
-        userData: { ...prev.userData, name: message },
-        currentStep: 'complete'
-      }));
-      
+    } else if (chatState.currentStep === 'email_capture') {
+      // Handle email capture
+      showTyping();
       setTimeout(() => {
         hideTyping();
-        completeContact(message);
+        const updatedUserData = { ...chatState.userData, email: message };
+        setChatState(prev => ({
+          ...prev,
+          userData: updatedUserData,
+          currentStep: 'complete'
+        }));
+        
+        addMessage(`Perfect! I've got ${message}. You'll receive some valuable gut health tips over the next week, and I'll personally follow up to see how you're feeling and answer any questions that come up. In the meantime, feel free to check out Inna's resources or just reach out if anything changes!`, true);
       }, 1000);
     }
   };
 
-  const completeContact = (name: string) => {
-    const { service, area, size, phone } = chatState.userData;
-    
-    let serviceDescription = '';
-    if (service === 'mowing' && size === 'xl') {
-      serviceDescription = 'mowing service for your large property';
-    } else if (service === 'mowing') {
-      serviceDescription = `mowing service in ${AREAS[area as keyof typeof AREAS] || 'your area'}`;
-    } else {
-      const serviceMap = {
-        maintenance: 'full maintenance package (save 25%!)',
-        landscaping: 'landscape design & installation',
-        cleanup: 'seasonal cleanup services'
-      };
-      serviceDescription = serviceMap[service as keyof typeof serviceMap] || 'selected service';
-    }
-
-    const actionWord = (service === 'mowing' && size !== 'xl') ? 'schedule' : 'discuss';
-
-    addMessage(
-      `Perfect, ${name}! John will personally call you at ${phone} within 2 hours to ${actionWord} your ${serviceDescription}.<br><br>You'll receive a text confirmation with details. Thanks for choosing Rosales! 🌹<br><br><strong>Questions before then? Call us at (512) 694-1773</strong>`,
-      true
-    );
-  };
-
-  const handleGeneralInput = (message: string) => {
-    showTyping();
-    
-    setTimeout(() => {
-      hideTyping();
-      
-      const lowerMsg = message.toLowerCase();
-      
-      if (lowerMsg.includes('mowing') || lowerMsg.includes('lawn') || lowerMsg.includes('cut')) {
-        selectService('mowing');
-      } else if (lowerMsg.includes('maintenance') || lowerMsg.includes('package')) {
-        selectService('maintenance');
-      } else if (lowerMsg.includes('landscape') || lowerMsg.includes('design')) {
-        selectService('landscaping');
-      } else if (lowerMsg.includes('cleanup') || lowerMsg.includes('seasonal')) {
-        selectService('cleanup');
-      } else if (lowerMsg.includes('price') || lowerMsg.includes('cost') || lowerMsg.includes('quote')) {
-        addMessage('Great! I can provide instant pricing for lawn mowing services. For other services, I\'ll connect you with John for a custom quote.<br><br>Which service interests you?', true);
-      } else if (lowerMsg.includes('call') || lowerMsg.includes('phone')) {
-        setChatState(prev => ({ ...prev, currentStep: 'contact' }));
-        addMessage('Perfect! John will call you within 2 hours. What\'s the best number to reach you?<br><br>Or call us right now at <strong>(512) 694-1773</strong> 📞', true);
-      } else {
-        addMessage('Thanks for your message! I can help you with:<br><br>✂️ <strong>Lawn mowing</strong> (instant quotes)<br>🌿 <strong>Full maintenance packages</strong><br>🌺 <strong>Landscape design</strong><br>🍂 <strong>Seasonal cleanup</strong><br><br>Which service interests you most?', true);
-      }
-    }, 1000);
-  };
 
   const handleOptionClick = (option: ChatOption) => {
-    switch (chatState.currentStep) {
-      case 'welcome':
-        selectService(option.value);
-        break;
-      case 'area':
-        selectArea(option.value);
-        break;
-      case 'size':
-        selectSize(option.value);
-        break;
+    selectOption(option.value);
+  };
+
+  const handleFinalStepResponse = (option: string, userData: any) => {
+    if (option === "Yes, I'd love to schedule a call") {
+      handleBooking(userData);
+    } else if (option === "Tell me more about the approach first") {
+      addMessage("Great question! Inna uses functional lab testing like GI-MAP and DUTCH hormone panels to uncover root causes that standard tests miss. Then she creates personalized nutrition protocols that address YOUR specific imbalances. 92% of her clients find answers where conventional medicine couldn't help. Ready to schedule your consultation?", true, [
+        { id: 'schedule_yes', text: "Yes, let's schedule the call", value: "Yes, let's schedule the call" },
+        { id: 'consultation_info', text: "What would we discuss in the consultation?", value: "What would we discuss in the consultation?" }
+      ]);
+    } else if (option === "What would we discuss in the consultation?") {
+      addMessage("In your free consultation, Inna will review your health history, discuss your main concerns, and explain which functional tests might be most helpful for your situation. There's no pressure - it's simply a chance to see if this approach feels right for you. Should we get that scheduled?", true, [
+        { id: 'schedule_now', text: "Yes, let's schedule now", value: "Yes, let's schedule now" },
+        { id: 'think_about_it', text: "I need to think about it", value: "I need to think about it" }
+      ]);
+    } else if (option === "How much do your programs cost?") {
+      addMessage("Investment ranges from functional lab testing to comprehensive coaching programs. Most clients find the testing alone provides huge insights. In your consultation, Inna will recommend the best starting point for your budget and needs. Ready to learn what might work for you?", true, [
+        { id: 'schedule_consultation', text: "Yes, let's schedule the consultation", value: "Yes, let's schedule the consultation" },
+        { id: 'testing_info', text: "Tell me about just the testing first", value: "Tell me about just the testing first" }
+      ]);
+    } else if (option === "I need to think about it") {
+      handleThinkingAboutIt(userData);
     }
+  };
+
+  const handleBooking = (userData: any) => {
+    addMessage("Wonderful! I'm so excited for you to connect with Inna. Let me get your email so we can send you the booking link and some helpful resources to prepare for your consultation.", true);
+    
+    setChatState(prev => ({
+      ...prev,
+      currentStep: 'email_capture'
+    }));
+  };
+
+  const handleThinkingAboutIt = (userData: any) => {
+    addMessage(`I totally understand, ${userData.name}. This is an important decision. How about I send you some valuable gut health tips over the next week? No pressure at all - just helpful information that might give you some relief while you're deciding. What's your email?`, true);
+    
+    setChatState(prev => ({
+      ...prev,
+      currentStep: 'email_capture'
+    }));
   };
 
   const handleCloseChat = () => {
@@ -403,11 +294,10 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
     closeChat();
   };
 
-  // Expose bookService globally for button click
+  // Cleanup effect
   useEffect(() => {
-    (window as any).chatInstance = { bookService };
     return () => {
-      delete (window as any).chatInstance;
+      // Cleanup if needed
     };
   }, []);
 
@@ -429,15 +319,15 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
           </button>
           
           <div className="">
-            <h3 className="text-2xl font-bold mb-2">🌹 Rosales Quick Quote</h3>
-            <p className="text-sm opacity-90">Get your Austin yard estimate in 60 seconds!</p>
+            <h3 className="text-2xl font-bold mb-2">💚 Inna's Health Assistant</h3>
+            <p className="text-sm opacity-90">Discover if functional nutrition is right for you!</p>
             <div className="flex items-center justify-center space-x-4 mt-3 text-xs opacity-80">
               <span className="flex items-center space-x-1">
                 <div className="w-2 h-2 bg-green-300 rounded-full animate-pulse"></div>
                 <span>Online now</span>
               </span>
               <span>•</span>
-              <span>500+ happy customers</span>
+              <span>500+ clients helped</span>
             </div>
           </div>
         </div>
@@ -502,12 +392,12 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
               type="text"
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && inputMessage.trim() && handleTextInput(inputMessage.trim())}
+              onKeyDown={(e) => e.key === 'Enter' && inputMessage.trim() && handleSubmit(e)}
               placeholder="Type your message..."
               className="flex-1 px-4 py-3 border border-gray-300/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent-green/50 focus:border-accent-green bg-white/80 backdrop-blur-sm shadow-light text-gray-900 placeholder-gray-500 transition-all duration-300"
             />
             <button
-              onClick={() => inputMessage.trim() && handleTextInput(inputMessage.trim())}
+              onClick={handleSubmit}
               disabled={!inputMessage.trim()}
               className="bg-gradient-to-r from-accent-green to-primary-green hover:from-primary-green hover:to-accent-green disabled:from-gray-300 disabled:to-gray-400 text-white p-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 disabled:hover:scale-100 group"
             >
@@ -516,8 +406,8 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
           </div>
           <div className="flex items-center justify-center mt-3 text-xs text-gray-600">
             <span className="flex items-center space-x-1">
-              <Phone size={12} className="text-gray-600" />
-              <span className="text-gray-600">Or call (512) 694-1773 for immediate assistance</span>
+              <MessageCircle size={12} className="text-gray-600" />
+              <span className="text-gray-600">Free 15-minute consultation available</span>
             </span>
           </div>
         </div>

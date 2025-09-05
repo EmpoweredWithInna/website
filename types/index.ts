@@ -62,15 +62,21 @@ export interface ServiceArea {
     size?: string;
     phone?: string;
     name?: string;
+    issue?: string;
+    duration?: string;
+    previousTreatments?: string;
+    email?: string;
   }
   
   export type ChatState = 
     | 'welcome' 
+    | 'name_input'
     | 'service' 
     | 'area' 
     | 'size' 
     | 'pricing' 
     | 'contact' 
+    | 'email_capture'
     | 'complete';
   
   export interface ChatSystemState {
@@ -79,6 +85,7 @@ export interface ServiceArea {
     currentStep: ChatState;
     userData: UserData;
     isTyping: boolean;
+    chatStep?: number;
   }
   
   // SEO and metadata types
