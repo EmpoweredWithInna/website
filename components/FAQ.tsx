@@ -105,14 +105,14 @@ export function FAQ() {
   };
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-emerald-50/30 overflow-hidden" id="faq">
+    <section className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-[#256439]/10 overflow-hidden" id="faq">
       {/* Background Elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-100/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-100/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#256439]/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#256439]/15 rounded-full blur-3xl"></div>
       
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-flex items-center bg-[#256439]/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -120,7 +120,7 @@ export function FAQ() {
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Your Questions,
-            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"> Answered</span>
+            <span className="text-primary"> Answered</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Get clear, honest answers about functional nutrition, our testing approach, and what you can expect on your healing journey.
@@ -139,7 +139,7 @@ export function FAQ() {
                 placeholder="Search questions..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-6 py-4 bg-white border-2 border-gray-200 rounded-2xl focus:border-emerald-400 focus:outline-none transition-colors duration-300"
+                className="w-full pl-12 pr-6 py-4 bg-white border-2 border-gray-200 rounded-2xl focus:border-[#256439] focus:outline-none transition-colors duration-300"
               />
             </div>
           </div>
@@ -151,8 +151,8 @@ export function FAQ() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg'
-                    : 'bg-white text-gray-600 hover:bg-emerald-50 hover:text-emerald-700 border border-gray-200'
+                    ? 'bg-gradient-to-r from-[#256439] to-[#256439] text-white shadow-lg'
+                    : 'bg-white text-gray-600 hover:bg-[#256439]/5 hover:text-[#256439] border border-gray-200'
                 }`}
               >
                 {category}
@@ -173,21 +173,21 @@ export function FAQ() {
                 className="w-full p-8 text-left flex items-center justify-between focus:outline-none group"
               >
                 <div className="flex items-start space-x-4 flex-1">
-                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center text-white flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#256439] to-[#256439] rounded-2xl flex items-center justify-center text-white flex-shrink-0">
                     {faq.icon}
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-2">
-                      <span className="inline-block bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">
+                      <span className="inline-block bg-[#256439]/10 text-[#256439] px-3 py-1 rounded-full text-xs font-semibold">
                         {faq.category}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-emerald-700 transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#256439] transition-colors duration-300">
                       {faq.question}
                     </h3>
                   </div>
                 </div>
-                <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center transition-all duration-300 ${
+                <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-[#256439] to-[#256439] flex items-center justify-center transition-all duration-300 ${
                   openFAQ === index ? 'rotate-180 scale-110' : 'group-hover:scale-110'
                 }`}>
                   <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,7 +200,7 @@ export function FAQ() {
                 openFAQ === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
               } overflow-hidden`}>
                 <div className="px-8 pb-8">
-                  <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 border-l-4 border-emerald-500">
+                  <div className="bg-gradient-to-r from-[#256439]/5 to-[#256439]/10 rounded-2xl p-6 border-l-4 border-[#256439]">
                     <p className="text-gray-700 leading-relaxed text-lg">
                       {faq.answer}
                     </p>
@@ -223,7 +223,7 @@ export function FAQ() {
             <p className="text-gray-600 mb-8">Try adjusting your search or category filter.</p>
             <button 
               onClick={() => {setSearchTerm(''); setSelectedCategory('All');}}
-              className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-full font-semibold hover:from-emerald-400 hover:to-teal-400 transition-all duration-300"
+              className="bg-gradient-to-r from-[#256439] to-[#256439] text-white px-6 py-3 rounded-full font-semibold hover:from-[#1a4a2a] hover:to-[#256439] transition-all duration-300"
             >
               Clear Filters
             </button>
@@ -232,7 +232,7 @@ export function FAQ() {
 
         {/* Still Have Questions CTA */}
         <div className="relative">
-          <div className="bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 rounded-3xl shadow-2xl overflow-hidden">
+          <div className="bg-gradient-to-br from-[#256439] to-teal-600 rounded-3xl shadow-2xl overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative p-12 text-center text-white">
               <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-8">
@@ -247,10 +247,10 @@ export function FAQ() {
                 Schedule a free 15-minute discovery call to get personalized answers about your health concerns and see if we're the right fit for your healing journey.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-emerald-700 px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-gray-50 hover:scale-105 shadow-lg hover:shadow-xl">
+                <button className="bg-white text-[#256439] px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-gray-50 hover:scale-105 shadow-lg hover:shadow-xl">
                   Schedule Free Call
                 </button>
-                <button className="border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-white hover:text-emerald-700 hover:scale-105">
+                <button className="border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-white hover:text-[#256439] hover:scale-105">
                   Send a Message
                 </button>
               </div>

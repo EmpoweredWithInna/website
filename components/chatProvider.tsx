@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { ChatSystem } from '../components/chatSystem';
+import ChatSystem from '../components/chatSystem';
 import { ChatWidget } from '../components/ChatWidget';
 import type { ChatSystemState } from '../types';
 

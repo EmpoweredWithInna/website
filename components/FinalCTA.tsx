@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { downloadMealPlanGuide } from '../utils/downloadUtils';
 
 export function FinalCTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,39 +21,6 @@ export function FinalCTA() {
 
     return () => observer.disconnect();
   }, []);
-
-  const stats = [
-    {
-      number: "92%",
-      label: "Success Rate",
-      description: "Of clients see significant improvement",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      )
-    },
-    {
-      number: "500+",
-      label: "Women Transformed",
-      description: "Lives changed through functional nutrition",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      )
-    },
-    {
-      number: "6-12",
-      label: "Weeks to Results",
-      description: "Average time to feel significant changes",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      )
-    }
-  ];
 
   return (
     <section 
@@ -98,26 +66,6 @@ export function FinalCTA() {
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 transition-all duration-1000 delay-300 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          {stats.map((stat, index) => (
-            <div key={index} className="group">
-              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 hover:border-emerald-400/50">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {stat.icon}
-                </div>
-                <div className="text-4xl lg:text-5xl font-bold mb-3 bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                  {stat.number}
-                </div>
-                <div className="text-xl font-semibold mb-2">{stat.label}</div>
-                <div className="text-sm opacity-75">{stat.description}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
         {/* Main CTA Section */}
         <div className={`transition-all duration-1000 delay-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -143,7 +91,10 @@ export function FinalCTA() {
                 </span>
               </button>
               
-              <button className="group border-2 border-white/50 text-white px-12 py-5 rounded-2xl font-bold text-xl transition-all duration-300 hover:bg-white hover:text-emerald-700 hover:scale-105 backdrop-blur-sm">
+              <button 
+                onClick={downloadMealPlanGuide}
+                className="group border-2 border-white/50 text-white px-12 py-5 rounded-2xl font-bold text-xl transition-all duration-300 hover:bg-white hover:text-emerald-700 hover:scale-105 backdrop-blur-sm"
+              >
                 <span className="flex items-center">
                   <svg className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z" />

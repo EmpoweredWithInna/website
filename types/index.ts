@@ -77,7 +77,8 @@ export interface ServiceArea {
     | 'pricing' 
     | 'contact' 
     | 'email_capture'
-    | 'complete';
+    | 'complete'
+    | number;
   
   export interface ChatSystemState {
     isOpen: boolean;

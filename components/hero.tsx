@@ -9,14 +9,14 @@ export function Hero() {
   const [isTyping, setIsTyping] = useState(true);
   
   const symptoms = [
-    'chronic fatigue',
-    'digestive issues', 
-    'hormonal imbalance',
+    'anxiety',
+    'fatigue', 
+    'bloating',
     'brain fog',
-    'anxiety & stress',
-    'sleep disorders',
-    'autoimmune symptoms'
-  ];
+    'mood swings',
+    'sleep issues',
+    'gut problems'
+];
 
   // Typewriter effect
   useEffect(() => {
@@ -45,18 +45,18 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden" id="home">
       {/* Sophisticated Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-green-900 to-emerald-800">
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#256439] to-[#256439]">
         {/* Floating orbs */}
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-gradient-to-r from-green-400/15 to-cyan-400/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-gradient-to-r from-teal-400/25 to-emerald-400/25 rounded-full blur-2xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-[#256439]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-[#256439]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-[#256439]/25 rounded-full blur-2xl animate-pulse delay-500"></div>
         
         {/* Animated particles */}
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-emerald-400/30 rounded-full animate-float"
+              className="absolute w-2 h-2 bg-[#256439]/30 rounded-full animate-float"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -76,16 +76,16 @@ export function Hero() {
           {/* Left Column - Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <div className="inline-flex items-center px-4 py-2 bg-green-700/10 border border-green-600/20 rounded-full backdrop-blur-sm">
-                <span className="text-emerald-300 text-sm font-medium">✨ Functional Nutrition Specialist</span>
+              <div className="inline-flex items-center px-4 py-2 bg-[#256439]/10 border border-[#256439]/20 rounded-full backdrop-blur-sm">
+                <span className="highlighted-symptom text-sm font-medium">✨ Functional Nutrition Specialist</span>
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                 <span className="text-white block mb-2">Root-Cause</span>
                 <span className="text-white block mb-2">Nutrition for</span>
-                <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent block min-h-[1.2em]">
+                <span className="highlighted-symptom block min-h-[1.2em]">
                   {displayText}
-                  <span className={`inline-block w-1 h-16 bg-emerald-400 ml-2 ${isTyping ? 'animate-pulse' : 'opacity-0'}`}></span>
+                  <span className={`inline-block w-1 h-16 bg-[#E88074] ml-2 ${isTyping ? 'animate-pulse' : 'opacity-0'}`}></span>
                 </span>
               </h1>
               
@@ -96,17 +96,17 @@ export function Hero() {
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold rounded-2xl transition-all duration-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/25">
+              <button className="group relative px-8 py-4 bg-[#256439] text-white font-semibold rounded-2xl transition-all duration-300 hover:bg-[#256439]/90 hover:scale-105 hover:shadow-2xl hover:shadow-[#256439]/25">
                 <span className="relative z-10 flex items-center gap-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                   Start Free Consultation
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-[#256439]/90 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               
-              <button className="group px-8 py-4 border-2 border-emerald-400/50 text-white font-semibold rounded-2xl backdrop-blur-sm transition-all duration-300 hover:border-emerald-400 hover:bg-emerald-400/20 hover:scale-105">
+              <button className="group px-8 py-4 border-2 border-[#E88074]/50 text-white font-semibold rounded-2xl backdrop-blur-sm transition-all duration-300 hover:border-[#E88074] hover:bg-[#E88074]/20 hover:scale-105">
                 <span className="flex items-center gap-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-2-2V10a2 2 0 012-2h2m2-4h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V6a2 2 0 012-2z" />
@@ -119,8 +119,8 @@ export function Hero() {
             {/* Trust Indicators */}
             <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-gray-700/50">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-green-700/20 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 bg-[#256439]/20 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#fff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
@@ -131,8 +131,8 @@ export function Hero() {
               </div>
               
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-green-700/20 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 bg-[#256439]/20 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#fff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
                 </div>
@@ -149,7 +149,7 @@ export function Hero() {
             <div className="relative z-10">
               {/* Main image container */}
               <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                <div className="absolute -inset-4 bg-[#256439] rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                 <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50">
                   <img
                     src="/Inna.jpg"
@@ -160,12 +160,12 @@ export function Hero() {
                   />
                   
                   {/* Floating stats */}
-                  <div className="absolute -top-4 -right-4 bg-green-700 text-white px-4 py-2 rounded-xl font-bold shadow-xl">
+                  <div className="absolute -top-4 -right-4 bg-[#256439] text-white px-4 py-2 rounded-xl font-bold shadow-xl">
                     <div className="text-2xl">92%</div>
                     <div className="text-xs opacity-90">Success Rate</div>
                   </div>
                   
-                  <div className="absolute -bottom-4 -left-4 bg-teal-500 text-white px-4 py-2 rounded-xl font-bold shadow-xl">
+                  <div className="absolute -bottom-4 -left-4 gradient-bg text-white px-4 py-2 rounded-xl font-bold shadow-xl">
                     <div className="text-2xl">500+</div>
                     <div className="text-xs opacity-90">Clients Helped</div>
                   </div>

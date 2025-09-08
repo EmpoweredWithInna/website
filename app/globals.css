@@ -12,20 +12,57 @@
 }
 
 :root {
-  --primary-green: #2E7D32;
-  --accent-green: #4CAF50;
-  --warm-orange: #FF6B35;
-  --trust-blue: #1976D2;
-  --success-green: #00C851;
-  --neutral-light: #F8F9FA;
-  --neutral-dark: #333333;
+  --primary-green: #256439;
+  --dark-green: #183B10;
+  --light-green: #53A107;
+  --accent-yellow: #FCAF15;
+  --accent-coral: #E88074;
+  --accent-pink: #F9A7D4;
+  --accent-blue: #29C5EF;
+  --accent-purple: #680C5F;
+  --accent-red: #CE0B42;
+  --text-dark: #2c3e50;
+  --text-light: #6c757d;
+  --bg-light: #f8f9fa;
   --white: #ffffff;
+  --neutral-dark: #333333;
   --shadow-light: 0 4px 12px rgba(0,0,0,0.1);
   --shadow-medium: 0 8px 24px rgba(0,0,0,0.15);
   --shadow-heavy: 0 16px 48px rgba(0,0,0,0.2);
   --border-radius: 12px;
   --border-radius-large: 20px;
   --transition: all 0.3s ease;
+}
+
+
+.highlighted-symptom {
+  background: linear-gradient(135deg, var(--accent-yellow), var(--accent-coral));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+  animation: symptomPulse 3s ease-in-out infinite;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.highlighted-symptom::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, var(--accent-yellow), var(--accent-coral));
+  border-radius: 2px;
+  animation: underlineGlow 3s ease-in-out infinite;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--accent-yellow), var(--accent-coral));
 }
 
 body {

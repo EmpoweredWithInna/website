@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { downloadMealPlanGuide } from '../utils/downloadUtils';
 
 export function QuickTips() {
   const [activeTip, setActiveTip] = useState(0);
@@ -105,19 +106,19 @@ export function QuickTips() {
   }, [selectedCategory, filteredTips.length, activeTip]);
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-emerald-50 via-white to-teal-50/30 overflow-hidden" id="tips">
+    <section className="relative py-24 bg-gradient-to-br from-[#256439]/5 via-white to-[#256439]/10 overflow-hidden" id="tips">
       {/* Background Elements */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-br from-emerald-100/20 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tl from-teal-100/30 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-br from-[#256439]/10 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tl from-[#256439]/15 to-transparent rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-[#256439]/10 text-[#256439] rounded-full text-sm font-medium mb-6">
             💡 Science-Backed Tips
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Daily <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Wellness Hacks</span>
+            Daily <span className="bg-primary bg-clip-text text-transparent">Wellness Hacks</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Simple, evidence-based strategies you can implement today to optimize your health and energy
@@ -132,8 +133,8 @@ export function QuickTips() {
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 selectedCategory === category
-                  ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg scale-105'
-                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 hover:border-emerald-200'
+                  ? 'bg-gradient-to-r from-[#256439] to-[#256439] text-white shadow-lg scale-105'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 hover:border-[#256439]/20'
               }`}
             >
               {category}
@@ -148,15 +149,15 @@ export function QuickTips() {
               {/* Tip Content */}
               <div className="lg:col-span-2">
                 <div className="flex items-start gap-6 mb-8">
-                  <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center text-white shadow-xl flex-shrink-0">
+                  <div className="w-20 h-20 bg-gradient-to-br from-[#256439] to-[#256439] rounded-2xl flex items-center justify-center text-white shadow-xl flex-shrink-0">
                     {filteredTips[activeTip]?.icon}
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-[#256439]/10 text-[#256439] rounded-full text-sm font-medium">
                         {filteredTips[activeTip]?.category}
                       </span>
-                      <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-[#256439]/15 text-[#256439] rounded-full text-sm font-medium">
                         {filteredTips[activeTip]?.difficulty}
                       </span>
                     </div>
@@ -170,8 +171,8 @@ export function QuickTips() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 border border-emerald-100">
-                    <div className="flex items-center gap-2 text-emerald-700 font-semibold mb-2">
+                  <div className="bg-gradient-to-r from-[#256439]/5 to-[#256439]/10 rounded-2xl p-6 border border-[#256439]/10">
+                    <div className="flex items-center gap-2 text-[#256439] font-semibold mb-2">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -180,8 +181,8 @@ export function QuickTips() {
                     <p className="text-gray-700">{filteredTips[activeTip]?.benefit}</p>
                   </div>
 
-                  <div className="bg-gradient-to-r from-teal-50 to-emerald-50 rounded-2xl p-6 border border-teal-100">
-                    <div className="flex items-center gap-2 text-teal-700 font-semibold mb-2">
+                  <div className="bg-gradient-to-r from-[#256439]/10 to-[#256439]/5 rounded-2xl p-6 border border-[#256439]/15">
+                    <div className="flex items-center gap-2 text-[#256439] font-semibold mb-2">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -201,7 +202,7 @@ export function QuickTips() {
                     onClick={() => setActiveTip(index)}
                     className={`w-full p-4 rounded-2xl text-left transition-all duration-300 ${
                       index === activeTip
-                        ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg scale-105'
+                        ? 'bg-gradient-to-r from-[#256439] to-[#256439] text-white shadow-lg scale-105'
                         : 'bg-gray-50 hover:bg-gray-100 text-gray-700 hover:shadow-md'
                     }`}
                   >
@@ -209,7 +210,7 @@ export function QuickTips() {
                       <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
                         index === activeTip ? 'bg-white/20' : 'bg-white'
                       }`}>
-                        <div className={`${index === activeTip ? 'text-white' : 'text-emerald-500'}`}>
+                        <div className={`${index === activeTip ? 'text-white' : 'text-[#256439]'}`}>
                           {tip.icon}
                         </div>
                       </div>
@@ -234,7 +235,7 @@ export function QuickTips() {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-3xl shadow-2xl p-12 text-white text-center">
+        <div className="bg-gradient-to-br from-[#256439] to-[#256439] rounded-3xl shadow-2xl p-12 text-white text-center">
           <div className="max-w-4xl mx-auto">
             <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -256,7 +257,10 @@ export function QuickTips() {
                   placeholder="Enter your email address"
                   className="flex-1 px-6 py-4 rounded-2xl text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-lg"
                 />
-                <button className="bg-white text-emerald-600 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:bg-gray-50 hover:scale-105 shadow-xl hover:shadow-2xl whitespace-nowrap">
+                <button 
+                  onClick={downloadMealPlanGuide}
+                  className="gradient-bg text-[#fff] px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:bg-gray-50 hover:scale-105 shadow-xl hover:shadow-2xl whitespace-nowrap"
+                >
                   Get Free Tips
                 </button>
               </div>

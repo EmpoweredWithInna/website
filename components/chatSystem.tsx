@@ -12,13 +12,12 @@ interface ChatSystemProps {
 
 const CHAT_FLOW = [
   {
-    type: 'bot',
-    message: "Hi! I'm Inna's health assistant. I'm here to help you discover if functional nutrition could be the solution you've been searching for. What's your first name?",
+    question: "Hi! I'm Inna's health assistant. I'm here to help you discover if functional nutrition could be the solution you've been searching for. What's your first name?",
+    options: [],
     inputType: 'text'
   },
   {
-    type: 'bot',
-    message: "Nice to meet you, {name}! I'd love to learn more about your health journey. What's the main challenge you're facing right now?",
+    question: "Nice to meet you, {name}! I'd love to learn more about your health journey. What's the main challenge you're facing right now?",
     options: [
       "Chronic fatigue that doesn't improve with sleep",
       "Persistent anxiety or mood swings",
@@ -29,18 +28,16 @@ const CHAT_FLOW = [
     ]
   },
   {
-    type: 'bot',
-    message: "I hear you on {issue}. That can be so frustrating. How long have you been dealing with this?",
+    question: "I hear you on {issue}. That can be so frustrating. How long have you been dealing with this?",
     options: [
       "Less than 6 months",
-      "6 months to 2 years", 
+      "6 months to 2 years",
       "2-5 years",
       "More than 5 years"
     ]
   },
   {
-    type: 'bot',
-    message: "And have you tried working with other healthcare providers for this issue?",
+    question: "And have you tried working with other healthcare providers for this issue?",
     options: [
       "Yes, but haven't found answers",
       "Yes, but treatments didn't work long-term",
@@ -49,8 +46,7 @@ const CHAT_FLOW = [
     ]
   },
   {
-    type: 'bot',
-    message: "I completely understand, {name}. You're definitely not alone - 88% of our clients have been exactly where you are. Based on what you've shared, you could be a great fit for Inna's functional nutrition approach. Would you like to schedule a free 15-minute consultation to discuss your specific situation?",
+    question: "I completely understand, {name}. You're definitely not alone - 88% of our clients have been exactly where you are. Based on what you've shared, you could be a great fit for Inna's functional nutrition approach. Would you like to schedule a free 15-minute consultation to discuss your specific situation?",
     options: [
       "Yes, I'd love to schedule a call",
       "Tell me more about the approach first",
@@ -58,17 +54,83 @@ const CHAT_FLOW = [
       "How much do your programs cost?",
       "I need to think about it"
     ]
+  },
+  {
+    question: "Great question! Inna uses functional lab testing like GI-MAP and DUTCH hormone panels to uncover root causes that standard tests miss. Then she creates personalized nutrition protocols that address YOUR specific imbalances. 92% of her clients find answers where conventional medicine couldn't help. Ready to schedule your consultation?",
+    options: [
+      "Yes, let's schedule the call",
+      "What would we discuss in the consultation?"
+    ]
+  },
+  {
+    question: "In your free consultation, Inna will review your health history, discuss your main concerns, and explain which functional tests might be most helpful for your situation. There's no pressure - it's simply a chance to see if this approach feels right for you. Should we get that scheduled?",
+    options: [
+      "Yes, let's schedule now",
+      "I need to think about it"
+    ]
+  },
+  {
+    question: "Investment ranges from functional lab testing to comprehensive coaching programs. Most clients find the testing alone provides huge insights. In your consultation, Inna will recommend the best starting point for your budget and needs. Ready to learn what might work for you?",
+    options: [
+      "Yes, let's schedule the consultation",
+      "Tell me about just the testing first"
+    ]
+  },
+  {
+    question: "Perfect! I'll connect you with our booking system. You'll be able to choose a time that works best for you.",
+    options: [
+      "📅 Book Your Call Now"
+    ]
+  },
+  {
+    question: "I completely understand, {name}. This is an important decision and I respect that you want to think it through. Can I get your email so I can follow up with you in a week? I'll also send you some helpful gut health tips in the meantime - no pressure at all.",
+    options: [
+      "📧 Stay in Touch (email capture field)"
+    ],
+    inputType: 'email'
+  },
+  {
+    question: "Perfect! I've got {email}. You'll receive some valuable gut health tips over the next week, and I'll personally follow up to see how you're feeling and answer any questions that come up. In the meantime, feel free to check out Inna's resources or just reach out if anything changes!",
+    options: []
   }
 ];
 
-export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
-  const { closeChat } = useChat();
-  const [inputMessage, setInputMessage] = useState('');
+export default function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [userData, setUserData] = useState<UserData>({});
+  const [inputValue, setInputValue] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Call-to-action handlers
+  const handleBookCall = () => {
+    window.open('https://calendly.com/inna-empowered-nutrition', '_blank');
+  };
+
+  const handleStayInTouch = () => {
+    // This will be handled by the email input flow
+    console.log('Stay in touch clicked');
+  };
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const interpolateMessage = (message: string, userData: UserData): string => {
+    let interpolatedMessage = message;
+    
+    if (userData.name) {
+      interpolatedMessage = interpolatedMessage.replace('{name}', userData.name);
+    }
+    if (userData.issue) {
+      interpolatedMessage = interpolatedMessage.replace('{issue}', userData.issue.toLowerCase());
+    }
+    if (userData.email) {
+      interpolatedMessage = interpolatedMessage.replace('{email}', userData.email);
+    }
+    
+    return interpolatedMessage;
   };
 
   useEffect(() => {
@@ -84,10 +146,10 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
   const initializeChat = () => {
     const welcomeMessage: ChatMessage = {
       id: '1',
-      text: CHAT_FLOW[0].message,
+      text: CHAT_FLOW[0].question,
       isBot: true,
       timestamp: new Date(),
-      options: CHAT_FLOW[0].options ? CHAT_FLOW[0].options.map((option, index) => ({
+      options: CHAT_FLOW[0].options.length > 0 ? CHAT_FLOW[0].options.map((option, index) => ({
         id: `option_${index}`,
         text: option,
         value: option
@@ -97,63 +159,55 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
     setChatState(prev => ({
       ...prev,
       messages: [welcomeMessage],
-      currentStep: 'name_input',
-      chatStep: 0
+      currentStep: 0
     }));
   };
 
-  const addMessage = (text: string, isBot: boolean = false, options?: ChatOption[]) => {
-    const message: ChatMessage = {
-      id: Date.now().toString(),
+  const addMessage = (text: string, isBot: boolean, options?: string[]) => {
+    const newMessage: ChatMessage = {
+      id: `msg_${Date.now()}`,
       text,
       isBot,
       timestamp: new Date(),
-      options
+      options: options?.map((opt, idx) => ({
+        id: `option_${idx}`,
+        text: opt,
+        value: opt,
+        featured: false
+      }))
     };
 
     setChatState(prev => ({
       ...prev,
-      messages: [...prev.messages, message],
+      messages: [...prev.messages, newMessage],
       isTyping: false
     }));
   };
 
-  const showTyping = () => {
-    setChatState(prev => ({ ...prev, isTyping: true }));
-  };
-
-  const hideTyping = () => {
-    setChatState(prev => ({ ...prev, isTyping: false }));
-  };
-
-  const selectOption = (option: string) => {
-    // Add user message immediately
-    addMessage(option, false);
+  const handleTextInput = (text: string) => {
+    if (!text.trim()) return;
     
-    const currentStep = chatState.chatStep || 0;
-    
-    showTyping();
+    addMessage(text, false);
+    setInputValue('');
+
+    let updatedUserData = { ...userData };
+
+    // Handle different input types
+    if (CHAT_FLOW[currentStep]?.inputType === 'text') {
+      updatedUserData.name = text;
+    } else if (CHAT_FLOW[currentStep]?.inputType === 'email') {
+      updatedUserData.email = text;
+    }
+
+    setUserData(updatedUserData);
+    setCurrentStep(prev => prev + 1);
+    setIsTyping(true);
+
+    // Show next question after delay
     setTimeout(() => {
-      hideTyping();
-      
-      // Store user data based on current step
-      let updatedUserData = { ...chatState.userData };
-      
-      if (currentStep === 1) {
-        updatedUserData.issue = option;
-      } else if (currentStep === 2) {
-        updatedUserData.duration = option;
-      } else if (currentStep === 3) {
-        updatedUserData.previousTreatments = option;
-      } else if (currentStep === 4) {
-        handleFinalStepResponse(option, updatedUserData);
-        return;
-      }
-      
       const nextStep = currentStep + 1;
-      
       if (nextStep < CHAT_FLOW.length) {
-        let nextMessage = CHAT_FLOW[nextStep].message;
+        let nextMessage = CHAT_FLOW[nextStep].question;
         
         // Replace placeholders
         if (updatedUserData.name) {
@@ -162,136 +216,133 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
         if (updatedUserData.issue) {
           nextMessage = nextMessage.replace('{issue}', updatedUserData.issue.toLowerCase());
         }
+        if (updatedUserData.email) {
+          nextMessage = nextMessage.replace('{email}', updatedUserData.email);
+        }
         
-        const nextOptions = CHAT_FLOW[nextStep].options ? CHAT_FLOW[nextStep].options.map((opt, index) => ({
-          id: `option_${index}`,
-          text: opt,
-          value: opt
-        })) : undefined;
-        
-        setChatState(prev => ({
-          ...prev,
-          userData: updatedUserData,
-          chatStep: nextStep
-        }));
-        
+        const nextOptions = CHAT_FLOW[nextStep].options;
         addMessage(nextMessage, true, nextOptions);
+        setIsTyping(false);
       }
-    }, 1000);
+    }, 1500);
+  };
+
+  const handleOptionClick = (option: string, index: number) => {
+    // Add user message
+    addMessage(option, false);
+
+    // Handle special cases
+    if (option.includes('📅 Book Your Call Now')) {
+      handleBookCall();
+      return;
+    }
+    
+    if (option.includes('📧 Stay in Touch')) {
+      handleStayInTouch();
+      // Continue with email input flow
+    }
+
+    let updatedUserData = { ...userData };
+
+    // Store user data based on current step
+    if (currentStep === 1) {
+      updatedUserData.issue = option;
+    } else if (currentStep === 2) {
+      updatedUserData.duration = option;
+    } else if (currentStep === 3) {
+      updatedUserData.previousTreatments = option;
+    }
+
+    setUserData(updatedUserData);
+    let nextStep = currentStep + 1;
+
+    // Handle navigation logic
+    if (currentStep === 4) { // Main consultation question
+      if (option === "Tell me more about the approach first") {
+        nextStep = 5; // Go to approach explanation
+      } else if (option === "What would we discuss in the consultation?") {
+        nextStep = 6; // Go to consultation details
+      } else if (option === "How much do your programs cost?") {
+        nextStep = 7; // Go to pricing info
+      } else if (option === "Yes, I'd love to schedule a call") {
+        nextStep = 8; // Go to booking
+      } else if (option === "I need to think about it") {
+        nextStep = 9; // Go to email capture
+      }
+    } else if (currentStep === 5) { // After approach explanation
+      if (option === "Yes, let's schedule the call") {
+        nextStep = 8; // Go to booking
+      } else if (option === "What would we discuss in the consultation?") {
+        nextStep = 6; // Go to consultation details
+      }
+    } else if (currentStep === 6) { // After consultation details
+      if (option === "Yes, let's schedule now") {
+        nextStep = 8; // Go to booking
+      } else if (option === "I need to think about it") {
+        nextStep = 9; // Go to email capture
+      }
+    } else if (currentStep === 7) { // After pricing info
+      if (option === "Yes, let's schedule the consultation") {
+        nextStep = 8; // Go to booking
+      }
+    } else if (currentStep === 8) { // Booking step
+      if (option === "📅 Book Your Call Now") {
+        // Open booking system
+        window.open('https://calendly.com/inna-nutrition', '_blank');
+        return; // Don't proceed to next step
+      }
+    } else if (currentStep === 9) { // Email capture step
+      if (option === "📧 Stay in Touch (email capture field)") {
+        // Show email input - this will be handled by the input field
+        return;
+      }
+    }
+
+    setCurrentStep(nextStep);
+    setIsTyping(true);
+
+    // Show next question after delay
+    setTimeout(() => {
+      if (nextStep < CHAT_FLOW.length) {
+        let nextMessage = CHAT_FLOW[nextStep].question;
+        
+        // Replace placeholders
+        if (updatedUserData.name) {
+          nextMessage = nextMessage.replace('{name}', updatedUserData.name);
+        }
+        if (updatedUserData.issue) {
+          nextMessage = nextMessage.replace('{issue}', updatedUserData.issue.toLowerCase());
+        }
+        if (updatedUserData.email) {
+          nextMessage = nextMessage.replace('{email}', updatedUserData.email);
+        }
+        
+        const nextOptions = CHAT_FLOW[nextStep].options;
+        addMessage(nextMessage, true, nextOptions);
+        setIsTyping(false);
+      }
+    }, 1500);
+  };
+
+  const handleInputSubmit = () => {
+    if (!inputValue.trim()) return;
+    handleTextInput(inputValue.trim());
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    handleTextInput(inputMessage.trim());
-  };
-  
-  const handleTextInput = (message: string) => {
-    if (!message) return;
-    
-    addMessage(message, false);
-    setInputMessage('');
-    
-    const currentStep = chatState.chatStep || 0;
-    
-    // Handle name input (first step)
-    if (currentStep === 0) {
-      showTyping();
-      setTimeout(() => {
-        hideTyping();
-        
-        const updatedUserData = { ...chatState.userData, name: message };
-        const nextStep = 1;
-        let nextMessage = CHAT_FLOW[nextStep].message.replace('{name}', message);
-        
-        const nextOptions = CHAT_FLOW[nextStep].options?.map((opt, index) => ({
-          id: `option_${index}`,
-          text: opt,
-          value: opt
-        }));
-        
-        setChatState(prev => ({
-          ...prev,
-          userData: updatedUserData,
-          chatStep: nextStep
-        }));
-        
-        addMessage(nextMessage, true, nextOptions);
-      }, 1000);
-    } else if (chatState.currentStep === 'email_capture') {
-      // Handle email capture
-      showTyping();
-      setTimeout(() => {
-        hideTyping();
-        const updatedUserData = { ...chatState.userData, email: message };
-        setChatState(prev => ({
-          ...prev,
-          userData: updatedUserData,
-          currentStep: 'complete'
-        }));
-        
-        addMessage(`Perfect! I've got ${message}. You'll receive some valuable gut health tips over the next week, and I'll personally follow up to see how you're feeling and answer any questions that come up. In the meantime, feel free to check out Inna's resources or just reach out if anything changes!\n\n📧 **Stay in Touch**\n\n✅ Get Weekly Tips & Follow-up\nI'll check in with you next week, plus you'll get valuable gut health insights!`, true);
-      }, 1000);
-    }
-  };
-
-
-  const handleOptionClick = (option: ChatOption) => {
-    selectOption(option.value);
-  };
-
-  const handleFinalStepResponse = (option: string, userData: any) => {
-    if (option === "Yes, I'd love to schedule a call") {
-      handleBooking(userData);
-    } else if (option === "Tell me more about the approach first") {
-      addMessage("Great question! Inna uses functional lab testing like GI-MAP and DUTCH hormone panels to uncover root causes that standard tests miss. Then she creates personalized nutrition protocols that address YOUR specific imbalances. 92% of her clients find answers where conventional medicine couldn't help. Ready to schedule your consultation?", true, [
-        { id: 'schedule_yes', text: "Yes, let's schedule the call", value: "Yes, let's schedule the call" },
-        { id: 'consultation_info', text: "What would we discuss in the consultation?", value: "What would we discuss in the consultation?" }
-      ]);
-    } else if (option === "What would we discuss in the consultation?") {
-      addMessage("In your free consultation, Inna will review your health history, discuss your main concerns, and explain which functional tests might be most helpful for your situation. There's no pressure - it's simply a chance to see if this approach feels right for you. Should we get that scheduled?", true, [
-        { id: 'schedule_now', text: "Yes, let's schedule now", value: "Yes, let's schedule now" },
-        { id: 'think_about_it', text: "I need to think about it", value: "I need to think about it" }
-      ]);
-    } else if (option === "How much do your programs cost?") {
-      addMessage("Investment ranges from functional lab testing to comprehensive coaching programs. Most clients find the testing alone provides huge insights. In your consultation, Inna will recommend the best starting point for your budget and needs. Ready to learn what might work for you?", true, [
-        { id: 'schedule_consultation', text: "Yes, let's schedule the consultation", value: "Yes, let's schedule the consultation" },
-        { id: 'testing_info', text: "Tell me about just the testing first", value: "Tell me about just the testing first" }
-      ]);
-    } else if (option === "I need to think about it") {
-      handleThinkingAboutIt(userData);
-    }
-  };
-
-  const handleBooking = (userData: any) => {
-    addMessage("Wonderful! I'm so excited for you to connect with Inna. Let me get your email so we can send you the booking link and some helpful resources to prepare for your consultation.", true);
-    
-    setChatState(prev => ({
-      ...prev,
-      currentStep: 'email_capture'
-    }));
-  };
-
-  const handleThinkingAboutIt = (userData: any) => {
-    addMessage(`I completely understand, ${userData.name}. This is an important decision and I respect that you want to think it through. Can I get your email so I can follow up with you in a week? I'll also send you some helpful gut health tips in the meantime - no pressure at all.`, true);
-    
-    setChatState(prev => ({
-      ...prev,
-      currentStep: 'email_capture'
-    }));
+    handleInputSubmit();
   };
 
   const handleCloseChat = () => {
     // Reset local chat state
     setChatState(prev => ({
       ...prev,
-      messages: [],
-      currentStep: 'welcome',
-      userData: {},
-      isTyping: false
+      isOpen: false
     }));
-    console.log("Chat closed")
-    // Close chat in provider
-    closeChat();
+    setCurrentStep(0);
+    setUserData({});
+    setIsTyping(false);
   };
 
   // Cleanup effect
@@ -304,80 +355,97 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
   if (!chatState.isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-      <div className="w-full max-w-lg h-[85vh] max-h-[600px] bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-white/20">
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-end justify-end p-4">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md h-[600px] flex flex-col animate-slide-in">
         {/* Header */}
-        <div className="bg-gradient-to-r from-accent-green via-primary-green to-accent-green text-white p-4 text-center relative overflow-hidden">
-          {/* Background pattern */}
-          
-          <button
-            onClick={handleCloseChat}
-            className="absolute cursor-pointer top-4 right-4 p-2 hover:bg-white/20 rounded-xl transition-all duration-300 group z-100"
-            aria-label="Close chat"
-          >
-            <X size={20} className="group-hover:rotate-90 transition-transform duration-300" />
-          </button>
-          
-          <div className="">
-            <h3 className="text-2xl font-bold mb-2">💚 Inna's Health Assistant</h3>
-            <p className="text-sm opacity-90">Discover if functional nutrition is right for you!</p>
-            <div className="flex items-center justify-center space-x-4 mt-3 text-xs opacity-80">
-              <span className="flex items-center space-x-1">
-                <div className="w-2 h-2 bg-green-300 rounded-full animate-pulse"></div>
-                <span>Online now</span>
-              </span>
-              <span>•</span>
-              <span>500+ clients helped</span>
+        <div className="flex items-center justify-between p-4 border-b" style={{ borderColor: 'var(--primary-green)', background: 'linear-gradient(135deg, var(--primary-green), var(--dark-green))' }}>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'var(--accent-yellow)' }}>
+              <MessageCircle className="w-5 h-5" style={{ color: 'var(--primary-green)' }} />
+            </div>
+            <div>
+              <h3 className="font-semibold text-white">Inna's Health Assistant</h3>
+              <p className="text-sm" style={{ color: 'var(--accent-yellow)' }}>Usually replies instantly</p>
             </div>
           </div>
+          <button
+            onClick={handleCloseChat}
+            className="p-2 hover:bg-white/10 rounded-full transition-colors"
+          >
+            <X className="w-5 h-5 text-white" />
+          </button>
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-gray-50/50 to-white">
-          {chatState.messages.map((message) => (
-            <div key={message.id} className="animate-slide-in">
-              <div className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
-                <div
-                  className={`chat-message ${
-                    message.isBot ? 'bot-message' : 'user-message'
-                  }`}
-                  dangerouslySetInnerHTML={{ __html: message.text }}
-                />
+        <div className="flex-1 overflow-y-auto p-4 space-y-4" style={{ backgroundColor: '#f8f9fa' }}>
+          {chatState.messages.map((message, index) => (
+            <div
+              key={index}
+              className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}
+            >
+              <div
+                className={`max-w-[80%] p-3 rounded-2xl shadow-sm ${
+                  message.isBot
+                    ? 'text-gray-800'
+                    : 'text-white'
+                }`}
+                style={{
+                  backgroundColor: message.isBot ? 'white' : 'var(--primary-green)',
+                  border: message.isBot ? '1px solid var(--accent-yellow)' : 'none'
+                }}
+              >
+                {message.text}
               </div>
-              
-              {message.options && (
-                <div className="mt-3 space-y-2">
-                  {message.options.map((option) => (
-                    <button
-                      key={option.id}
-                      onClick={() => handleOptionClick(option)}
-                      className={`chat-option w-full ${
-                        option.featured ? 'featured' : ''
-                      }`}
-                    >
-                      {option.text}
-                      {option.featured && (
-                        <span className="ml-2 bg-white/20 px-2 py-1 rounded-full text-xs">
-                          MOST COMMON
-                        </span>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
           ))}
           
-          {chatState.isTyping && (
-            <div className="flex justify-start">
-              <div className="bot-message flex items-center space-x-2">
-                <span className="text-gray-700">Rosales is typing</span>
-                <div className="flex space-x-1">
-                  <div className="w-1.5 h-1.5 bg-accent-green rounded-full animate-typing" />
-                  <div className="w-1.5 h-1.5 bg-accent-green rounded-full animate-typing" style={{ animationDelay: '0.2s' }} />
-                  <div className="w-1.5 h-1.5 bg-accent-green rounded-full animate-typing" style={{ animationDelay: '0.4s' }} />
+          {/* Current question and options */}
+          {currentStep < CHAT_FLOW.length && (
+            <div className="space-y-3">
+              {isTyping ? (
+                <div className="flex justify-start">
+                  <div className="bg-white p-3 rounded-2xl shadow-sm" style={{ border: '1px solid var(--accent-yellow)' }}>
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 rounded-full animate-typing" style={{ backgroundColor: 'var(--primary-green)' }}></div>
+                      <div className="w-2 h-2 rounded-full animate-typing" style={{ backgroundColor: 'var(--primary-green)', animationDelay: '0.2s' }}></div>
+                      <div className="w-2 h-2 rounded-full animate-typing" style={{ backgroundColor: 'var(--primary-green)', animationDelay: '0.4s' }}></div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <>
+                  <div className="flex justify-start">
+                    <div className="bg-white text-gray-800 p-3 rounded-2xl max-w-[80%] shadow-sm" style={{ border: '1px solid var(--accent-yellow)' }}>
+                      {interpolateMessage(CHAT_FLOW[currentStep].question, userData)}
+                    </div>
+                  </div>
+                  
+                  {/* Options */}
+                  {CHAT_FLOW[currentStep].options.length > 0 && (
+                    <div className="space-y-2">
+                      {CHAT_FLOW[currentStep].options.map((option, index) => {
+                        const isCallToAction = option.includes('📅 Book Your Call Now') || option.includes('📧 Stay in Touch');
+                        return (
+                          <button
+                            key={index}
+                            onClick={() => handleOptionClick(option, index)}
+                            className={`w-full text-left p-3 rounded-xl transition-all duration-300 text-sm font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 ${
+                              isCallToAction ? 'text-white' : 'text-gray-800'
+                            }`}
+                            style={{
+                              backgroundColor: isCallToAction ? 'var(--accent-coral)' : 'white',
+                              border: isCallToAction ? 'none' : '2px solid var(--primary-green)',
+                              background: isCallToAction ? 'linear-gradient(135deg, var(--accent-coral), var(--accent-pink))' : 'white'
+                            }}
+                          >
+                            {option}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </>
+              )}
             </div>
           )}
           
@@ -385,32 +453,34 @@ export function ChatSystem({ chatState, setChatState }: ChatSystemProps) {
         </div>
 
         {/* Input */}
-        <div className="p-4 border-t border-gray-200/50 bg-white/80 backdrop-blur-sm">
-          <div className="flex space-x-3">
-            <input
-              ref={inputRef}
-              type="text"
-              value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && inputMessage.trim() && handleSubmit(e)}
-              placeholder="Type your message..."
-              className="flex-1 px-4 py-3 border border-gray-300/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent-green/50 focus:border-accent-green bg-white/80 backdrop-blur-sm shadow-light text-gray-900 placeholder-gray-500 transition-all duration-300"
-            />
-            <button
-              onClick={handleSubmit}
-              disabled={!inputMessage.trim()}
-              className="bg-gradient-to-r from-accent-green to-primary-green hover:from-primary-green hover:to-accent-green disabled:from-gray-300 disabled:to-gray-400 text-white p-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 disabled:hover:scale-100 group"
-            >
-              <Send size={18} className="group-hover:translate-x-0.5 transition-transform duration-300" />
-            </button>
+        {currentStep < CHAT_FLOW.length && CHAT_FLOW[currentStep].inputType && (
+          <div className="p-4" style={{ borderTop: '1px solid var(--accent-yellow)', backgroundColor: 'white' }}>
+            <div className="flex gap-2">
+              <input
+                ref={inputRef}
+                type={CHAT_FLOW[currentStep].inputType}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleInputSubmit()}
+                placeholder={CHAT_FLOW[currentStep].inputType === 'email' ? 'Enter your email...' : 'Type your answer...'}
+                className="flex-1 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+                style={{
+                  border: '2px solid var(--primary-green)'
+                }}
+              />
+              <button
+                onClick={handleInputSubmit}
+                disabled={!inputValue.trim()}
+                className="px-4 py-3 text-white rounded-xl transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5"
+                style={{
+                  background: 'linear-gradient(135deg, var(--accent-coral), var(--accent-pink))'
+                }}
+              >
+                <Send className="w-4 h-4" />
+              </button>
+            </div>
           </div>
-          <div className="flex items-center justify-center mt-3 text-xs text-gray-600">
-            <span className="flex items-center space-x-1">
-              <MessageCircle size={12} className="text-gray-600" />
-              <span className="text-gray-600">Free 15-minute consultation available</span>
-            </span>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
