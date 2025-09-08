@@ -56,7 +56,7 @@ export function MyStory() {
           <div className="order-1 lg:order-2">
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p className="text-xl font-medium text-gray-900">
-                <span className="text-[#256439] font-bold">Hi, I'm Inna Topiler,</span> and I know exactly what it feels like to have your symptoms dismissed, your concerns minimized, and your hope slowly fading.
+                <span className="text-[#256439] font-bold">Hi, I'm Inna,</span> and I know exactly what it feels like to have your symptoms dismissed, your concerns minimized, and your hope slowly fading.
               </p>
 
               <p className="text-lg">
