@@ -45,19 +45,19 @@ export function HowWeHelp() {
   ];
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-[#256439]/5 overflow-hidden" id="how-we-help">
+    <section className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-[#41ab5d]/5 overflow-hidden" id="how-we-help">
       {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#256439]/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#256439]/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#41ab5d]/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#41ab5d]/5 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-4 py-2 bg-[#256439]/10 text-[#256439] rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-[#41ab5d]/10 text-[#41ab5d] rounded-full text-sm font-medium mb-6">
             🎯 Our Proven Process
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            How We <span className="text-[#256439]">Transform</span> Your Health
+            How We <span className="text-[#41ab5d]">Transform</span> Your Health
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Our scientifically-backed 4-phase methodology combines advanced functional testing with precision nutrition 
@@ -68,30 +68,30 @@ export function HowWeHelp() {
         {/* Process Steps */}
         <div className="relative">
           {/* Connection Line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-[#256439]/20 transform -translate-y-1/2"></div>
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-[#41ab5d]/20 transform -translate-y-1/2"></div>
           
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
             {steps.map((step, index) => (
               <div key={index} className="group relative">
                 {/* Step Card */}
-                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100/50 group-hover:border-[#256439]/20">
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100/50 group-hover:border-[#41ab5d]/20">
                   {/* Step Number */}
                   <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-                    <div className="w-12 h-12 bg-[#256439] rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
                       {step.number}
                     </div>
                   </div>
 
                   {/* Icon */}
                   <div className="text-center mb-6 pt-4">
-                    <div className="w-20 h-20 bg-[#256439]/10 rounded-2xl flex items-center justify-center mx-auto shadow-md group-hover:shadow-lg transition-all duration-300 text-[#256439] group-hover:scale-105">
+                    <div className="w-20 h-20 bg-[#41ab5d]/10 rounded-2xl flex items-center justify-center mx-auto shadow-md group-hover:shadow-lg transition-all duration-300 text-[#41ab5d] group-hover:scale-105">
                       {step.icon}
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="text-center">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#256439] transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#41ab5d] transition-colors duration-300">
                       {step.title}
                     </h3>
                     <p className="text-gray-600 leading-relaxed text-sm">
@@ -100,18 +100,18 @@ export function HowWeHelp() {
                   </div>
 
                   {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 bg-[#256439]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-[#41ab5d] to-[#41ab5d] rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
                 </div>
 
                 {/* Connection Dot for Desktop */}
-                <div className="hidden lg:block absolute top-1/2 -right-6 w-4 h-4 bg-[#256439] rounded-full transform -translate-y-1/2 shadow-lg"></div>
+                <div className="hidden lg:block absolute top-1/2 -right-6 w-4 h-4 bg-[#41ab5d] rounded-full transform -translate-y-1/2 shadow-lg"></div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Results Preview */}
-        <div className="mt-20 bg-[#256439] rounded-3xl p-12 text-white relative overflow-hidden">
+        <div className="mt-20 bg-[#41ab5d] rounded-3xl p-12 text-white relative overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
@@ -136,7 +136,7 @@ export function HowWeHelp() {
                 <div className="text-white/80">Sustained health transformation</div>
               </div>
             </div>
-            <button className="group gradient-bg text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
+            <button className="group gradient-bg text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
               <span className="flex items-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />

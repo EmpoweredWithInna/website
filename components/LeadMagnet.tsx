@@ -86,7 +86,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
             {!isSubmitted ? (
               <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
                 {/* Left Side - Visual/Benefits */}
-                <div className="bg-gradient-to-br from-[#256439] to-[#256439] p-8 lg:p-12 text-white rounded-l-3xl lg:rounded-r-none rounded-t-3xl lg:rounded-t-3xl">
+                <div className="bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] p-8 lg:p-12 text-white rounded-l-3xl lg:rounded-r-none rounded-t-3xl lg:rounded-t-3xl">
                   <div className="h-full flex flex-col justify-center">
                     <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
                       {leadMagnets[0].icon}
@@ -146,14 +146,14 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="your.email@example.com"
-                        className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#256439] focus:outline-none text-gray-800 placeholder-gray-500 transition-colors duration-300"
+                        className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#41ab5d] focus:outline-none text-gray-800 placeholder-gray-500 transition-colors duration-300"
                         required
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-[#256439] to-[#256439] text-white py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:from-[#1a4a2a] hover:to-[#256439] hover:scale-105 shadow-lg hover:shadow-xl"
+                      className="w-full bg-gradient-to-r from-[#41ab5d] to-[#41ab5d] text-white py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:from-[#1a7a39] hover:to-[#41ab5d] hover:scale-105 shadow-lg hover:shadow-xl"
                     >
                       Send Me The Free Tracker
                     </button>
@@ -168,7 +168,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
               </div>
             ) : (
               <div className="p-12 text-center min-h-[400px] flex flex-col justify-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-[#256439] to-[#256439] rounded-full flex items-center justify-center mx-auto mb-8">
+                <div className="w-24 h-24 bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] rounded-full flex items-center justify-center mx-auto mb-8">
                   <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -180,8 +180,8 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
                 <p className="text-gray-500 mb-8">
                   Check your email (and spam folder) for your free download link.
                 </p>
-                <div className="bg-[#256439]/5 border border-[#256439]/20 rounded-2xl p-6 max-w-md mx-auto">
-                  <p className="text-[#256439] font-medium">
+                <div className="bg-[#41ab5d]/5 border border-[#41ab5d]/20 rounded-2xl p-6 max-w-md mx-auto">
+                  <p className="text-[#41ab5d] font-medium">
                     💡 Pro Tip: Add our email to your contacts to ensure you receive all our health insights!
                   </p>
                 </div>

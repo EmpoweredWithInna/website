@@ -5,19 +5,19 @@ import Image from 'next/image';
 export function MyStory() {
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-[#256439]/5 overflow-hidden" id="about">
+    <section className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-[#41ab5d]/5 overflow-hidden" id="about">
       {/* Background Elements */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#256439]/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-[#256439]/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#41ab5d]/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-[#41ab5d]/5 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-[#256439]/10 text-[#256439] rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-[#41ab5d]/10 text-[#41ab5d] rounded-full text-sm font-medium mb-6">
             👩‍⚕️ Meet Your Practitioner
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            My Journey to <span className="text-[#256439]">Functional Healing</span>
+            My Journey to <span className="text-[#41ab5d]">Functional Healing</span>
           </h2>
         </div>
 
@@ -26,7 +26,7 @@ export function MyStory() {
           <div className="relative order-2 lg:order-1">
             <div className="relative group">
               {/* Main Image Container */}
-              <div className="relative bg-[#256439]/5 rounded-3xl p-8 shadow-2xl">
+              <div className="relative bg-[#41ab5d]/5 rounded-3xl p-8 shadow-2xl">
                 <img
                   src="/Inna.jpg"
                   alt="Inna Topiler, Functional Nutritionist"
@@ -36,7 +36,7 @@ export function MyStory() {
                 />
                 
                 {/* Floating Achievement Badges */}
-                <div className="absolute -top-4 -right-4 bg-[#256439] text-white px-4 py-2 rounded-xl font-bold shadow-xl">
+                <div className="absolute -top-4 -right-4 bg-[#41ab5d] text-white px-4 py-2 rounded-xl font-bold shadow-xl">
                   <div className="text-lg">500+</div>
                   <div className="text-xs opacity-90">Clients</div>
                 </div>
@@ -48,7 +48,7 @@ export function MyStory() {
               </div>
 
               {/* Background Glow */}
-              <div className="absolute -inset-4 bg-[#256439] rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="absolute -inset-4 bg-[#41ab5d] rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
             </div>
           </div>
 
@@ -56,7 +56,7 @@ export function MyStory() {
           <div className="order-1 lg:order-2">
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p className="text-xl font-medium text-gray-900">
-                <span className="text-[#256439] font-bold">Hi, I'm Inna,</span> and I know exactly what it feels like to have your symptoms dismissed, your concerns minimized, and your hope slowly fading.
+                <span className="text-[#41ab5d] font-bold">Hi, I'm Inna,</span> and I know exactly what it feels like to have your symptoms dismissed, your concerns minimized, and your hope slowly fading.
               </p>
 
               <p className="text-lg">
@@ -71,8 +71,8 @@ export function MyStory() {
                 Within months of addressing these root causes, I felt like myself again. The transformation was so profound that I knew I had to dedicate my life to helping other women experience the same breakthrough.
               </p>
 
-              <div className="bg-[#256439]/5 rounded-2xl p-6 border border-[#256439]/10">
-                <p className="text-lg font-medium text-[#256439]">
+              <div className="bg-[#41ab5d]/5 rounded-2xl p-6 border border-[#41ab5d]/10">
+                <p className="text-lg font-medium text-[#41ab5d]">
                   "I don't just treat symptoms—I uncover the hidden imbalances that create them. Because you deserve answers, not band-aids."
                 </p>
               </div>

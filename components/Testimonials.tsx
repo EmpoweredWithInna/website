@@ -97,17 +97,17 @@ export function Testimonials() {
   return (
     <section className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-emerald-50/20 overflow-hidden" id="testimonials">
       {/* Background Elements */}
-      <div className="absolute top-0 left-1/3 w-96 h-96 bg-gradient-to-br from-[#256439]/10 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-tl from-[#256439]/5 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-1/3 w-96 h-96 bg-gradient-to-br from-[#41ab5d]/10 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-tl from-[#41ab5d]/5 to-transparent rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-[#256439]/10 text-[#256439] rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-[#41ab5d]/10 text-[#41ab5d] rounded-full text-sm font-medium mb-6">
             💬 Client Success Stories
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Real Women, <span className="text-[#256439]">Real Results</span>
+            Real Women, <span className="text-[#41ab5d]">Real Results</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Discover how functional testing and personalized nutrition have transformed the lives of women just like you
@@ -121,7 +121,7 @@ export function Testimonials() {
             onClick={prevTestimonial}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-[#256439] hover:scale-110 border border-gray-200/50"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-[#41ab5d] hover:scale-110 border border-gray-200/50"
             aria-label="Previous testimonial"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -133,7 +133,7 @@ export function Testimonials() {
             onClick={nextTestimonial}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-[#256439] hover:scale-110 border border-gray-200/50"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-[#41ab5d] hover:scale-110 border border-gray-200/50"
             aria-label="Next testimonial"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,7 +156,7 @@ export function Testimonials() {
               {/* Client Info & Quote */}
               <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-[#256439] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  <div className="w-16 h-16 bg-[#41ab5d] rounded-full flex items-center justify-center text-white font-bold text-xl">
                     {testimonials[activeTestimonial].name.charAt(0)}
                   </div>
                   <div>
@@ -175,7 +175,7 @@ export function Testimonials() {
                 </div>
 
                 <div className="relative mb-6">
-                  <svg className="w-8 h-8 text-[#256439]/20 absolute -top-2 -left-2" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8 text-[#41ab5d]/20 absolute -top-2 -left-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
                   </svg>
                   <blockquote className="text-lg lg:text-xl text-gray-700 leading-relaxed italic pl-6">
@@ -183,8 +183,8 @@ export function Testimonials() {
                   </blockquote>
                 </div>
 
-                <div className="bg-[#256439]/5 rounded-2xl p-4 border border-[#256439]/10">
-                  <div className="flex items-center gap-2 text-[#256439] font-semibold mb-2">
+                <div className="bg-[#41ab5d]/5 rounded-2xl p-4 border border-[#41ab5d]/10">
+                  <div className="flex items-center gap-2 text-[#41ab5d] font-semibold mb-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -210,22 +210,22 @@ export function Testimonials() {
                   </div>
 
                   <div className="flex justify-center">
-                    <svg className="w-8 h-8 text-[#256439]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-8 h-8 text-[#41ab5d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                     </svg>
                   </div>
 
-                  <div className="bg-[#256439]/5 border border-[#256439]/10 rounded-xl p-4">
+                  <div className="bg-[#41ab5d]/5 border border-[#41ab5d]/10 rounded-xl p-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-3 h-3 bg-[#256439] rounded-full"></div>
-                      <span className="font-semibold text-[#256439]">After</span>
+                      <div className="w-3 h-3 bg-[#41ab5d] rounded-full"></div>
+                      <span className="font-semibold text-[#41ab5d]">After</span>
                     </div>
-                    <p className="text-[#256439] text-sm">{testimonials[activeTestimonial].beforeAfter.after}</p>
+                    <p className="text-[#41ab5d] text-sm">{testimonials[activeTestimonial].beforeAfter.after}</p>
                   </div>
                 </div>
 
                 <div className="text-center mt-6">
-                  <div className="inline-flex items-center px-3 py-1 bg-[#256439]/10 text-[#256439] rounded-full text-sm font-medium">
+                  <div className="inline-flex items-center px-3 py-1 bg-[#41ab5d]/10 text-[#41ab5d] rounded-full text-sm font-medium">
                     <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -252,7 +252,7 @@ export function Testimonials() {
                 disabled={isTransitioning}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === activeTestimonial
-                    ? 'bg-[#256439] scale-125'
+                    ? 'bg-[#41ab5d] scale-125'
                     : 'bg-gray-300 hover:bg-gray-400'
                 } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : ''}`}
                 aria-label={`Go to testimonial ${index + 1}`}
@@ -279,7 +279,7 @@ export function Testimonials() {
               >
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 ${
                   index === activeTestimonial
-                    ? 'bg-[#256439] shadow-lg'
+                    ? 'bg-[#41ab5d] shadow-lg'
                     : 'bg-gray-300 group-hover:bg-gray-400'
                 }`}>
                   {testimonial.name.charAt(0)}
@@ -296,7 +296,7 @@ export function Testimonials() {
 
         {/* CTA */}
         <div className="text-center">
-          <div className="bg-[#256439] rounded-3xl p-12 text-white shadow-2xl">
+          <div className="bg-[#41ab5d] rounded-3xl p-12 text-white shadow-2xl">
             <h3 className="text-3xl lg:text-4xl font-bold mb-6">
               Ready to Write Your Success Story?
             </h3>

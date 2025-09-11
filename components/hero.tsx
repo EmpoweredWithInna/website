@@ -45,18 +45,18 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden" id="home">
       {/* Sophisticated Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#256439] to-[#256439]">
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#41ab5d] to-[#41ab5d]">
         {/* Floating orbs */}
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-[#256439]/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-[#256439]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-[#256439]/25 rounded-full blur-2xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-[#41ab5d]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-[#41ab5d]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-[#41ab5d]/25 rounded-full blur-2xl animate-pulse delay-500"></div>
         
         {/* Animated particles */}
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-[#256439]/30 rounded-full animate-float"
+              className="absolute w-2 h-2 bg-[#41ab5d]/30 rounded-full animate-float"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -76,7 +76,7 @@ export function Hero() {
           {/* Left Column - Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <div className="inline-flex items-center px-4 py-2 bg-[#256439]/10 border border-[#256439]/20 rounded-full backdrop-blur-sm">
+              <div className="inline-flex items-center px-4 py-2 bg-[#41ab5d]/10 border border-[#41ab5d]/20 rounded-full backdrop-blur-sm">
                 <span className="highlighted-symptom text-sm font-medium">✨ Functional Nutrition Specialist</span>
               </div>
               
@@ -96,14 +96,14 @@ export function Hero() {
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="group relative px-8 py-4 bg-[#256439] text-white font-semibold rounded-2xl transition-all duration-300 hover:bg-[#256439]/90 hover:scale-105 hover:shadow-2xl hover:shadow-[#256439]/25">
+              <button className="group relative px-8 py-4 bg-[#41ab5d] text-white font-semibold rounded-2xl transition-all duration-300 hover:bg-[#41ab5d]/90 hover:scale-105 hover:shadow-2xl hover:shadow-[#41ab5d]/25">
                 <span className="relative z-10 flex items-center gap-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                   Start Free Consultation
                 </span>
-                <div className="absolute inset-0 bg-[#256439]/90 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-[#41ab5d]/90 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               
               <button className="group px-8 py-4 border-2 border-[#E88074]/50 text-white font-semibold rounded-2xl backdrop-blur-sm transition-all duration-300 hover:border-[#E88074] hover:bg-[#E88074]/20 hover:scale-105">
@@ -117,28 +117,28 @@ export function Hero() {
             </div>
             
             {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-gray-700/50">
+            <div className="flex flex-wrap items-center gap-6 pt-8">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#256439]/20 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#41ab5d]/20 rounded-full flex items-center justify-center">
                   <svg className="w-6 h-6 text-[#fff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div>
                   <div className="text-white font-semibold">500+ Success Stories</div>
-                  <div className="text-gray-400 text-sm">Verified Results</div>
+                  <div className="text-white/70 text-sm">Verified Results</div>
                 </div>
               </div>
               
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#256439]/20 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#41ab5d]/20 rounded-full flex items-center justify-center">
                   <svg className="w-6 h-6 text-[#fff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
                 </div>
                 <div>
                   <div className="text-white font-semibold">HIPAA Compliant</div>
-                  <div className="text-gray-400 text-sm">Secure & Private</div>
+                  <div className="text-white/70 text-sm">Secure & Private</div>
                 </div>
               </div>
             </div>
@@ -149,7 +149,7 @@ export function Hero() {
             <div className="relative z-10">
               {/* Main image container */}
               <div className="relative group">
-                <div className="absolute -inset-4 bg-[#256439] rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                <div className="absolute -inset-4 bg-[#41ab5d] rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                 <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50">
                   <img
                     src="/Inna.jpg"
@@ -160,7 +160,7 @@ export function Hero() {
                   />
                   
                   {/* Floating stats */}
-                  <div className="absolute -top-4 -right-4 bg-[#256439] text-white px-4 py-2 rounded-xl font-bold shadow-xl">
+                  <div className="absolute -top-4 -right-4 bg-[#41ab5d] text-white px-4 py-2 rounded-xl font-bold shadow-xl">
                     <div className="text-2xl">92%</div>
                     <div className="text-xs opacity-90">Success Rate</div>
                   </div>

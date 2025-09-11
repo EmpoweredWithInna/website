@@ -20,8 +20,8 @@ export function Services() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
         </svg>
       ),
-      gradient: "from-[#256439] to-[#256439]",
-      bgGradient: "from-[#256439]/5 to-[#256439]/10"
+      gradient: "from-[#41ab5d] to-[#41ab5d]",
+      bgGradient: "from-[#41ab5d]/5 to-[#41ab5d]/10"
     },
     {
       title: "Functional Lab Testing",
@@ -41,8 +41,8 @@ export function Services() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
         </svg>
       ),
-      gradient: "from-[#256439] to-[#256439]",
-      bgGradient: "from-[#256439]/5 to-[#256439]/10"
+      gradient: "from-[#41ab5d] to-[#41ab5d]",
+      bgGradient: "from-[#41ab5d]/5 to-[#41ab5d]/10"
     },
     {
       title: "Corporate Wellness",
@@ -62,25 +62,25 @@ export function Services() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
         </svg>
       ),
-      gradient: "from-[#256439] to-[#256439]",
-      bgGradient: "from-[#256439]/5 to-[#256439]/10"
+      gradient: "from-[#41ab5d] to-[#41ab5d]",
+      bgGradient: "from-[#41ab5d]/5 to-[#41ab5d]/10"
     }
   ];
 
   return (
     <section className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-slate-50 overflow-hidden" id="services">
       {/* Background Elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#256439]/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#256439]/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#41ab5d]/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#41ab5d]/5 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-4 py-2 bg-[#256439]/10 text-[#256439] rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-[#41ab5d]/10 text-[#41ab5d] rounded-full text-sm font-medium mb-6">
             🌿 Services
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Choose Your <span className="text-[#256439]">Health Journey</span>
+            Choose Your <span className="text-[#41ab5d]">Health Journey</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Evidence-based programs designed to address your unique health challenges through advanced functional testing and personalized nutrition protocols.
@@ -97,7 +97,7 @@ export function Services() {
               {/* Popular Badge */}
               {service.popular && (
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20">
-                  <div className="bg-[#256439] text-white px-6 py-2 rounded-full text-sm font-bold shadow-xl">
+                  <div className="bg-[#41ab5d] text-white px-6 py-2 rounded-full text-sm font-bold shadow-xl">
                     ⭐ MOST POPULAR
                   </div>
                 </div>
@@ -105,7 +105,7 @@ export function Services() {
 
               {/* Card */}
               <div className={`relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100/50 overflow-hidden ${
-                service.popular ? 'ring-2 ring-[#256439]/20' : ''
+                service.popular ? 'ring-2 ring-[#41ab5d]/20' : ''
               }`}>
                 {/* Header Section */}
                 <div className={`bg-gradient-to-br ${service.bgGradient} p-8 text-center relative`}>
@@ -133,7 +133,7 @@ export function Services() {
                     <ul className="space-y-3">
                       {service.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start">
-                          <svg className="w-5 h-5 text-[#256439] mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-5 h-5 text-[#41ab5d] mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           <span className="text-gray-700 text-sm">{feature}</span>
@@ -152,7 +152,7 @@ export function Services() {
                   <button className={`w-full py-4 px-6 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl ${
                     service.popular
                       ? `gradient-bg text-white hover:shadow-[#E88074]/25`
-                      : `border-2 border-gray-300 text-gray-700 hover:border-[#256439] hover:text-[#256439] hover:bg-[#256439]/5`
+                      : `border-2 border-gray-300 text-gray-700 hover:border-[#41ab5d] hover:text-[#41ab5d] hover:bg-[#41ab5d]/5`
                   }`}>
                     <span className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

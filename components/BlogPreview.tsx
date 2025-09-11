@@ -113,15 +113,15 @@ export function BlogPreview() {
   }, []);
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-[#256439]/10 overflow-hidden" id="blog">
+    <section className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-[#41ab5d]/10 overflow-hidden" id="blog">
       {/* Background Elements */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-bl from-[#256439]/10 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-gradient-to-tr from-[#256439]/15 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-bl from-[#41ab5d]/10 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-gradient-to-tr from-[#41ab5d]/15 to-transparent rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-[#256439]/10 text-[#256439] rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-[#41ab5d]/10 text-[#41ab5d] rounded-full text-sm font-medium mb-6">
             📚 Latest Insights
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
@@ -140,8 +140,8 @@ export function BlogPreview() {
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 selectedCategory === category
-                  ? 'bg-gradient-to-r from-[#256439] to-[#256439] text-white shadow-lg scale-105'
-                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 hover:border-[#256439]/20'
+                  ? 'bg-gradient-to-r from-[#41ab5d] to-[#41ab5d] text-white shadow-lg scale-105'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 hover:border-[#41ab5d]/20'
               }`}
             >
               {category}
@@ -152,7 +152,7 @@ export function BlogPreview() {
         {/* Featured Post */}
         {featuredPost && selectedCategory === "All" && (
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} mb-16`}>
-            <div className="bg-gradient-to-br from-[#256439] to-[#256439] rounded-3xl p-8 lg:p-12 text-white shadow-2xl">
+            <div className="bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] rounded-3xl p-8 lg:p-12 text-white shadow-2xl">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <div className="flex items-center gap-3 mb-6">
@@ -189,7 +189,7 @@ export function BlogPreview() {
                     </div>
                   </div>
 
-                  <button className="bg-white text-[#256439] px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:bg-gray-50 hover:scale-105 shadow-xl">
+                  <button className="bg-white text-[#41ab5d] px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:bg-gray-50 hover:scale-105 shadow-xl">
                     Read Full Article
                   </button>
                 </div>
@@ -222,15 +222,15 @@ export function BlogPreview() {
               {/* Header */}
               <div className="p-6 pb-4">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#256439] to-[#256439] rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                     {post.icon}
                   </div>
-                  <span className="bg-[#256439]/10 text-[#256439] px-3 py-1 rounded-full text-xs font-medium">
+                  <span className="bg-[#41ab5d]/10 text-[#41ab5d] px-3 py-1 rounded-full text-xs font-medium">
                     {post.category}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-[#256439] transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-[#41ab5d] transition-colors duration-300">
                   {post.title}
                 </h3>
 
@@ -261,7 +261,7 @@ export function BlogPreview() {
                   ))}
                 </div>
 
-                <button className="inline-flex items-center text-[#256439] font-semibold hover:text-[#1a4a2a] transition-colors duration-300 group">
+                <button className="inline-flex items-center text-[#41ab5d] font-semibold hover:text-[#1a4a2a] transition-colors duration-300 group">
                   Read Article
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -274,7 +274,7 @@ export function BlogPreview() {
 
         {/* View More Button */}
         <div className="text-center mb-16">
-          <button className="bg-gradient-to-r from-[#256439] to-[#256439] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-[#1a4a2a] hover:to-[#256439] hover:scale-105 shadow-lg hover:shadow-xl">
+          <button className="bg-gradient-to-r from-[#41ab5d] to-[#41ab5d] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-[#1a4a2a] hover:to-[#41ab5d] hover:scale-105 shadow-lg hover:shadow-xl">
             View More Articles
           </button>
         </div>
@@ -282,7 +282,7 @@ export function BlogPreview() {
         {/* Blog CTA */}
         <div className="text-center">
           <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-gray-100/50">
-            <div className="w-20 h-20 bg-gradient-to-br from-[#256439] to-[#256439] rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] rounded-2xl flex items-center justify-center mx-auto mb-6">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
@@ -296,10 +296,10 @@ export function BlogPreview() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="gradient-bg text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-[#1a4a2a] hover:to-[#256439] hover:scale-105 shadow-xl hover:shadow-2xl">
+              <button className="gradient-bg text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-[#1a4a2a] hover:to-[#41ab5d] hover:scale-105 shadow-xl hover:shadow-2xl">
                 Visit Our Blog
               </button>
-              <button className="border-2 border-[#256439] text-[#256439] px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:bg-[#256439] hover:text-white hover:scale-105">
+              <button className="border-2 border-[#41ab5d] text-[#41ab5d] px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:bg-[#41ab5d] hover:text-white hover:scale-105">
                 Subscribe to Updates
               </button>
             </div>

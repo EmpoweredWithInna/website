@@ -106,15 +106,15 @@ export function QuickTips() {
   }, [selectedCategory, filteredTips.length, activeTip]);
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-[#256439]/5 via-white to-[#256439]/10 overflow-hidden" id="tips">
+    <section className="relative py-24 bg-gradient-to-br from-[#41ab5d]/5 via-white to-[#41ab5d]/10 overflow-hidden" id="tips">
       {/* Background Elements */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-br from-[#256439]/10 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tl from-[#256439]/15 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-br from-[#41ab5d]/10 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tl from-[#41ab5d]/15 to-transparent rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-[#256439]/10 text-[#256439] rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-[#41ab5d]/10 text-[#41ab5d] rounded-full text-sm font-medium mb-6">
             💡 Science-Backed Tips
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
@@ -133,8 +133,8 @@ export function QuickTips() {
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 selectedCategory === category
-                  ? 'bg-gradient-to-r from-[#256439] to-[#256439] text-white shadow-lg scale-105'
-                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 hover:border-[#256439]/20'
+                  ? 'bg-gradient-to-r from-[#41ab5d] to-[#41ab5d] text-white shadow-lg scale-105'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 hover:border-[#41ab5d]/20'
               }`}
             >
               {category}
@@ -149,15 +149,15 @@ export function QuickTips() {
               {/* Tip Content */}
               <div className="lg:col-span-2">
                 <div className="flex items-start gap-6 mb-8">
-                  <div className="w-20 h-20 bg-gradient-to-br from-[#256439] to-[#256439] rounded-2xl flex items-center justify-center text-white shadow-xl flex-shrink-0">
+                  <div className="w-20 h-20 bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] rounded-2xl flex items-center justify-center text-white shadow-xl flex-shrink-0">
                     {filteredTips[activeTip]?.icon}
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="px-3 py-1 bg-[#256439]/10 text-[#256439] rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-[#41ab5d]/10 text-[#41ab5d] rounded-full text-sm font-medium">
                         {filteredTips[activeTip]?.category}
                       </span>
-                      <span className="px-3 py-1 bg-[#256439]/15 text-[#256439] rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-[#41ab5d]/15 text-[#41ab5d] rounded-full text-sm font-medium">
                         {filteredTips[activeTip]?.difficulty}
                       </span>
                     </div>
@@ -171,8 +171,8 @@ export function QuickTips() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-gradient-to-r from-[#256439]/5 to-[#256439]/10 rounded-2xl p-6 border border-[#256439]/10">
-                    <div className="flex items-center gap-2 text-[#256439] font-semibold mb-2">
+                  <div className="bg-gradient-to-r from-[#41ab5d]/5 to-[#41ab5d]/10 rounded-2xl p-6 border border-[#41ab5d]/10">
+                    <div className="flex items-center gap-2 text-[#41ab5d] font-semibold mb-2">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -181,8 +181,8 @@ export function QuickTips() {
                     <p className="text-gray-700">{filteredTips[activeTip]?.benefit}</p>
                   </div>
 
-                  <div className="bg-gradient-to-r from-[#256439]/10 to-[#256439]/5 rounded-2xl p-6 border border-[#256439]/15">
-                    <div className="flex items-center gap-2 text-[#256439] font-semibold mb-2">
+                  <div className="bg-gradient-to-r from-[#41ab5d]/10 to-[#41ab5d]/5 rounded-2xl p-6 border border-[#41ab5d]/15">
+                    <div className="flex items-center gap-2 text-[#41ab5d] font-semibold mb-2">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -202,7 +202,7 @@ export function QuickTips() {
                     onClick={() => setActiveTip(index)}
                     className={`w-full p-4 rounded-2xl text-left transition-all duration-300 ${
                       index === activeTip
-                        ? 'bg-gradient-to-r from-[#256439] to-[#256439] text-white shadow-lg scale-105'
+                        ? 'bg-gradient-to-r from-[#41ab5d] to-[#41ab5d] text-white shadow-lg scale-105'
                         : 'bg-gray-50 hover:bg-gray-100 text-gray-700 hover:shadow-md'
                     }`}
                   >
@@ -210,7 +210,7 @@ export function QuickTips() {
                       <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
                         index === activeTip ? 'bg-white/20' : 'bg-white'
                       }`}>
-                        <div className={`${index === activeTip ? 'text-white' : 'text-[#256439]'}`}>
+                        <div className={`${index === activeTip ? 'text-white' : 'text-[#41ab5d]'}`}>
                           {tip.icon}
                         </div>
                       </div>
@@ -235,7 +235,7 @@ export function QuickTips() {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="bg-gradient-to-br from-[#256439] to-[#256439] rounded-3xl shadow-2xl p-12 text-white text-center">
+        <div className="bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] rounded-3xl shadow-2xl p-12 text-white text-center">
           <div className="max-w-4xl mx-auto">
             <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
