@@ -105,7 +105,7 @@ export default function ChatSystem({ chatState, setChatState }: ChatSystemProps)
 
   // Call-to-action handlers
   const handleBookCall = () => {
-    window.open('https://calendly.com/inna-empowered-nutrition', '_blank');
+    window.open('https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone', '_blank');
   };
 
   const handleStayInTouch = () => {
@@ -161,6 +161,7 @@ export default function ChatSystem({ chatState, setChatState }: ChatSystemProps)
       messages: [welcomeMessage],
       currentStep: 0
     }));
+    setCurrentStep(0);
   };
 
   const addMessage = (text: string, isBot: boolean, options?: string[]) => {
@@ -288,7 +289,7 @@ export default function ChatSystem({ chatState, setChatState }: ChatSystemProps)
     } else if (currentStep === 8) { // Booking step
       if (option === "📅 Book Your Call Now") {
         // Open booking system
-        window.open('https://calendly.com/inna-nutrition', '_blank');
+        window.open('https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone', '_blank');
         return; // Don't proceed to next step
       }
     } else if (currentStep === 9) { // Email capture step
@@ -338,11 +339,13 @@ export default function ChatSystem({ chatState, setChatState }: ChatSystemProps)
     // Reset local chat state
     setChatState(prev => ({
       ...prev,
-      isOpen: false
+      isOpen: false,
+      messages: []
     }));
     setCurrentStep(0);
     setUserData({});
     setIsTyping(false);
+    setInputValue('');
   };
 
   // Cleanup effect
@@ -356,7 +359,7 @@ export default function ChatSystem({ chatState, setChatState }: ChatSystemProps)
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-end justify-end p-4">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md h-[600px] flex flex-col animate-slide-in">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[calc(100vh-2rem)] h-[600px] flex flex-col animate-slide-in">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b" style={{ borderColor: 'var(--primary-green)', background: 'linear-gradient(135deg, var(--primary-green), var(--dark-green))' }}>
           <div className="flex items-center gap-3">
@@ -399,53 +402,41 @@ export default function ChatSystem({ chatState, setChatState }: ChatSystemProps)
             </div>
           ))}
           
-          {/* Current question and options */}
-          {currentStep < CHAT_FLOW.length && (
-            <div className="space-y-3">
-              {isTyping ? (
-                <div className="flex justify-start">
-                  <div className="bg-white p-3 rounded-2xl shadow-sm" style={{ border: '1px solid var(--accent-yellow)' }}>
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-2 rounded-full animate-typing" style={{ backgroundColor: 'var(--primary-green)' }}></div>
-                      <div className="w-2 h-2 rounded-full animate-typing" style={{ backgroundColor: 'var(--primary-green)', animationDelay: '0.2s' }}></div>
-                      <div className="w-2 h-2 rounded-full animate-typing" style={{ backgroundColor: 'var(--primary-green)', animationDelay: '0.4s' }}></div>
-                    </div>
-                  </div>
+          {/* Typing indicator */}
+          {isTyping && (
+            <div className="flex justify-start">
+              <div className="bg-white p-3 rounded-2xl shadow-sm" style={{ border: '1px solid var(--accent-yellow)' }}>
+                <div className="flex space-x-1">
+                  <div className="w-2 h-2 rounded-full animate-typing" style={{ backgroundColor: 'var(--primary-green)' }}></div>
+                  <div className="w-2 h-2 rounded-full animate-typing" style={{ backgroundColor: 'var(--primary-green)', animationDelay: '0.2s' }}></div>
+                  <div className="w-2 h-2 rounded-full animate-typing" style={{ backgroundColor: 'var(--primary-green)', animationDelay: '0.4s' }}></div>
                 </div>
-              ) : (
-                <>
-                  <div className="flex justify-start">
-                    <div className="bg-white text-gray-800 p-3 rounded-2xl max-w-[80%] shadow-sm" style={{ border: '1px solid var(--accent-yellow)' }}>
-                      {interpolateMessage(CHAT_FLOW[currentStep].question, userData)}
-                    </div>
-                  </div>
-                  
-                  {/* Options */}
-                  {CHAT_FLOW[currentStep].options.length > 0 && (
-                    <div className="space-y-2">
-                      {CHAT_FLOW[currentStep].options.map((option, index) => {
-                        const isCallToAction = option.includes('📅 Book Your Call Now') || option.includes('📧 Stay in Touch');
-                        return (
-                          <button
-                            key={index}
-                            onClick={() => handleOptionClick(option, index)}
-                            className={`w-full text-left p-3 rounded-xl transition-all duration-300 text-sm font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 ${
-                              isCallToAction ? 'text-white' : 'text-gray-800'
-                            }`}
-                            style={{
-                              backgroundColor: isCallToAction ? 'var(--accent-coral)' : 'white',
-                              border: isCallToAction ? 'none' : '2px solid var(--primary-green)',
-                              background: isCallToAction ? 'linear-gradient(135deg, var(--accent-coral), var(--accent-pink))' : 'white'
-                            }}
-                          >
-                            {option}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  )}
-                </>
-              )}
+              </div>
+            </div>
+          )}
+          
+          {/* Options for the last bot message */}
+          {!isTyping && chatState.messages.length > 0 && chatState.messages[chatState.messages.length - 1].isBot && currentStep < CHAT_FLOW.length && CHAT_FLOW[currentStep].options.length > 0 && (
+            <div className="space-y-2">
+              {CHAT_FLOW[currentStep].options.map((option, index) => {
+                const isCallToAction = option.includes('📅 Book Your Call Now') || option.includes('📧 Stay in Touch');
+                return (
+                  <button
+                    key={index}
+                    onClick={() => handleOptionClick(option, index)}
+                    className={`w-full text-left p-3 rounded-xl transition-all duration-300 text-sm font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 ${
+                      isCallToAction ? 'text-white' : 'text-gray-800'
+                    }`}
+                    style={{
+                      backgroundColor: isCallToAction ? 'var(--accent-coral)' : 'white',
+                      border: isCallToAction ? 'none' : '2px solid var(--primary-green)',
+                      background: isCallToAction ? 'linear-gradient(135deg, var(--accent-coral), var(--accent-pink))' : 'white'
+                    }}
+                  >
+                    {option}
+                  </button>
+                );
+              })}
             </div>
           )}
           

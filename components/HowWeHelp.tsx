@@ -70,11 +70,11 @@ export function HowWeHelp() {
           {/* Connection Line */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-[#41ab5d]/20 transform -translate-y-1/2"></div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 items-stretch">
             {steps.map((step, index) => (
-              <div key={index} className="group relative">
+              <div key={index} className="group relative flex">
                 {/* Step Card */}
-                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100/50 group-hover:border-[#41ab5d]/20">
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100/50 group-hover:border-[#41ab5d]/20 flex flex-col w-full">
                   {/* Step Number */}
                   <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
                     <div className="w-16 h-16 bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -90,7 +90,7 @@ export function HowWeHelp() {
                   </div>
 
                   {/* Content */}
-                  <div className="text-center">
+                  <div className="text-center flex-grow">
                     <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#41ab5d] transition-colors duration-300">
                       {step.title}
                     </h3>

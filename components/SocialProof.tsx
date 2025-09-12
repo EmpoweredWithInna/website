@@ -43,7 +43,6 @@ export function SocialProof() {
   const certifications = [
     { name: 'FDN-P Certified', badge: 'Functional Diagnostic Nutrition' },
     { name: 'HIPAA Compliant', badge: 'Privacy & Security' },
-    { name: 'BBB Accredited', badge: 'Business Excellence' },
     { name: 'Functional Medicine', badge: 'Root-Cause Approach' }
   ];
 
@@ -89,7 +88,7 @@ export function SocialProof() {
             <p className="text-gray-600">Recognized excellence in functional nutrition and healthcare</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
               <div key={index} className="group text-center">
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 hover:from-emerald-100 hover:to-teal-100 transition-all duration-300 border border-emerald-200/50">

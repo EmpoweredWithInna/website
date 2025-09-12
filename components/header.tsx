@@ -21,49 +21,49 @@ export function Header() {
         ? 'bg-white/95 backdrop-blur-lg shadow-xl border-b border-gray-100' 
         : 'bg-transparent'
     }`}>
-      <nav className="flex justify-between items-center py-4 lg:py-6 max-w-7xl mx-auto px-6">
+      <nav className="flex justify-between items-center py-2 lg:py-2 max-w-7xl mx-auto px-6">
         <div className="flex items-center">
           <Image
             src="/Empowered_SQ_logo.png"
             alt="Empowered Nutrition"
             width={180}
             height={60}
-            className="h-12 lg:h-14 w-auto transition-all duration-300"
+            className="h-12 lg:h-20 w-auto transition-all duration-300"
           />
         </div>
         
         <ul className="hidden lg:flex items-center gap-8 xl:gap-12">
           <li>
             <a href="#services" className={`font-medium transition-all duration-300 hover:scale-105 ${
-              isScrolled ? 'text-gray-700 hover:text-emerald-600' : 'text-white/90 hover:text-emerald-300'
+              isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
             }`}>
               Services
             </a>
           </li>
           <li>
             <a href="#about" className={`font-medium transition-all duration-300 hover:scale-105 ${
-              isScrolled ? 'text-gray-700 hover:text-emerald-600' : 'text-white/90 hover:text-emerald-300'
+              isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
             }`}>
               About
             </a>
           </li>
           <li>
             <a href="#testimonials" className={`font-medium transition-all duration-300 hover:scale-105 ${
-              isScrolled ? 'text-gray-700 hover:text-emerald-600' : 'text-white/90 hover:text-emerald-300'
+              isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
             }`}>
               Success Stories
             </a>
           </li>
           <li>
             <a href="#resources" className={`font-medium transition-all duration-300 hover:scale-105 ${
-              isScrolled ? 'text-gray-700 hover:text-emerald-600' : 'text-white/90 hover:text-emerald-300'
+              isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
             }`}>
               Resources
             </a>
           </li>
           <li>
             <a href="#faq" className={`font-medium transition-all duration-300 hover:scale-105 ${
-              isScrolled ? 'text-gray-700 hover:text-emerald-600' : 'text-white/90 hover:text-emerald-300'
+              isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
             }`}>
               FAQ
             </a>
@@ -107,7 +107,7 @@ export function Header() {
             <li>
               <a 
                 href="#services" 
-                className="block text-lg font-medium text-gray-700 hover:text-emerald-600 transition-colors py-2"
+                className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
@@ -116,7 +116,7 @@ export function Header() {
             <li>
               <a 
                 href="#about" 
-                className="block text-lg font-medium text-gray-700 hover:text-emerald-600 transition-colors py-2"
+                className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
@@ -125,7 +125,7 @@ export function Header() {
             <li>
               <a 
                 href="#testimonials" 
-                className="block text-lg font-medium text-gray-700 hover:text-emerald-600 transition-colors py-2"
+                className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Success Stories
@@ -134,7 +134,7 @@ export function Header() {
             <li>
               <a 
                 href="#resources" 
-                className="block text-lg font-medium text-gray-700 hover:text-emerald-600 transition-colors py-2"
+                className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Resources
@@ -143,7 +143,7 @@ export function Header() {
             <li>
               <a 
                 href="#faq" 
-                className="block text-lg font-medium text-gray-700 hover:text-emerald-600 transition-colors py-2"
+                className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 FAQ
@@ -151,7 +151,7 @@ export function Header() {
             </li>
             <li className="pt-4">
               <button 
-                className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:from-emerald-400 hover:to-teal-400 hover:shadow-xl flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
