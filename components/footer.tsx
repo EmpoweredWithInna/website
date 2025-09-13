@@ -171,7 +171,7 @@ export function Footer() {
                   alt="Empowered Nutrition"
                   width={200}
                   height={60}
-                  className="h-12 w-auto"
+                  className="h-12 lg:h-24 w-auto"
                 />
               </div>
               <p className="text-gray-600 leading-relaxed text-lg mb-8">

@@ -28,7 +28,7 @@ export function Header() {
             alt="Empowered Nutrition"
             width={180}
             height={60}
-            className="h-12 lg:h-20 w-auto transition-all duration-300"
+            className="h-12 lg:h-24 w-auto transition-all duration-300"
           />
         </div>
         

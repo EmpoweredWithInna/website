@@ -41,7 +41,7 @@ export function BackToTop() {
         <div className="fixed bottom-8 left-8 z-40">
           <button
             onClick={scrollToTop}
-            className="group relative w-14 h-14 bg-gradient-to-r from-green-700 to-emerald-700 text-white rounded-2xl shadow-2xl hover:from-green-600 hover:to-emerald-600 transition-all duration-300 hover:scale-110 hover:-translate-y-1 flex items-center justify-center"
+            className="group relative w-14 h-14 bg-primary text-white rounded-2xl shadow-2xl hover:from-green-600 hover:to-emerald-600 transition-all duration-300 hover:scale-110 hover:-translate-y-1 flex items-center justify-center"
             aria-label="Back to top"
           >
             {/* Progress ring */}
