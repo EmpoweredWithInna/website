@@ -28,7 +28,7 @@ export function MyStory() {
               {/* Main Image Container */}
               <div className="relative bg-[#41ab5d]/5 rounded-3xl p-8 shadow-2xl">
                 <img
-                  src="/Inna.jpg"
+                  src="/Inna_image_standing.png"
                   alt="Inna Topiler, Functional Nutritionist"
                   width={400}
                   height={500}
@@ -48,7 +48,7 @@ export function MyStory() {
               </div>
 
               {/* Background Glow */}
-              <div className="absolute -inset-4 bg-[#41ab5d] rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="absolute -inset-4 bg-[#41ab5d] rounded-3xl blur-2xl opacity-10 group-hover:opacity-15 transition-opacity duration-500 -z-10"></div>
             </div>
           </div>
 
@@ -61,10 +61,6 @@ export function MyStory() {
 
               <p className="text-lg">
                 My journey into functional nutrition wasn't planned—it was born out of desperation. After years of debilitating fatigue, digestive issues, and hormonal chaos, I'd seen countless doctors who told me my labs were "normal" and my symptoms were "just stress."
-              </p>
-
-              <p className="text-lg">
-                Everything changed when I discovered functional testing. For the first time, I had real answers. HTMA revealed severe mineral imbalances. GI-MAP showed hidden infections. DUTCH testing uncovered hormone disruption that standard labs had missed completely.
               </p>
 
               <p className="text-lg">

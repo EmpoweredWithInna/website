@@ -77,7 +77,7 @@ export function Hero() {
           <div className="space-y-8">
             <div className="space-y-6">
               <div className="inline-flex items-center px-4 py-2 bg-[#238b45]/10 border border-[#238b45]/20 rounded-full backdrop-blur-sm">
-                <span className="highlighted-symptom text-md font-medium">✨ Functional Nutrition Specialist</span>
+                <span className="highlighted-symptom text-md font-medium">✨ Certified nutritional Therapy practitioner</span>
               </div>
 
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">

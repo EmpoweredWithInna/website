@@ -37,16 +37,16 @@ export function Testimonials() {
       rating: 5
     },
     {
-      name: "Maria R.",
-      location: "Houston, TX",
-      condition: "Anxiety & Sleep Issues", 
-      quote: "I was skeptical about functional testing, but the HTMA revealed mineral imbalances that were contributing to my anxiety and insomnia. Following Inna's protocol, I'm sleeping through the night and feel calm for the first time in years.",
-      result: "Eliminated anxiety & insomnia",
+      name: "Emily T.",
+      location: "San Antonio, TX",
+      condition: "Digestive & Energy Issues", 
+      quote: "After years of feeling exhausted and dealing with constant bloating, Inna's comprehensive approach helped identify the root causes of my symptoms. Her personalized protocol transformed my gut health and energy levels completely.",
+      result: "Restored digestion and energy",
       beforeAfter: {
-        before: "Waking up 3-4x nightly, constant worry, panic attacks",
-        after: "8 hours uninterrupted sleep, calm confidence, no anxiety"
+        before: "Chronic bloating, low energy, sugar cravings",
+        after: "Comfortable digestion, stable energy, no cravings"
       },
-      timeline: "3 months",
+      timeline: "5 months",
       rating: 5
     }
   ];

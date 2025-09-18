@@ -9,7 +9,7 @@ export function FAQ() {
   const faqs = [
     {
       question: "What is functional testing and how is it different from regular lab work?",
-      answer: "Functional testing looks at optimal ranges and patterns rather than just 'normal' vs 'abnormal.' Tests like HTMA, GI-MAP, and DUTCH provide insights into mineral imbalances, gut health, and hormone metabolism that standard blood work often misses. We're looking for the root causes of your symptoms, not just ruling out disease.",
+      answer: "Functional testing looks at optimal ranges and patterns rather than just 'normal' vs 'abnormal.' Tests like GI-MAP, and DUTCH provide insights into mineral imbalances, gut health, and hormone metabolism that standard blood work often misses. We're looking for the root causes of your symptoms, not just ruling out disease.",
       category: "Testing",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

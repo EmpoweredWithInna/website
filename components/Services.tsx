@@ -43,24 +43,25 @@ export function Services() {
       bgGradient: "from-[#41ab5d]/5 to-[#41ab5d]/10"
     },
     {
-      title: "Corporate Wellness",
-      subtitle: "Workplace Health & Wellness Programs",
-      description: "Workplace wellness programs focusing on gut health, stress management, and energy optimization for employee wellbeing.",
+      title: "Group Program – RESTART® Sugar Detox",
+      subtitle: "Reset Your Relationship with Sugar",
+      description: "A guided 5-week small-group program designed to help you eliminate sugar cravings, balance energy, and create sustainable eating habits. Enjoy community support and expert coaching while you learn how food impacts your body and mood.",
       features: [
-        "Group workshops & seminars",
-        "Lunch & learn sessions",
-        "Wellness challenges",
-        "Employee health assessments",
-        "Ongoing program support"
+        "Weekly group coaching sessions",
+        "Educational modules on nutrition and sugar's effects",
+        "Whole-food meal guidance",
+        "Accountability and community support",
+        "Recipes and shopping lists included"
       ],
-      perfectFor: "Companies looking to improve employee health and productivity",
+      perfectFor: "Individuals looking to kickstart their health journey in a supportive, group setting.",
       icon: (
         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
       gradient: "from-[#41ab5d] to-[#41ab5d]",
-      bgGradient: "from-[#41ab5d]/5 to-[#41ab5d]/10"
+      bgGradient: "from-[#41ab5d]/5 to-[#41ab5d]/10",
+      cta: "Join the Next Group"
     }
   ];
 
