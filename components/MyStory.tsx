@@ -56,20 +56,16 @@ export function MyStory() {
           <div className="order-1 lg:order-2">
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p className="text-xl font-medium text-gray-900">
-                <span className="text-[#41ab5d] font-bold">Hi, I'm Inna,</span> and I know exactly what it feels like to have your symptoms dismissed, your concerns minimized, and your hope slowly fading.
+                <span className="text-[#41ab5d] font-bold">Our journey began when my daughter Nicole was 11 and complained her heart hurt.</span> Specialists found nothing, but by 14, she battled depression, and was placed on psychiatric medications—nine in one year—with no relief. At 15 AND 16, she attempted suicide. We felt hopeless and helpless until a functional medicine doctor in Austin identified the real issues: chronic Lyme and mold illness causing brain inflammation.
               </p>
 
               <p className="text-lg">
-                My journey into functional nutrition wasn't planned—it was born out of desperation. After years of debilitating fatigue, digestive issues, and hormonal chaos, I'd seen countless doctors who told me my labs were "normal" and my symptoms were "just stress."
-              </p>
-
-              <p className="text-lg">
-                Within months of addressing these root causes, I felt like myself again. The transformation was so profound that I knew I had to dedicate my life to helping other women experience the same breakthrough.
+                Through targeted protocols, Nicole regained her health and is now thriving, studying psychology to help others. Along the way, I realized I had to care for myself too, which led me to nutrition school. That knowledge allowed me to advocate for Nicole and opened my eyes to how lifestyle and nutrition shape health.
               </p>
 
               <div className="bg-[#41ab5d]/5 rounded-2xl p-6 border border-[#41ab5d]/10">
                 <p className="text-lg font-medium text-[#41ab5d]">
-                  "I don't just treat symptoms—I uncover the hidden imbalances that create them. Because you deserve answers, not band-aids."
+                  "Today, I empower women in their 40s–60s who struggle with fatigue, gut issues, brain fog, and low confidence, guiding them with root-cause testing and personalized nutrition so they can reclaim energy, clarity, and vibrant living."
                 </p>
               </div>
             </div>
