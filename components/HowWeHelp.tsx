@@ -1,5 +1,7 @@
 'use client';
 
+import Link from "next/link";
+
 export function HowWeHelp() {
   const steps = [
     {
@@ -13,7 +15,7 @@ export function HowWeHelp() {
       )
     },
     {
-      number: "02", 
+      number: "02",
       title: "Advanced Functional Testing",
       description: "Cutting-edge lab work: GI-MAP, DUTCH hormones, organic acids, and comprehensive nutrient panels to reveal hidden imbalances.",
       icon: (
@@ -49,7 +51,7 @@ export function HowWeHelp() {
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#41ab5d]/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#41ab5d]/5 rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
@@ -60,7 +62,7 @@ export function HowWeHelp() {
             How We <span className="text-[#41ab5d]">Transform</span> Your Health
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Our scientifically-backed 4-phase methodology combines advanced functional testing with precision nutrition 
+            Our scientifically-backed 4-phase methodology combines advanced functional testing with precision nutrition
             to identify and address the root causes of your symptoms—not just mask them.
           </p>
         </div>
@@ -69,7 +71,7 @@ export function HowWeHelp() {
         <div className="relative">
           {/* Connection Line */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-[#41ab5d]/20 transform -translate-y-1/2"></div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 items-stretch">
             {steps.map((step, index) => (
               <div key={index} className="group relative flex">
@@ -117,7 +119,7 @@ export function HowWeHelp() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full blur-3xl"></div>
           </div>
-          
+
           <div className="relative z-10 text-center">
             <h3 className="text-3xl font-bold mb-6">
               What You Can Expect
@@ -136,14 +138,16 @@ export function HowWeHelp() {
                 <div className="text-white/80">Sustained health transformation</div>
               </div>
             </div>
-            <button className="group gradient-bg text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
-              <span className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
-                Start Your Transformation Today
-              </span>
-            </button>
+            <Link target="_blank" href="https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone">
+              <button className="group gradient-bg text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
+                <span className="flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                  Start Your Transformation Today
+                </span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

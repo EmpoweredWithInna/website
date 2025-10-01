@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,55 +17,56 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-500 ${
-      isScrolled 
-        ? 'bg-white/95 backdrop-blur-lg shadow-xl border-b border-gray-100' 
-        : 'bg-transparent'
-    }`}>
+    <header className={`fixed w-full top-0 z-50 transition-all duration-500 ${isScrolled
+      ? 'bg-white/95 backdrop-blur-lg shadow-xl border-b border-gray-100'
+      : 'bg-transparent'
+      }`}>
       <nav className="flex justify-between items-center py-2 lg:py-2 max-w-7xl mx-auto px-6">
         <div className="flex items-center">
-          <Image
-            src="/Empowered_SQ_logo.png"
-            alt="Empowered Nutrition"
-            width={180}
-            height={60}
-            className="h-12 lg:h-24 aspect-square transition-all duration-300"
-          />
+          <Link
+            href="/"
+            aria-label="Empowered Nutrition - Return to homepage"
+            className="group"
+          >
+            <Image
+              src="/Empowered_SQ_logo.png"
+              width={120}
+              height={40}
+              alt="Empowered Nutrition"
+              priority
+              className="transition-opacity duration-300 group-hover:opacity-80"
+            />
+          </Link>
         </div>
-        
+
         <ul className="hidden lg:flex items-center gap-8 xl:gap-12">
           <li>
-            <a href="#services" className={`font-medium transition-all duration-300 hover:scale-105 ${
-              isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
-            }`}>
+            <a href="#services" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
+              }`}>
               Services
             </a>
           </li>
           <li>
-            <a href="#about" className={`font-medium transition-all duration-300 hover:scale-105 ${
-              isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
-            }`}>
+            <a href="#about" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
+              }`}>
               About
             </a>
           </li>
           <li>
-            <a href="#testimonials" className={`font-medium transition-all duration-300 hover:scale-105 ${
-              isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
-            }`}>
+            <a href="#testimonials" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
+              }`}>
               Success Stories
             </a>
           </li>
           <li>
-            <a href="#resources" className={`font-medium transition-all duration-300 hover:scale-105 ${
-              isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
-            }`}>
+            <a href="#resources" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
+              }`}>
               Resources
             </a>
           </li>
           <li>
-            <a href="#faq" className={`font-medium transition-all duration-300 hover:scale-105 ${
-              isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
-            }`}>
+            <a href="#faq" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
+              }`}>
               FAQ
             </a>
           </li>
@@ -80,11 +82,10 @@ export function Header() {
             </button>
           </li>
         </ul>
-        
+
         <button
-          className={`lg:hidden p-2 rounded-lg transition-all duration-300 ${
-            isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
-          }`}
+          className={`lg:hidden p-2 rounded-lg transition-all duration-300 ${isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+            }`}
           aria-label="Toggle mobile menu"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
@@ -97,16 +98,15 @@ export function Header() {
           </svg>
         </button>
       </nav>
-      
+
       {/* Mobile Navigation */}
-      <div className={`lg:hidden fixed inset-x-0 top-full bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-2xl transition-all duration-500 ${
-        isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
-      }`}>
+      <div className={`lg:hidden fixed inset-x-0 top-full bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-2xl transition-all duration-500 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
+        }`}>
         <div className="max-w-7xl mx-auto px-6 py-8">
           <ul className="space-y-6">
             <li>
-              <a 
-                href="#services" 
+              <a
+                href="#services"
                 className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -114,8 +114,8 @@ export function Header() {
               </a>
             </li>
             <li>
-              <a 
-                href="#about" 
+              <a
+                href="#about"
                 className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -123,8 +123,8 @@ export function Header() {
               </a>
             </li>
             <li>
-              <a 
-                href="#testimonials" 
+              <a
+                href="#testimonials"
                 className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -132,8 +132,8 @@ export function Header() {
               </a>
             </li>
             <li>
-              <a 
-                href="#resources" 
+              <a
+                href="#resources"
                 className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -141,8 +141,8 @@ export function Header() {
               </a>
             </li>
             <li>
-              <a 
-                href="#faq" 
+              <a
+                href="#faq"
                 className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -150,7 +150,7 @@ export function Header() {
               </a>
             </li>
             <li className="pt-4">
-              <button 
+              <button
                 className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2"
                 onClick={() => setIsMenuOpen(false)}
               >

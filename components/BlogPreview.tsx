@@ -1,6 +1,9 @@
 'use client';
 
+'use client';
+
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export function BlogPreview() {
   const [isVisible, setIsVisible] = useState(false);
@@ -8,14 +11,15 @@ export function BlogPreview() {
 
   const blogPosts = [
     {
-      title: "5 Signs Your Gut Health is Affecting Your Mood",
-      excerpt: "Discover the gut-brain connection and how digestive issues might be the root cause of anxiety, depression, and mood swings.",
-      date: "March 15, 2024",
+      title: "The Gut-Brain Connection: Why Your Anxiety Might Start in Your Stomach",
+      excerpt: "Explore the science behind the gut-brain axis and how it influences anxiety and digestion. Discover actionable strategies for balance.",
+      date: "January 15, 2025",
       readTime: "8 min read",
       category: "Gut Health",
-      tags: ["Gut-Brain Axis", "Mental Health", "Microbiome"],
+      tags: ["Anxiety", "Microbiome", "Gut Health"],
       featured: true,
-      slug: "gut-health-mood-connection",
+      url: "/blogs/gut-brain-connection",
+      slug: "gut-brain-connection",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -23,62 +27,50 @@ export function BlogPreview() {
       )
     },
     {
-      title: "The Hidden Hormone Disruptors in Your Home",
-      excerpt: "Identify common household products that could be sabotaging your hormonal balance and simple swaps to make today.",
-      date: "February 28, 2024",
-      readTime: "6 min read", 
+      title: "Perimenopause and Gut Health: What Most Doctors Overlook",
+      excerpt: "Explore the vital connection between perimenopause, estrogen, and your gut microbiome. Learn how gut imbalances fuel symptoms.",
+      date: "January 12, 2025",
+      readTime: "7 min read",
       category: "Hormones",
-      tags: ["Endocrine Disruptors", "Toxins", "Home Health"],
+      url: "/blogs/perimenopause-gut-health",
+      tags: ["Perimenopause", "Estrogen", "Microbiome"],
       featured: false,
-      slug: "hormone-disruptors-home",
+      slug: "perimenopause-gut-health",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2v0" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
         </svg>
       )
     },
     {
-      title: "Why Your Standard Blood Work Isn't Telling the Whole Story",
-      excerpt: "Understanding the limitations of conventional lab testing and why functional ranges reveal more about your health.",
-      date: "February 20, 2024",
-      readTime: "10 min read",
-      category: "Testing",
-      tags: ["Lab Testing", "Functional Ranges", "Biomarkers"],
+      title: "Root-Cause Nutrition vs. Quick Fixes: Why Personalization Matters",
+      excerpt: "Discover why personalized nutrition strategies lead to better, more sustainable changes than generic advice.",
+      date: "July 10, 2025",
+      readTime: "6 min read",
+      url: "/blogs/root-cause-nutrition",
+      category: "Nutrition",
+      tags: ["Personalized Nutrition", "Testing", "Functional Medicine"],
       featured: false,
-      slug: "standard-blood-work-limitations",
+      slug: "root-cause-nutrition",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       )
     },
     {
-      title: "Healing Your Metabolism After Years of Dieting",
-      excerpt: "Learn how chronic dieting damages your metabolic rate and the functional nutrition approach to restoration.",
-      date: "February 12, 2024",
-      readTime: "14 min read",
-      category: "Metabolism",
-      tags: ["Metabolic Health", "Diet Recovery", "Thyroid"],
-      featured: true,
-      slug: "healing-metabolism-after-dieting",
+      title: "The Hidden Link Between Stress & Gut Issues (Polyvagal Theory Explained)",
+      excerpt: "Explore the science behind stress and gut health through Polyvagal Theory. Learn tools to restore balance and heal your nervous system.",
+      date: "August 8, 2025",
+      readTime: "9 min read",
+      url: "/blogs/stress-gut-polyvagal",
+      category: "Gut Health",
+      tags: ["Stress", "Polyvagal Theory", "Gut Barrier"],
+      featured: false,
+      slug: "stress-gut-polyvagal",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      )
-    },
-    {
-      title: "The Complete Guide to Supporting Your Adrenals Naturally",
-      excerpt: "Practical strategies to heal adrenal fatigue through nutrition, lifestyle changes, and targeted supplementation.",
-      date: "February 5, 2024",
-      readTime: "11 min read",
-      category: "Hormones",
-      tags: ["Adrenal Health", "Stress Management", "HPA Axis"],
-      featured: false,
-      slug: "supporting-adrenals-naturally",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
         </svg>
       )
     }
@@ -174,9 +166,9 @@ export function BlogPreview() {
                     </div>
                   </div>
 
-                  <button className="bg-white text-[#41ab5d] px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:bg-gray-50 hover:scale-105 shadow-xl">
+                  <Link target="_blank" href={featuredPost.url} className="bg-white text-[#41ab5d] px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:bg-gray-50 hover:scale-105 shadow-xl">
                     Read Full Article
-                  </button>
+                  </Link>
                 </div>
 
                 <div className="relative">
@@ -246,12 +238,12 @@ export function BlogPreview() {
                   ))}
                 </div>
 
-                <button className="inline-flex items-center text-[#41ab5d] font-semibold hover:text-[#1a4a2a] transition-colors duration-300 group">
+                <Link target="_blank" href={post.url} className="inline-flex items-center text-[#41ab5d] font-semibold hover:text-[#1a4a2a] transition-colors duration-300 group">
                   Read Article
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </button>
+                </Link>
               </div>
             </article>
           ))}
