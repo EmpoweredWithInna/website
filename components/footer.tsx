@@ -190,8 +190,8 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Email us</p>
-                  <a href="mailto:hello@empowerednutrition.com" className="text-gray-900 hover:text-green-600 transition-colors font-medium">
-                    hello@empowerednutrition.com
+                  <a href="mailto:healthy@empoweredwithinna.com" className="text-gray-900 hover:text-green-600 transition-colors font-medium">
+                  healthy@empoweredwithinna.com
                   </a>
                 </div>
               </div>
@@ -205,7 +205,7 @@ export function Footer() {
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Call us</p>
                   <a href="tel:555-123-4567" className="text-gray-900 hover:text-green-600 transition-colors font-medium">
-                    (555) 123-4567
+                    (312) 404-4675
                   </a>
                 </div>
               </div>
