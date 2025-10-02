@@ -166,7 +166,7 @@ export function Hero() {
               {/* Certification badges */}
               <div className="flex justify-center gap-4 mt-8">
                 <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/70">
-                  <span className="text-primary text-sm font-medium">FDN-P Certified</span>
+                  <span className="text-primary text-sm font-medium">NTP Certified</span>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/70">
                   <span className="text-primary text-sm font-medium">10+ Years Experience</span>
