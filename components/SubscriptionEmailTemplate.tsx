@@ -5,6 +5,16 @@ interface SubscriptionEmailTemplateProps {
 }
 
 export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps> = ({ email }) => {
+  const currentDate = new Date().toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  });
+
   return (
     <html>
       <head>
@@ -25,6 +35,7 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
             line-height: 1.6;
             color: #2c3e50;
             background-color: #f8f9fa;
+            padding: 20px;
           }
           
           .container {
@@ -194,6 +205,29 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
             margin-top: 5px;
           }
           
+          .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+          }
+          
+          .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border: 2px solid #f1f3f4;
+            border-radius: 12px;
+          }
+          
+          .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #256439;
+            display: block;
+          }
+          
           .footer {
             background: #f8f9fa;
             padding: 30px;
@@ -232,6 +266,28 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
             border-radius: 1px;
           }
           
+          .pro-tip {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #c3e6c3;
+            margin-top: 30px;
+          }
+          
+          .pro-tip h3 {
+            color: #256439;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 600;
+          }
+          
+          .pro-tip p {
+            color: #2c3e50;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.5;
+          }
+          
           @media (max-width: 600px) {
             .container {
               margin: 10px;
@@ -249,12 +305,11 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
             .stats-grid {
               grid-template-columns: 1fr;
             }
-          }
+          }  
         `}</style>
       </head>
       <body>
         <div className="container">
-          {/* Header */}
           <div className="header">
             <div className="logo">Empowered Nutrition</div>
             <div className="tagline">with Inna</div>
@@ -316,33 +371,15 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
                 This subscriber will automatically receive your next newsletter. 
                 Consider sending a welcome email or adding them to your CRM system.
               </p>
-              <a href="mailto:{email}" className="cta-button">
+              <a href={`mailto:${email}`} className="cta-button">
                 Send Welcome Email
               </a>
             </div>
 
             {/* Additional Info */}
-            <div style={{
-              background: '#e8f5e8',
-              padding: '20px',
-              borderRadius: '8px',
-              border: '1px solid #c3e6c3',
-              marginTop: '30px'
-            }}>
-              <h3 style={{
-                color: '#256439',
-                marginBottom: '10px',
-                fontSize: '18px',
-                fontWeight: '600'
-              }}>
-                💡 Pro Tip
-              </h3>
-              <p style={{
-                color: '#2c3e50',
-                fontSize: '14px',
-                margin: '0',
-                lineHeight: '1.5'
-              }}>
+            <div className="pro-tip">
+              <h3>💡 Pro Tip</h3>
+              <p>
                 New subscribers are most engaged in their first 48 hours. Consider sending a 
                 personalized welcome sequence or your most popular content to make a great first impression!
               </p>
