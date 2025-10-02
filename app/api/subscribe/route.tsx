@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 import { render } from '@react-email/render';
 import { SubscriptionEmailTemplate } from '../../../components/SubscriptionEmailTemplate';
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 const TO_EMAIL = 'healthy@empoweredwithinna.com';
 const FROM_EMAIL = 'Empowered Nutrition Newsletter <onboarding@resend.dev>'; // This must be a verified domain on Resend
 
