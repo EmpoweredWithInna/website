@@ -12,6 +12,8 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState('');
 
   const leadMagnets = [
     {
@@ -25,7 +27,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
       ),
       benefits: [
         "7-day step-by-step gut-friendly meal plan",
-        "Recipes packed with prebiotics, probiotics & brain-supporting nutrients", 
+        "Recipes packed with prebiotics, probiotics & brain-supporting nutrients",
         "Easy shopping list for stress-free prep",
         "Tips to boost mood and energy naturally",
         "Bonus: Quick lifestyle hacks for better digestion"
@@ -34,18 +36,42 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    
-    // Trigger the download immediately after form submission
-    downloadMealPlanGuide();
-    
-    setTimeout(() => {
-      setIsOpen(false);
-      setIsSubmitted(false);
-      setEmail('');
-    }, 3000);
+    setIsSubmitting(true);
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        downloadMealPlanGuide();
+        setMessage('Success! Your download is starting.');
+        setTimeout(() => {
+          setIsOpen(false);
+          // Reset for next time
+          setTimeout(() => {
+            setIsSubmitted(false);
+            setMessage('');
+          }, 500);
+        }, 4000);
+      } else {
+        setMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setMessage('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -54,12 +80,11 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
     }
   }, [isOpen]);
 
-  // Auto-open popup when component mounts if autoOpen is true
   useEffect(() => {
     if (autoOpen) {
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 15000); // Show popup after 15 seconds
+      }, 15000);
       
       return () => clearTimeout(timer);
     }
@@ -67,13 +92,11 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
 
   return (
     <>
-      {/* Modal Overlay - No trigger button needed for auto-popup */}
       {isOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className={`bg-white shadow-2xl max-w-4xl w-full max-h-[95vh] relative transition-all duration-500 ${
             isVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-8'
           }`}>
-            {/* Close Button - Fixed outside scrollable area */}
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-20 group"
@@ -86,8 +109,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
             <div className="max-h-[95vh] overflow-y-auto">
               {!isSubmitted ? (
                 <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
-                  {/* Left Side - Visual/Benefits */}
-                  <div className="bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] p-8 lg:p-12 text-white ">
+                  <div className="bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] p-8 lg:p-12 text-white">
                     <div className="h-full flex flex-col justify-center">
                       <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
                         {leadMagnets[0].icon}
@@ -125,7 +147,6 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
                     </div>
                   </div>
 
-                  {/* Right Side - Form */}
                   <div className="p-8 lg:p-12 flex flex-col justify-center rounded-r-3xl lg:rounded-l-none rounded-b-3xl lg:rounded-b-3xl bg-white">
                     <div className="text-center mb-8">
                       <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -136,7 +157,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
                       </p>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                           Email Address *
@@ -148,21 +169,25 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
                           onChange={(e) => setEmail(e.target.value)}
                           required
                           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#41ab5d] focus:border-transparent transition-all duration-200 text-gray-900"
-                          placeholder="Enter your email address"
+                          placeholder="Enter your email..."
                         />
                       </div>
-
-                      <button
-                        type="submit"
-                        className="w-full bg-gradient-to-r from-[#41ab5d] to-[#41ab5d] text-white py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:from-[#1a7a39] hover:to-[#41ab5d] hover:scale-105 shadow-lg hover:shadow-xl"
+                      <button 
+                        type="submit" 
+                        className="w-full bg-gradient-to-r from-[#E88074] to-[#FCAF15] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl disabled:opacity-70 disabled:cursor-not-allowed"
+                        disabled={isSubmitting}
                       >
-                        Send Me The Free Guide
+                        {isSubmitting ? 'Submitting...' : 'Download My Free Guide'}
                       </button>
-
-                      <p className="text-xs text-gray-500 text-center mt-4">
-                        🔒 Your privacy is protected. No spam, ever. Unsubscribe anytime.
-                      </p>
                     </form>
+                    {message && (
+                      <div className={`mt-4 p-3 rounded-lg text-sm text-center ${message.includes('Success') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                        {message}
+                      </div>
+                    )}
+                    <p className="text-xs text-gray-500 text-center mt-4">
+                      🔒 Your privacy is protected. No spam, ever. Unsubscribe anytime.
+                    </p>
                   </div>
                 </div>
               ) : (
