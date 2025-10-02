@@ -7,6 +7,8 @@ import Image from 'next/image';
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState('');
 
   const quickLinks = [
     {
@@ -138,10 +140,33 @@ export function Footer() {
     }
   ];
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Newsletter signup:', email);
-    setEmail('');
+    setIsSubmitting(true);
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage(data.message);
+        setEmail('');
+      } else {
+        setMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setMessage('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -300,14 +325,26 @@ export function Footer() {
                 placeholder="Enter your email address"
                 className="flex-1 px-6 py-4 rounded-2xl bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all duration-300"
                 required
+                disabled={isSubmitting}
               />
               <button
                 type="submit"
-                className="bg-primary text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:from-green-500 hover:to-emerald-500 hover:scale-105 shadow-lg hover:shadow-xl whitespace-nowrap"
+                disabled={isSubmitting}
+                className="bg-primary text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:from-green-500 hover:to-emerald-500 hover:scale-105 shadow-lg hover:shadow-xl whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                Subscribe Now
+                {isSubmitting ? 'Subscribing...' : 'Subscribe Now'}
               </button>
             </form>
+
+            {message && (
+              <div className={`mt-4 p-3 rounded-lg text-sm ${
+                message.includes('Thank you') 
+                  ? 'bg-green-100 text-green-700 border border-green-200' 
+                  : 'bg-red-100 text-red-700 border border-red-200'
+              }`}>
+                {message}
+              </div>
+            )}
 
             <p className="text-sm text-gray-500 mt-4">
               🔒 We respect your privacy. Unsubscribe at any time.

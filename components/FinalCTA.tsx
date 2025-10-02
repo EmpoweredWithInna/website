@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { downloadMealPlanGuide } from '../utils/downloadUtils';
 
 export function FinalCTA() {
@@ -108,14 +109,14 @@ export function FinalCTA() {
             </div>
 
             <div className="flex flex-col lg:flex-row gap-6 justify-center items-center mb-8">
-              <button className="group bg-primary text-white px-12 py-5 rounded-2xl font-bold text-xl transition-all duration-300 hover:bg-primary/90 hover:scale-105 shadow-2xl hover:shadow-primary/25">
+              <Link href="https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone" className="group bg-primary text-white px-12 py-5 rounded-2xl font-bold text-xl transition-all duration-300 hover:bg-primary/90 hover:scale-105 shadow-2xl hover:shadow-primary/25">
                 <span className="flex items-center">
                   <svg className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                   Schedule Free Discovery Call
                 </span>
-              </button>
+              </Link>
 
               <button
                 onClick={downloadMealPlanGuide}

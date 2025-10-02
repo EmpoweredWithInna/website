@@ -4,6 +4,8 @@ import GutBrainConnection from '../../../components/blogs/gut-brain-connection';
 import PerimenopauseGutHealth from '../../../components/blogs/perimenopause-gut-health';
 import RootCauseNutritionPage from '../../../components/blogs/root-cause-nutrition';
 import StressGutPolyvagalPage from '../../../components/blogs/stress-gut-polyvagal';
+import HealthcareFailsWomen from '../../../components/blogs/healthcare-fails-women';
+import CorporateWellness from '../../../components/blogs/corporate-wellness';
 
 // Map slugs to their corresponding components
 const blogComponents = {
@@ -11,6 +13,8 @@ const blogComponents = {
   'perimenopause-gut-health': PerimenopauseGutHealth,
   'root-cause-nutrition': RootCauseNutritionPage,
   'stress-gut-polyvagal': StressGutPolyvagalPage,
+  'healthcare-fails-women': HealthcareFailsWomen,
+  'corporate-wellness': CorporateWellness,
 };
 
 // This component dynamically renders a blog post based on the slug

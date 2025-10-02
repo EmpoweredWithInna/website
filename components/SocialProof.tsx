@@ -41,7 +41,7 @@ export function SocialProof() {
   ];
 
   const certifications = [
-    { name: 'FDN-P Certified', badge: 'Functional Diagnostic Nutrition' },
+    { name: 'NTP Certified', badge: 'Nutrition Therapy Practitioner' },
     { name: 'HIPAA Compliant', badge: 'Privacy & Security' },
     { name: 'Functional Medicine', badge: 'Root-Cause Approach' }
   ];

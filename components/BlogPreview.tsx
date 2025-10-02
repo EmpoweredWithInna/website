@@ -73,10 +73,42 @@ export function BlogPreview() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       )
+    },
+    {
+      title: "When Standard Healthcare Fails Women: Why Many Are Misdiagnosed and How to Advocate for Yourself",
+      excerpt: "Understand gender bias in medical care, why women face higher misdiagnosis rates, and learn how to advocate for yourself in the healthcare system.",
+      date: "January 5, 2025",
+      readTime: "12 min read",
+      url: "/blogs/healthcare-fails-women",
+      category: "Women's Health",
+      tags: ["Healthcare Advocacy", "Gender Bias", "Self-Advocacy"],
+      featured: false,
+      slug: "healthcare-fails-women",
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+      )
+    },
+    {
+      title: "Corporate Wellness Spotlight: How Gut Health Programs Boost Productivity and Reduce Costs",
+      excerpt: "Discover how digestive disorders impact workplace productivity and costs, plus evidence-based strategies for implementing gut health programs in corporate settings.",
+      date: "January 2, 2025",
+      readTime: "10 min read",
+      url: "/blogs/corporate-wellness",
+      category: "Corporate Wellness",
+      tags: ["Workplace Health", "Productivity", "ROI"],
+      featured: false,
+      slug: "corporate-wellness",
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      )
     }
   ];
 
-  const categories = ["All", "Gut Health", "Testing", "Hormones", "Metabolism"];
+  const categories = ["All", "Gut Health", "Testing", "Hormones", "Women's Health", "Corporate Wellness", "Nutrition"];
   
   const filteredPosts = selectedCategory === "All" 
     ? blogPosts 
@@ -251,9 +283,9 @@ export function BlogPreview() {
 
         {/* View More Button */}
         <div className="text-center mb-16">
-          <button className="bg-gradient-to-r from-[#41ab5d] to-[#41ab5d] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-[#1a4a2a] hover:to-[#41ab5d] hover:scale-105 shadow-lg hover:shadow-xl">
+          <Link target="_blank" href="/blogs" className="bg-gradient-to-r from-[#41ab5d] to-[#41ab5d] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-[#1a4a2a] hover:to-[#41ab5d] hover:scale-105 shadow-lg hover:shadow-xl">
             View More Articles
-          </button>
+          </Link>
         </div>
 
         {/* Blog CTA */}

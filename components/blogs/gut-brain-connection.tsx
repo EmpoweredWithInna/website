@@ -19,7 +19,7 @@ export default function GutBrainConnection() {
             <div className="flex items-center space-x-2 text-sm text-gray-600">
               <Link href="/" className="hover:text-[#41ab5d] transition-colors">Home</Link>
               <span>&gt;</span>
-              <Link href="/blog" className="hover:text-[#41ab5d] transition-colors">Blog</Link>
+              <Link href="/blogs" className="hover:text-[#41ab5d] transition-colors">Blogs</Link>
               <span>&gt;</span>
               <span className="text-gray-900">The Gut-Brain Connection</span>
             </div>
@@ -262,17 +262,17 @@ export default function GutBrainConnection() {
               <article className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <span className="bg-[#FCAF15]/20 text-[#FCAF15] px-2 py-1 rounded text-xs font-medium">Hormones</span>
                 <h4 className="text-xl font-semibold text-[#183B10] mt-2 mb-2">Perimenopause and Gut Health: What Most Doctors Overlook</h4>
-                <a href="/blog/perimenopause-gut-health" className="text-[#41ab5d] hover:underline text-sm">Read Article →</a>
+                <a href="/blogs/perimenopause-gut-health" className="text-[#41ab5d] hover:underline text-sm">Read Article →</a>
               </article>
               <article className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <span className="bg-[#41ab5d]/10 text-[#41ab5d] px-2 py-1 rounded text-xs font-medium">Gut Health</span>
                 <h4 className="text-xl font-semibold text-[#183B10] mt-2 mb-2">The Hidden Link Between Stress & Gut Issues</h4>
-                <a href="/blog/stress-gut-issues" className="text-[#41ab5d] hover:underline text-sm">Read Article →</a>
+                <a href="/blogs/stress-gut-polyvagal" className="text-[#41ab5d] hover:underline text-sm">Read Article →</a>
               </article>
               <article className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <span className="bg-[#53A107]/10 text-[#53A107] px-2 py-1 rounded text-xs font-medium">Nutrition</span>
                 <h4 className="text-xl font-semibold text-[#183B10] mt-2 mb-2">Root-Cause Nutrition vs. Quick Fixes</h4>
-                <a href="/blog/root-cause-nutrition" className="text-[#41ab5d] hover:underline text-sm">Read Article →</a>
+                <a href="/blogs/root-cause-nutrition" className="text-[#41ab5d] hover:underline text-sm">Read Article →</a>
               </article>
             </div>
           </section>

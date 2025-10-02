@@ -135,7 +135,7 @@ export function Services() {
                   <p className="text-gray-600 text-sm">{service.perfectFor}</p>
                 </div>
 
-                <Link href="#" className="w-full">
+                <Link href="https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone" className="w-full">
                   <button className="w-full py-4 px-6 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border-2 border-gray-300 text-gray-700 hover:border-[#41ab5d] hover:text-[#41ab5d] hover:bg-[#41ab5d]/5">
                     <span className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -19,7 +19,7 @@ export default function PerimenopauseGutHealth() {
             <div className="flex items-center space-x-2 text-sm text-gray-600">
               <Link href="/" className="hover:text-[#41ab5d] transition-colors">Home</Link>
               <span>&gt;</span>
-              <Link href="/blog" className="hover:text-[#41ab5d] transition-colors">Blog</Link>
+              <Link href="/blogs" className="hover:text-[#41ab5d] transition-colors">Blogs</Link>
               <span>&gt;</span>
               <span className="text-gray-900">Perimenopause and Gut Health</span>
             </div>
@@ -225,7 +225,7 @@ export default function PerimenopauseGutHealth() {
                 <div className="flex-shrink-0">
                   <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg">
                     <Image
-                      src="/inna_shot.png"
+                      src="/Inna_shot.png"
                       alt="Inna - Certified Nutritional Therapy Practitioner"
                       fill
                       className="object-cover"

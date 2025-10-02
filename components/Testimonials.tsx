@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
 
 export function Testimonials() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -25,7 +26,7 @@ export function Testimonials() {
     },
     {
       name: "Jennifer L.",
-      location: "Dallas, TX", 
+      location: "Dallas, TX",
       condition: "Hormonal Imbalances",
       quote: "The DUTCH hormone test revealed imbalances that my regular doctor missed completely. Inna's protocol helped regulate my cycles and eliminated the mood swings that were affecting my relationships and work.",
       result: "Balanced hormones naturally",
@@ -39,7 +40,7 @@ export function Testimonials() {
     {
       name: "Emily T.",
       location: "San Antonio, TX",
-      condition: "Digestive & Energy Issues", 
+      condition: "Digestive & Energy Issues",
       quote: "After years of feeling exhausted and dealing with constant bloating, Inna's comprehensive approach helped identify the root causes of my symptoms. Her personalized protocol transformed my gut health and energy levels completely.",
       result: "Restored digestion and energy",
       beforeAfter: {
@@ -99,7 +100,7 @@ export function Testimonials() {
       {/* Background Elements */}
       <div className="absolute top-0 left-1/3 w-96 h-96 bg-gradient-to-br from-[#41ab5d]/10 to-transparent rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-tl from-[#41ab5d]/5 to-transparent rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -141,18 +142,17 @@ export function Testimonials() {
             </svg>
           </button>
 
-          <div 
+          <div
             className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-12 mb-12 border border-gray-100/50 overflow-hidden"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center transition-all duration-300 ease-in-out ${
-              isTransitioning 
-                ? slideDirection === 'right' 
-                  ? 'transform translate-x-full opacity-0' 
+            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center transition-all duration-300 ease-in-out ${isTransitioning
+                ? slideDirection === 'right'
+                  ? 'transform translate-x-full opacity-0'
                   : 'transform -translate-x-full opacity-0'
                 : 'transform translate-x-0 opacity-100'
-            }`}>
+              }`}>
               {/* Client Info & Quote */}
               <div>
                 <div className="flex items-center gap-4 mb-6">
@@ -176,7 +176,7 @@ export function Testimonials() {
 
                 <div className="relative mb-6">
                   <svg className="w-8 h-8 text-[#41ab5d]/20 absolute -top-2 -left-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
                   </svg>
                   <blockquote className="text-lg lg:text-xl text-gray-700 leading-relaxed italic pl-6">
                     "{testimonials[activeTestimonial].quote}"
@@ -199,7 +199,7 @@ export function Testimonials() {
               {/* Before/After Comparison */}
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
                 <h4 className="text-lg font-bold text-gray-900 mb-6 text-center">Transformation Journey</h4>
-                
+
                 <div className="space-y-6">
                   <div className="bg-red-50 border border-red-100 rounded-xl p-4">
                     <div className="flex items-center gap-2 mb-2">
@@ -250,11 +250,10 @@ export function Testimonials() {
                   setTimeout(() => setIsPaused(false), 3000); // Resume auto-rotation after 3 seconds
                 }}
                 disabled={isTransitioning}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === activeTestimonial
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeTestimonial
                     ? 'bg-[#41ab5d] scale-125'
                     : 'bg-gray-300 hover:bg-gray-400'
-                } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : ''}`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
@@ -273,20 +272,17 @@ export function Testimonials() {
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
                 disabled={isTransitioning}
-                className={`group relative transition-all duration-300 ${
-                  index === activeTestimonial ? 'scale-110' : 'hover:scale-105'
-                } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`group relative transition-all duration-300 ${index === activeTestimonial ? 'scale-110' : 'hover:scale-105'
+                  } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 ${
-                  index === activeTestimonial
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 ${index === activeTestimonial
                     ? 'bg-[#41ab5d] shadow-lg'
                     : 'bg-gray-300 group-hover:bg-gray-400'
-                }`}>
+                  }`}>
                   {testimonial.name.charAt(0)}
                 </div>
-                <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium transition-opacity duration-300 ${
-                  index === activeTestimonial ? 'opacity-100' : 'opacity-0'
-                }`}>
+                <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium transition-opacity duration-300 ${index === activeTestimonial ? 'opacity-100' : 'opacity-0'
+                  }`}>
                   {testimonial.name.split(' ')[0]}
                 </div>
               </button>
@@ -303,14 +299,16 @@ export function Testimonials() {
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
               Join hundreds of women who have discovered their root causes and reclaimed their health through functional testing
             </p>
-            <button className="group bg-gradient-to-r from-[#E88074] to-[#FCAF15] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
-              <span className="flex items-center gap-2">
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
-                Start Your Transformation Today
-              </span>
-            </button>
+            <Link href="https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone">
+              <button className="group bg-gradient-to-r from-[#E88074] to-[#FCAF15] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
+                <span className="flex items-center gap-2">
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                  Start Your Transformation Today
+                </span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

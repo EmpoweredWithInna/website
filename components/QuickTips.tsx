@@ -5,7 +5,10 @@ import { downloadMealPlanGuide } from '../utils/downloadUtils';
 
 export function QuickTips() {
   const [activeTip, setActiveTip] = useState(0);
+  const [email, setEmail] = useState('');
   const [isVisible, setIsVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState('');
 
   const tips = [
     {
@@ -104,6 +107,44 @@ export function QuickTips() {
       setActiveTip(0);
     }
   }, [selectedCategory, filteredTips.length, activeTip]);
+
+  const handleNewsletterSubmitAndDownload = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setMessage('Subscribing...');
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage(data.message + ' Your download will start shortly.');
+        downloadMealPlanGuide();
+        setEmail('');
+        // Trigger download after successful subscription
+        setTimeout(() => {
+          downloadMealPlanGuide();
+        }, 1500); // Delay to allow user to read the message
+      } else {
+        setMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setMessage('Network error. Please check your connection and try again.');
+    } finally {
+      // Keep the message and don't reset submitting state immediately
+      // so the user can see the final status.
+      setTimeout(() => {
+        setIsSubmitting(false);
+      }, 3000);
+    }
+  };
 
   return (
     <section className="relative py-24 bg-gradient-to-br from-[#41ab5d]/5 via-white to-[#41ab5d]/10 overflow-hidden" id="tips">
@@ -254,11 +295,12 @@ export function QuickTips() {
               <div className="flex flex-col sm:flex-row gap-4 mb-4">
                 <input
                   type="email"
+                  onChange={(e) => setEmail(e.target.value)}  
                   placeholder="Enter your email address"
                   className="flex-1 px-6 py-4 rounded-2xl text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-lg"
                 />
                 <button 
-                  onClick={downloadMealPlanGuide}
+                  onClick={handleNewsletterSubmitAndDownload}
                   className="gradient-bg text-[#fff] px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:bg-gray-50 hover:scale-105 shadow-xl hover:shadow-2xl whitespace-nowrap"
                 >
                   Get Free Tips
@@ -268,6 +310,17 @@ export function QuickTips() {
                 ✨ No spam, ever. Unsubscribe anytime with one click. Privacy protected.
               </p>
             </div>
+
+            {message && (
+              <div className={`mt-4 p-3 rounded-lg text-sm ${
+                message.includes('Thank you') 
+                  ? 'bg-green-100 text-green-700 border border-green-200' 
+                  : 'bg-red-100 text-red-700 border border-red-200'
+              }`}>
+                {message}
+              </div>
+            )}
+
           </div>
         </div>
       </div>
