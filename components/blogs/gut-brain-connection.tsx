@@ -238,7 +238,7 @@ export default function GutBrainConnection() {
               <div className="flex-shrink-0">
                 <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg">
                   <Image
-                    src="/inna_shot.png"
+                    src="/Inna_shot.png"
                     alt="Inna - Certified Nutritional Therapy Practitioner"
                     fill
                     className="object-cover"

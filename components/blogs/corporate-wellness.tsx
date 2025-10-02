@@ -127,7 +127,7 @@ export default function CorporateWellness() {
           </aside>
 
           {/* Featured Image */}
-          <div className="mb-12">
+          {/* <div className="mb-12">
             <Image
               src="/blog-images/corporate-wellness.jpg"
               alt="Corporate wellness and gut health"
@@ -135,7 +135,7 @@ export default function CorporateWellness() {
               height={400}
               className="w-full h-64 md:h-96 object-cover rounded-2xl shadow-lg"
             />
-          </div>
+          </div> */}
 
           {/* Article Content */}
           <div className="prose prose-lg max-w-none">

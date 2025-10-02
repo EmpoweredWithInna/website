@@ -355,12 +355,6 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
               This notification was sent from your Empowered Nutrition website newsletter subscription form.
             </p>
             
-            <div className="social-links">
-              <a href="#" className="social-link">📘</a>
-              <a href="#" className="social-link">📷</a>
-              <a href="#" className="social-link">🐦</a>
-              <a href="#" className="social-link">💼</a>
-            </div>
             
             <p style={{
               fontSize: '12px',
