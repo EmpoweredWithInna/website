@@ -30,14 +30,14 @@ export function Header() {
         <div className="flex items-center">
           <Link
             href="/"
-            aria-label="Empowered Nutrition - Return to homepage"
+            aria-label="Empowered Wellness with Inna - Return to homepage"
             className="group"
           >
             <Image
               src="/Empowered_SQ_logo.png"
               width={120}
               height={40}
-              alt="Empowered Nutrition"
+              alt="Empowered Wellness with Inna"
               priority
               className="transition-opacity duration-300 group-hover:opacity-80"
             />

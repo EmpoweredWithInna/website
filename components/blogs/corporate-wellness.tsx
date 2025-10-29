@@ -234,8 +234,8 @@ export default function CorporateWellness() {
                 </ul>
               </div>
               <div className="bg-green-50 p-6 rounded-xl">
-                <h4 className="font-bold text-green-900 mb-3">Emotional Regulation</h4>
-                <ul className="text-green-800 space-y-2 text-sm">
+                <h4 className="font-bold text-gray-900 mb-3">Emotional Regulation</h4>
+                <ul className="text-gray-800 space-y-2 text-sm">
                   <li>• Stress management</li>
                   <li>• Mood stability</li>
                   <li>• Anxiety levels</li>
@@ -247,12 +247,12 @@ export default function CorporateWellness() {
             <h2 id="implementation" className="text-3xl font-bold text-[#183B10] mt-12 mb-6">Implementing a Successful Gut Health Program</h2>
 
             <div className="bg-green-50 border border-green-200 p-8 rounded-xl mb-8">
-              <h3 className="text-xl font-bold text-green-900 mb-6">Phase 1: Assessment and Education (Months 1-2)</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Phase 1: Assessment and Education (Months 1-2)</h3>
 
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-bold text-green-800 mb-2">Employee Health Screening</h4>
-                  <ul className="text-green-700 space-y-1 ml-4 text-sm">
+                  <h4 className="font-bold text-gray-800 mb-2">Employee Health Screening</h4>
+                  <ul className="text-gray-700 space-y-1 ml-4 text-sm">
                     <li>• Anonymous digestive health surveys</li>
                     <li>• Optional comprehensive stool testing</li>
                     <li>• Food sensitivity assessments</li>
@@ -261,8 +261,8 @@ export default function CorporateWellness() {
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-green-800 mb-2">Educational Workshops</h4>
-                  <ul className="text-green-700 space-y-1 ml-4 text-sm">
+                  <h4 className="font-bold text-gray-800 mb-2">Educational Workshops</h4>
+                  <ul className="text-gray-700 space-y-1 ml-4 text-sm">
                     <li>• "Gut Health 101: The Foundation of Wellness"</li>
                     <li>• "Eating for Energy: Workplace Nutrition Strategies"</li>
                     <li>• "The Stress-Gut Connection"</li>

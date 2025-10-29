@@ -11,8 +11,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Root-Cause Nutrition for Fatigue & Gut Health | Empowered Nutrition with Inna',
-    template: '%s | Empowered Nutrition with Inna'
+    default: 'Root-Cause Nutrition for Fatigue & Gut Health | Empowered Wellness with Inna',
+    template: '%s | Empowered Wellness with Inna'
   },
   description: 'Transform your health with functional testing and personalized nutrition. Specialized care for women 30-55 experiencing fatigue, anxiety, gut issues, and perimenopause symptoms.',
   keywords: [
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     'IBS functional nutrition'
   ],
   authors: [{ name: 'Inna Topiler', url: 'https://empowerednutritionwithinna.com' }],
-  creator: 'Empowered Nutrition with Inna',
-  publisher: 'Empowered Nutrition with Inna',
+  creator: 'Empowered Wellness with Inna',
+  publisher: 'Empowered Wellness with Inna',
   metadataBase: new URL('https://empowerednutritionwithinna.com'),
   alternates: {
     canonical: 'https://empowerednutritionwithinna.com',
@@ -42,10 +42,10 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'Root-Cause Nutrition for Fatigue & Gut Health | Empowered Nutrition with Inna',
+    title: 'Root-Cause Nutrition for Fatigue & Gut Health | Empowered Wellness with Inna',
     description: 'Functional testing + personalized nutrition for women seeking energy, clarity, and relief from chronic symptoms',
     url: 'https://empowerednutritionwithinna.com',
-    siteName: 'Empowered Nutrition with Inna',
+    siteName: 'Empowered Wellness with Inna',
     images: [
       {
         url: '/inna.jpg',

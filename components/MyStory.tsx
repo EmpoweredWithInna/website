@@ -57,7 +57,7 @@ export function MyStory() {
           <div className="order-1 lg:order-2">
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p className="text-xl font-medium text-gray-900">
-                <span className="text-[#41ab5d] font-bold">Our journey began when my daughter Nicole was 11 and complained her heart hurt.</span> Specialists found nothing, but by 14, she battled depression, and was placed on psychiatric medications—nine in one year—with no relief. At 15 AND 16, she attempted suicide. We felt hopeless and helpless until a functional medicine doctor in Austin identified the real issues: chronic Lyme and mold illness causing brain inflammation.
+                <span className="text-[#41ab5d] font-bold">Our journey began when my daughter Nicole was 11 and complained that her heart hurt.</span> Specialists found nothing, but by 14, she battled depression, and was placed on psychiatric medications—nine in one year—with no relief. At 15 AND 16, she attempted suicide. We felt hopeless and helpless until a functional medicine doctor in Austin identified the real issues: chronic Lyme with five co-infections and mold illness causing brain inflammation.
               </p>
 
               <p className="text-lg">

@@ -86,7 +86,7 @@ export function Testimonials() {
   // Auto-rotation effect
   useEffect(() => {
     if (!isPaused) {
-      const interval = setInterval(nextTestimonial, 5000); // Change every 5 seconds
+      const interval = setInterval(nextTestimonial, 15000); // Change every 15 seconds
       return () => clearInterval(interval);
     }
   }, [nextTestimonial, isPaused]);

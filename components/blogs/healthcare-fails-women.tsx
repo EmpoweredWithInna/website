@@ -238,12 +238,12 @@ export default function HealthcareFailsWomen() {
             <h2 id="advocate" className="text-3xl font-bold text-[#183B10] mt-12 mb-6">How to Advocate for Yourself: A Practical Guide</h2>
 
             <div className="bg-green-50 border border-green-200 p-8 rounded-xl mb-8">
-              <h3 className="text-xl font-bold text-green-900 mb-6">Your Healthcare Advocacy Toolkit</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Your Healthcare Advocacy Toolkit</h3>
 
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-bold text-green-800 mb-2">1. Document Everything</h4>
-                  <ul className="text-green-700 space-y-1 ml-4">
+                  <h4 className="font-bold text-gray-800 mb-2">1. Document Everything</h4>
+                  <ul className="text-gray-700 space-y-1 ml-4">
                     <li>• Keep a detailed symptom diary with dates, times, and triggers</li>
                     <li>• Track your menstrual cycle and how symptoms correlate</li>
                     <li>• Note what makes symptoms better or worse</li>
@@ -252,8 +252,8 @@ export default function HealthcareFailsWomen() {
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-green-800 mb-2">2. Prepare for Appointments</h4>
-                  <ul className="text-green-700 space-y-1 ml-4">
+                  <h4 className="font-bold text-gray-800 mb-2">2. Prepare for Appointments</h4>
+                  <ul className="text-gray-700 space-y-1 ml-4">
                     <li>• Write down your top 3 concerns before the visit</li>
                     <li>• Bring your symptom diary and any relevant family history</li>
                     <li>• Research your symptoms beforehand (but don't self-diagnose)</li>
@@ -262,8 +262,8 @@ export default function HealthcareFailsWomen() {
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-green-800 mb-2">3. Use Assertive Communication</h4>
-                  <ul className="text-green-700 space-y-1 ml-4">
+                  <h4 className="font-bold text-gray-800 mb-2">3. Use Assertive Communication</h4>
+                  <ul className="text-gray-700 space-y-1 ml-4">
                     <li>• "I need you to document in my chart that you're refusing this test"</li>
                     <li>• "What else could be causing these symptoms besides stress?"</li>
                     <li>• "I'd like a second opinion before we conclude this is anxiety"</li>

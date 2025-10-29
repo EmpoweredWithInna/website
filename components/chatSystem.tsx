@@ -63,7 +63,7 @@ const CHAT_FLOW = [
     ]
   },
   {
-    question: "In your free consultation, Inna will review your health history, discuss your main concerns, and explain which functional tests might be most helpful for your situation. There's no pressure - it's simply a chance to see if this approach feels right for you. Should we get that scheduled?",
+    question: "In your free 15-minute consultation Inna will review you main concerns and determine if she can help you. She will explain her approach. There's no pressure - it's simply a chance to see if this approach feels right for you. Should we get that scheduled?",
     options: [
       "Yes, let's schedule now",
       "I need to think about it"
@@ -74,6 +74,13 @@ const CHAT_FLOW = [
     options: [
       "Yes, let's schedule the consultation",
       "Tell me about just the testing first"
+    ]
+  },
+  {
+    question: "Different tests are required for various situations. Tests used will be determined by the symptoms and need. During your consultation, Inna will review your specific situation and recommend the most appropriate tests to uncover the root causes of your health concerns. Ready to schedule your consultation?",
+    options: [
+      "Yes, let's schedule the consultation",
+      "I need to think about it"
     ]
   },
   {
@@ -266,33 +273,41 @@ export default function ChatSystem({ chatState, setChatState }: ChatSystemProps)
       } else if (option === "How much do your programs cost?") {
         nextStep = 7; // Go to pricing info
       } else if (option === "Yes, I'd love to schedule a call") {
-        nextStep = 8; // Go to booking
+        nextStep = 9; // Go to booking
       } else if (option === "I need to think about it") {
-        nextStep = 9; // Go to email capture
+        nextStep = 10; // Go to email capture
       }
     } else if (currentStep === 5) { // After approach explanation
       if (option === "Yes, let's schedule the call") {
-        nextStep = 8; // Go to booking
+        nextStep = 9; // Go to booking
       } else if (option === "What would we discuss in the consultation?") {
         nextStep = 6; // Go to consultation details
       }
     } else if (currentStep === 6) { // After consultation details
       if (option === "Yes, let's schedule now") {
-        nextStep = 8; // Go to booking
+        nextStep = 9; // Go to booking
       } else if (option === "I need to think about it") {
-        nextStep = 9; // Go to email capture
+        nextStep = 10; // Go to email capture
       }
     } else if (currentStep === 7) { // After pricing info
       if (option === "Yes, let's schedule the consultation") {
-        nextStep = 8; // Go to booking
+        nextStep = 9; // Go to booking
+      } else if (option === "Tell me about just the testing first") {
+        nextStep = 8; // Go to testing explanation
       }
-    } else if (currentStep === 8) { // Booking step
+    } else if (currentStep === 8) { // After testing explanation
+      if (option === "Yes, let's schedule the consultation") {
+        nextStep = 9; // Go to booking
+      } else if (option === "I need to think about it") {
+        nextStep = 10; // Go to email capture
+      }
+    } else if (currentStep === 9) { // Booking step
       if (option === "📅 Book Your Call Now") {
         // Open booking system
         window.open('https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone', '_blank');
         return; // Don't proceed to next step
       }
-    } else if (currentStep === 9) { // Email capture step
+    } else if (currentStep === 10) { // Email capture step
       if (option === "📧 Stay in Touch (email capture field)") {
         // Show email input - this will be handled by the input field
         return;

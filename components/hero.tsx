@@ -77,7 +77,7 @@ export function Hero() {
           <div className="space-y-8">
             <div className="space-y-6">
               <div className="inline-flex items-center px-4 py-2 bg-[#238b45]/10 border border-[#238b45]/20 rounded-full backdrop-blur-sm">
-                <span className="highlighted-symptom uppercase text-sm font-medium">✨ CNTP</span>
+                <span className="highlighted-symptom uppercase text-sm font-medium">✨ CNTP – Certified Nutritional Therapy Practitioner</span>
               </div>
 
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
@@ -129,7 +129,7 @@ export function Hero() {
                 </div>
                 <div>
                   <div className="text-gray-900 font-semibold">Fast Results</div>
-                  <div className="text-gray-600 text-sm">30-Day Protocol</div>
+                  <div className="text-gray-600 text-sm">90-Day Protocol</div>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@ export function Hero() {
                   <span className="text-primary text-sm font-medium">NTP Certified</span>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/70">
-                  <span className="text-primary text-sm font-medium">10+ Years Experience</span>
+                  <span className="text-primary text-sm font-medium">4+ Years Experience</span>
                 </div>
               </div>
             </div>

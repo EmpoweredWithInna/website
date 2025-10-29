@@ -158,7 +158,7 @@ export default function GutBrainConnection() {
           <div className="bg-[#41ab5d]/10 border border-[#41ab5d]/20 rounded-lg p-8 mb-12 text-center">
             <h3 className="text-xl font-semibold text-[#183B10] mb-4">Struggling with Unexplained Anxiety or Gut Issues?</h3>
             <p className="text-gray-700 mb-6">Discover how functional testing can reveal the root causes of your symptoms. Book a free 15-minute consultation to learn about personalized gut-brain healing.</p>
-            <a href="/book-consultation" className="bg-[#41ab5d] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#183B10] transition-colors inline-block">Book Free Consultation</a>
+            <a href="https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone" target="_blank" className="bg-[#41ab5d] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#183B10] transition-colors inline-block">Book Free Consultation</a>
           </div>
 
           {/* Stress Section */}
@@ -223,7 +223,7 @@ export default function GutBrainConnection() {
               If you've tried standard anxiety treatments alone and still feel stuck, it's likely because your gut-brain axis remains out of balance. You deserve a model of healing that sees the root — not just the symptom.
             </p>
             <p className="prose prose-lg max-w-none mb-6">
-              At Empowered Nutrition with Inna, we blend advanced functional testing, nervous system regulation and targeted nutrition to help you restore calm, clarity and digestion. Your gut and brain are partners in healing — when you support both, transformation becomes possible.
+              At Empowered Wellness with Inna, we blend advanced functional testing, nervous system regulation and targeted nutrition to help you restore calm, clarity and digestion. Your gut and brain are partners in healing — when you support both, transformation becomes possible.
             </p>
             {/* Remember Box */}
             <div className="bg-[#53A107]/10 border-l-4 border-[#53A107] p-6 rounded-r-lg">

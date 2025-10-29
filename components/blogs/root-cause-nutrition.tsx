@@ -263,8 +263,8 @@ export default function RootCauseNutrition() {
                 </div>
                 <div className="flex-1">
                   <div className="mb-3">
-                    <h3 className="text-xl font-bold text-[#183B10] mb-1">Inna</h3>
-                    <p className="text-sm font-medium text-[#41ab5d] bg-[#41ab5d]/10 px-3 py-1 rounded-full inline-block">Certified Nutritional Therapy Practitioner (NTP)</p>
+                    <h3 className="text-xl font-bold text-[#183B10] mb-1">Inna Benyukhis</h3>
+                    <p className="text-sm font-medium text-[#41ab5d] bg-[#41ab5d]/10 px-3 py-1 rounded-full inline-block">Certified Nutritional Therapy Practitioner</p>
                   </div>
                   <p className="text-gray-700 leading-relaxed">Inna specializes in personalized, root-cause nutrition, helping clients uncover the underlying imbalances contributing to their health challenges. Her approach combines advanced functional testing with evidence-based nutrition protocols.</p>
                 </div>

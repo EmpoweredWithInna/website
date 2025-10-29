@@ -186,14 +186,14 @@ export function Footer() {
               <div className="flex items-center mb-6">
                 <Link
                   href="/"
-                  aria-label="Empowered Nutrition - Return to homepage"
+                  aria-label="Empowered Wellness with Inna - Return to homepage"
                   className="group"
                 >
                   <Image
                     src="/Empowered_SQ_logo.png"
                     width={120}
                     height={40}
-                    alt="Empowered Nutrition"
+                    alt="Empowered Wellness with Inna"
                     priority
                     className="transition-opacity duration-300 group-hover:opacity-80"
                   />
@@ -215,8 +215,8 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Email us</p>
-                  <a href="mailto:healthy@empoweredwithinna.com" className="text-gray-900 hover:text-green-600 transition-colors font-medium">
-                  healthy@empoweredwithinna.com
+                  <a href="mailto:healthy@EmpoweredWithInna.com" className="text-gray-900 hover:text-green-600 transition-colors font-medium">
+                  healthy@EmpoweredWithInna.com
                   </a>
                 </div>
               </div>
@@ -357,7 +357,7 @@ export function Footer() {
           <div className="flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0">
             <div className="text-center lg:text-left">
               <p className="text-gray-900 text-lg font-medium mb-2">
-                © {currentYear} Empowered Nutrition. All rights reserved.
+                © {currentYear} Empowered Wellness with Inna. All rights reserved.
               </p>
               <p className="text-gray-600 text-sm">
                 Functional Nutrition • Root-Cause Healing • Women's Health Transformation
