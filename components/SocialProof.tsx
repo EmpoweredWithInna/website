@@ -21,7 +21,7 @@ export function SocialProof() {
       )
     },
     { 
-      number: '10+', 
+      number: '4+', 
       label: 'Years Experience',
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
