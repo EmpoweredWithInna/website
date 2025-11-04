@@ -108,7 +108,7 @@ export function BlogPreview() {
     }
   ];
 
-  const categories = ["All", "Gut Health", "Testing", "Hormones", "Women's Health", "Corporate Wellness", "Nutrition"];
+  const categories = ["All", "Gut Health", "Hormones", "Women's Health", "Corporate Wellness", "Nutrition"];
   
   const filteredPosts = selectedCategory === "All" 
     ? blogPosts 

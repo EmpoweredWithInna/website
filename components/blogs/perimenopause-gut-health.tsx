@@ -235,7 +235,7 @@ export default function PerimenopauseGutHealth() {
                 <div className="flex-1">
                   <div className="mb-3">
                     <h3 className="text-xl font-bold text-[#183B10] mb-1">Inna</h3>
-                    <p className="text-sm font-medium text-[#41ab5d] bg-[#41ab5d]/10 px-3 py-1 rounded-full inline-block">Certified Nutritional Therapy Practitioner (NTP)</p>
+                    <p className="text-sm font-medium text-[#41ab5d] bg-[#41ab5d]/10 px-3 py-1 rounded-full inline-block">Certified Nutritional Therapy Practitioner (CNTP)</p>
                   </div>
                   <p className="text-gray-700 leading-relaxed">Inna specializes in women's health and hormonal balance, helping clients navigate perimenopause and menopause through root-cause functional nutrition. Her approach combines advanced lab testing with compassionate, personalized care.</p>
                 </div>

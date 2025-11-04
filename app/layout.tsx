@@ -86,7 +86,7 @@ export const metadata: Metadata = {
   other: {
     'practice.type': 'Functional Nutrition',
     'specialization': 'Women\'s Health, Gut Health, Hormone Balance',
-    'certification': 'NTP Certified',
+    'certification': 'CNTP Certified',
   },
 };
 

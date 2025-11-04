@@ -460,7 +460,7 @@ export default function CorporateWellness() {
               <div className="flex-1">
                 <div className="mb-3">
                   <h3 className="text-xl font-bold text-[#183B10] mb-1">Inna</h3>
-                  <p className="text-sm font-medium text-[#41ab5d] bg-[#41ab5d]/10 px-3 py-1 rounded-full inline-block">Certified Nutritional Therapy Practitioner (NTP)</p>
+                  <p className="text-sm font-medium text-[#41ab5d] bg-[#41ab5d]/10 px-3 py-1 rounded-full inline-block">Certified Nutritional Therapy Practitioner (CNTP)</p>
                 </div>
                 <p className="text-gray-700 leading-relaxed">Inna specializes in the connection between nervous system health and digestive function, helping clients heal from chronic stress and gut issues through trauma-informed, root-cause approaches.</p>
               </div>

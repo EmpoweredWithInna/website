@@ -248,7 +248,7 @@ export default function GutBrainConnection() {
               <div className="flex-1">
                 <div className="mb-3">
                   <h3 className="text-xl font-bold text-[#183B10] mb-1">Inna</h3>
-                  <p className="text-sm font-medium text-[#41ab5d] bg-[#41ab5d]/10 px-3 py-1 rounded-full inline-block">Certified Nutritional Therapy Practitioner (NTP)</p>
+                  <p className="text-sm font-medium text-[#41ab5d] bg-[#41ab5d]/10 px-3 py-1 rounded-full inline-block">Certified Nutritional Therapy Practitioner (CNTP)</p>
                 </div>
                 <p className="text-gray-700 leading-relaxed">Inna specializes in the gut-brain axis and women's health, helping clients aged 30-55 overcome chronic fatigue, anxiety, and digestive issues through root-cause functional nutrition. Her approach combines advanced lab testing with compassionate, trauma-informed care.</p>
               </div>

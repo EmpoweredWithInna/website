@@ -41,7 +41,7 @@ export function SocialProof() {
   ];
 
   const certifications = [
-    { name: 'NTP Certified', badge: 'Nutrition Therapy Practitioner' },
+    { name: 'CNTP Certified', badge: 'Certified Nutrition Therapy Practitioner' },
     { name: 'RESTART Certified', badge: 'Sugar Detox Program' },
     { name: 'RWS Certified', badge: 'Restorative Wellness Solutions Practitioner' },
     { name: 'HIPAA Compliant', badge: 'Privacy & Security' },

@@ -43,7 +43,7 @@ export function MyStory() {
                 </div>
 
                 <div className="absolute -bottom-4 -left-4 gradient-bg text-white px-4 py-2 rounded-xl font-bold shadow-xl">
-                  <div className="text-lg">NTP</div>
+                  <div className="text-lg">CNTP</div>
                   <div className="text-xs opacity-90">Certified</div>
                 </div>
               </div>

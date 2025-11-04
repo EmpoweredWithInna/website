@@ -365,17 +365,7 @@ export function Footer() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
-              <div className="flex items-center space-x-6 text-sm">
-                <a href="#" className="text-gray-600 hover:text-green-600 transition-colors duration-300 hover:underline">
-                  Privacy Policy
-                </a>
-                <a href="#" className="text-gray-600 hover:text-green-600 transition-colors duration-300 hover:underline">
-                  Terms of Service
-                </a>
-                <a href="#" className="text-gray-600 hover:text-green-600 transition-colors duration-300 hover:underline">
-                  Disclaimer
-                </a>
-              </div>
+
 
               <div className="flex items-center space-x-3 bg-green-100 px-6 py-3 rounded-full">
                 <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
