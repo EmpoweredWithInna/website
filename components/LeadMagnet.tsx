@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { downloadMealPlanGuide } from '../utils/downloadUtils';
 
 interface LeadMagnetProps {
   autoOpen?: boolean;
@@ -54,8 +53,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
 
       if (response.ok) {
         setIsSubmitted(true);
-        downloadMealPlanGuide();
-        setMessage('Success! Your download is starting.');
+        setMessage('Success! Check your email for the guide.');
         setTimeout(() => {
           setIsOpen(false);
           // Reset for next time
@@ -84,7 +82,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
     if (autoOpen) {
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 15000);
+      }, 3000);
       
       return () => clearTimeout(timer);
     }
@@ -150,7 +148,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
                   <div className="p-8 lg:p-12 flex flex-col justify-center rounded-r-3xl lg:rounded-l-none rounded-b-3xl lg:rounded-b-3xl bg-white">
                     <div className="text-center mb-8">
                       <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                        Get Instant Access
+                        ❓ Get Instant Access
                       </h3>
                       <p className="text-gray-600">
                         Enter your email below and I'll send you the full 7-day gut-brain reset meal plan right away.
@@ -177,7 +175,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
                         className="w-full bg-gradient-to-r from-[#E88074] to-[#FCAF15] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl disabled:opacity-70 disabled:cursor-not-allowed"
                         disabled={isSubmitting}
                       >
-                        {isSubmitting ? 'Submitting...' : 'Download My Free Guide'}
+                        {isSubmitting ? 'Submitting...' : 'Send My Free Guide'}
                       </button>
                     </form>
                     {message && (
@@ -199,10 +197,10 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
                   </div>
                   <h2 className="text-4xl font-bold text-gray-900 mb-6">Success! 🎉</h2>
                   <p className="text-xl text-gray-600 mb-4">
-                    Your 7-Day Gut-Brain Reset Meal Plan is on its way!
+                    Your 7-Day Gut-Brain Reset Meal Plan has been sent to your email!
                   </p>
                   <p className="text-gray-500 mb-8">
-                    Check your email (and spam folder) for your free download link.
+                    Check your inbox (and spam folder) for your free guide.
                   </p>
                   <div className="bg-[#41ab5d]/5 border border-[#41ab5d]/20 rounded-2xl p-6 max-w-md mx-auto">
                     <p className="text-[#41ab5d] font-medium">

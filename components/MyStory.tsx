@@ -73,7 +73,7 @@ export function MyStory() {
 
             {/* CTA */}
             <div className="mt-8">
-              <Link target="_blank" href="https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone">
+              <Link target="_blank" href="https://calendly.com/inna-ntp/free-restart-discovery-call">
                 <button className="group gradient-bg text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
                   <span className="flex items-center gap-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

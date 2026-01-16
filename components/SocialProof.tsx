@@ -64,7 +64,7 @@ export function SocialProof() {
             Trusted by Women Worldwide
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Join hundreds of women who've transformed their health through our evidence-based approach to functional nutrition
+            Join hundreds of women who've transformed their health through our evidence-based approach to help you discover a more natural approach for the root causes of your symptoms
           </p>
         </div>
 
