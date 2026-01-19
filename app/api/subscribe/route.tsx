@@ -7,7 +7,7 @@ import { LeadMagnetEmailTemplate } from '../../../components/LeadMagnetEmailTemp
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const ADMIN_EMAIL = 'healthy@empoweredwithinna.com';
-const FROM_EMAIL = 'Inna <onboarding@resend.dev>'; // This must be a verified domain on Resend
+const FROM_EMAIL = 'Inna <healthy@empoweredwithinna.com>'; // This must be a verified domain on Resend
 const PDF_URL = 'https://empoweredwithinna.com/7_Day_Gut_Brain_Reset_Meal_Plan.pdf';
 
 export async function POST(req: NextRequest) {
