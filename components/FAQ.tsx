@@ -248,7 +248,7 @@ export function FAQ() {
                 Schedule a free 15-minute discovery call to get personalized answers about your health concerns and see if we're the right fit for your healing journey.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-               <Link href="https://calendly.com/inna-ntp/free-restart-discovery-call" className="bg-white text-[#41ab5d] px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-gray-50 hover:scale-105 shadow-lg hover:shadow-xl">
+               <Link target='_blank' href="https://calendly.com/inna-ntp/free-restart-discovery-call" className="bg-white text-[#41ab5d] px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-gray-50 hover:scale-105 shadow-lg hover:shadow-xl">
                  Schedule Free Call
                 </Link>
                 {/* <button className="border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-white hover:text-[#41ab5d] hover:scale-105">

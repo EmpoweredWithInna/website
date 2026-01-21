@@ -305,12 +305,15 @@ export function BlogPreview() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+             <Link href="/blogs" target="_blank">
               <button className="gradient-bg text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-[#1a4a2a] hover:to-[#41ab5d] hover:scale-105 shadow-xl hover:shadow-2xl">
                 Visit Our Blog
               </button>
+             </Link>
+             <Link href="#subscribe">
               <button className="border-2 border-[#41ab5d] text-[#41ab5d] px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:bg-[#41ab5d] hover:text-white hover:scale-105">
                 Subscribe to Updates
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>

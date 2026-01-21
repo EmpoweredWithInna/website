@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { downloadMealPlanGuide } from '../utils/downloadUtils';
 
 export function QuickTips() {
   const [activeTip, setActiveTip] = useState(0);
@@ -125,12 +124,10 @@ export function QuickTips() {
       const data = await response.json();
 
       if (response.ok) {
-        setMessage(data.message + ' Your download will start shortly.');
-        downloadMealPlanGuide();
+        setMessage(data.message);
         setEmail('');
         // Trigger download after successful subscription
         setTimeout(() => {
-          downloadMealPlanGuide();
         }, 1500); // Delay to allow user to read the message
       } else {
         setMessage(data.error || 'Something went wrong. Please try again.');
@@ -276,7 +273,7 @@ export function QuickTips() {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] rounded-3xl shadow-2xl p-12 text-white text-center">
+        <div id='subscribe' className="bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] rounded-3xl shadow-2xl p-12 text-white text-center">
           <div className="max-w-4xl mx-auto">
             <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -313,7 +310,7 @@ export function QuickTips() {
 
             {message && (
               <div className={`mt-4 p-3 rounded-lg text-sm ${
-                message.includes('Thank you') 
+                message.includes('Success') 
                   ? 'bg-green-100 text-green-700 border border-green-200' 
                   : 'bg-red-100 text-red-700 border border-red-200'
               }`}>
