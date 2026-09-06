@@ -148,7 +148,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
                   <div className="p-8 lg:p-12 flex flex-col justify-center rounded-r-3xl lg:rounded-l-none rounded-b-3xl lg:rounded-b-3xl bg-white">
                     <div className="text-center mb-8">
                       <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                        ❓ Get Instant Access
+                        Get Instant Access
                       </h3>
                       <p className="text-gray-600">
                         Enter your email below and I'll send you the full 7-day gut-brain reset meal plan right away.

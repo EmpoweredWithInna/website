@@ -112,7 +112,7 @@ export default function ChatSystem({ chatState, setChatState }: ChatSystemProps)
 
   // Call-to-action handlers
   const handleBookCall = () => {
-    window.open('https://calendly.com/inna-ntp/free-restart-discovery-call', '_blank');
+    window.open('https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone', '_blank');
   };
 
   const handleStayInTouch = () => {
@@ -304,7 +304,7 @@ export default function ChatSystem({ chatState, setChatState }: ChatSystemProps)
     } else if (currentStep === 9) { // Booking step
       if (option === "📅 Book Your Call Now") {
         // Open booking system
-        window.open('https://calendly.com/inna-ntp/free-restart-discovery-call', '_blank');
+        window.open('https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone', '_blank');
         return; // Don't proceed to next step
       }
     } else if (currentStep === 10) { // Email capture step

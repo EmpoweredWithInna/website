@@ -55,7 +55,7 @@ export function Header() {
               </li>
 
               <li>
-                <Link href="https://calendly.com/inna-ntp/free-restart-discovery-call">
+                <Link href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone">
                   <button className="group relative gradient-bg text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-[#41ab5d] hover:scale-105 hover:shadow-xl hover:shadow-emerald-500/25">
                     <span className="relative z-10 flex items-center gap-2">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,7 +102,7 @@ export function Header() {
                 </a>
               </li>
               <li>
-                <Link href="https://calendly.com/inna-ntp/free-restart-discovery-call">
+                <Link href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone">
                   <button className="group relative gradient-bg text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-[#41ab5d] hover:scale-105 hover:shadow-xl hover:shadow-emerald-500/25">
                     <span className="relative z-10 flex items-center gap-2">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

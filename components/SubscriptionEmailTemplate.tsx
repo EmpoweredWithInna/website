@@ -311,7 +311,7 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
       <body>
         <div className="container">
           <div className="header">
-            <div className="logo">Empowered Nutrition</div>
+            <div className="logo">Empowered Wellness</div>
             <div className="tagline">with Inna</div>
           </div>
 
@@ -326,7 +326,7 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
             </h1>
             
             <p className="description">
-              Great news! You have a new subscriber to your Empowered Nutrition newsletter. 
+              Great news! You have a new subscriber to your Empowered Wellness newsletter.
               Someone is excited to receive your weekly health tips, recipes, and insights.
             </p>
 
@@ -389,7 +389,7 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
           {/* Footer */}
           <div className="footer">
             <p className="footer-text">
-              This notification was sent from your Empowered Nutrition website newsletter subscription form.
+              This notification was sent from your Empowered Wellness website newsletter subscription form.
             </p>
             
             
@@ -398,7 +398,7 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
               color: '#9ca3af',
               margin: '0'
             }}>
-              © {new Date().getFullYear()} Empowered Nutrition with Inna. All rights reserved.<br/>
+              © {new Date().getFullYear()} Empowered Wellness with Inna. All rights reserved.<br/>
               Functional Nutrition • Root-Cause Healing • Women's Health Transformation
             </p>
           </div>

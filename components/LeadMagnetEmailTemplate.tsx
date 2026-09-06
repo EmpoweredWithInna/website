@@ -250,7 +250,7 @@ export const LeadMagnetEmailTemplate: React.FC<LeadMagnetEmailTemplateProps> = (
       <body>
         <div className="container">
           <div className="header">
-            <div className="logo">Empowered Nutrition</div>
+            <div className="logo">Empowered Wellness</div>
             <div className="tagline">with Inna</div>
           </div>
 
@@ -264,7 +264,7 @@ export const LeadMagnetEmailTemplate: React.FC<LeadMagnetEmailTemplateProps> = (
             </h1>
             
             <p className="description">
-              Thank you for taking the first step toward better gut health and mental clarity! 
+              Thank you for taking the first step toward better gut and hormone health!
               Your personalized 7-Day Gut-Brain Reset Meal Plan is ready for you.
             </p>
 
@@ -311,7 +311,7 @@ export const LeadMagnetEmailTemplate: React.FC<LeadMagnetEmailTemplateProps> = (
                 If you're looking for deeper guidance on your health journey, I'd love to help! 
                 Schedule a free 15-minute discovery call to discuss your unique health goals.
               </p>
-              <a href="https://calendly.com/inna-ntp/free-restart-discovery-call" className="discovery-link">
+              <a href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone" className="discovery-link">
                 Book Your Free Call →
               </a>
             </div>
@@ -328,7 +328,7 @@ export const LeadMagnetEmailTemplate: React.FC<LeadMagnetEmailTemplateProps> = (
           <div className="footer">
             <p className="footer-text">
               You're receiving this email because you requested the 7-Day Gut-Brain Reset Meal Plan 
-              from Empowered Nutrition with Inna.
+              from Empowered Wellness with Inna.
             </p>
             
             <p style={{
@@ -336,7 +336,7 @@ export const LeadMagnetEmailTemplate: React.FC<LeadMagnetEmailTemplateProps> = (
               color: '#9ca3af',
               margin: '0'
             }}>
-              © {new Date().getFullYear()} Empowered Nutrition with Inna. All rights reserved.<br/>
+              © {new Date().getFullYear()} Empowered Wellness with Inna. All rights reserved.<br/>
               Functional Nutrition • Root-Cause Healing • Women's Health Transformation
             </p>
           </div>

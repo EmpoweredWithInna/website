@@ -169,7 +169,7 @@ export function Hero() {
                   <span className="text-primary text-sm font-medium">CNTP Certified</span>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/70">
-                  <span className="text-primary text-sm font-medium">4+ Years Experience</span>
+                  <span className="text-primary text-sm font-medium">6+ Years Experience</span>
                 </div>
               </div>
             </div>

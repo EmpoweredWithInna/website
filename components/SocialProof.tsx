@@ -21,7 +21,7 @@ export function SocialProof() {
       )
     },
     { 
-      number: '4+', 
+      number: '6+',
       label: 'Years Experience',
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,7 +43,8 @@ export function SocialProof() {
   const certifications = [
     { name: 'CNTP Certified', badge: 'Certified Nutrition Therapy Practitioner' },
     { name: 'RESTART Certified', badge: 'Sugar Detox Program' },
-    { name: 'RWS Certified', badge: 'Restorative Wellness Solutions Practitioner' },
+    { name: 'IRH Certified', badge: 'Institute of Restorative Health' },
+    { name: 'Synergistic Muscle Testing', badge: 'Identifying Imbalances In Your Body' },
     { name: 'HIPAA Compliant', badge: 'Privacy & Security' },
     { name: 'Functional Medicine', badge: 'Root-Cause Approach' }
   ];

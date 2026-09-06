@@ -299,7 +299,7 @@ export function Testimonials() {
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
               Join hundreds of women who have discovered their root causes and reclaimed their health through functional testing
             </p>
-            <Link href="https://calendly.com/inna-ntp/free-restart-discovery-call">
+            <Link href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone">
               <button className="group bg-gradient-to-r from-[#E88074] to-[#FCAF15] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
                 <span className="flex items-center gap-2">
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

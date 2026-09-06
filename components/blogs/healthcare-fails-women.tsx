@@ -413,7 +413,7 @@ export default function HealthcareFailsWomen() {
             <div className="max-w-2xl mx-auto">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to Take Control of Your Health?</h3>
               <p className="text-lg mb-6 opacity-90">If you're tired of being dismissed and ready for a practitioner who will listen and investigate your symptoms thoroughly, I'm here to help.</p>
-              <Link href="https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone" target="_blank" className="inline-flex items-center gap-2 bg-[#FCAF15] text-[#183B10] px-8 py-4 rounded-xl hover:bg-yellow-300 transition-all duration-300 text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105">
+              <Link href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone" target="_blank" className="inline-flex items-center gap-2 bg-[#FCAF15] text-[#183B10] px-8 py-4 rounded-xl hover:bg-yellow-300 transition-all duration-300 text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>

@@ -330,7 +330,7 @@ export default function BlogPage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                href="https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone" 
+                href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone"
                 className="border-2 border-[#41ab5d] text-[#41ab5d] px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:bg-[#41ab5d] hover:text-white hover:scale-105"
               >
                 Schedule Free Consultation

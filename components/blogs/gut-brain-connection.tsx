@@ -158,7 +158,7 @@ export default function GutBrainConnection() {
           <div className="bg-[#41ab5d]/10 border border-[#41ab5d]/20 rounded-lg p-8 mb-12 text-center">
             <h3 className="text-xl font-semibold text-[#183B10] mb-4">Struggling with Unexplained Anxiety or Gut Issues?</h3>
             <p className="text-gray-700 mb-6">Discover how functional testing can reveal the root causes of your symptoms. Book a free 15-minute consultation to learn about personalized gut-brain healing.</p>
-            <a href="https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone" target="_blank" className="bg-[#41ab5d] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#183B10] transition-colors inline-block">Book Free Consultation</a>
+            <a href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone" target="_blank" className="bg-[#41ab5d] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#183B10] transition-colors inline-block">Book Free Consultation</a>
           </div>
 
           {/* Stress Section */}
@@ -282,7 +282,7 @@ export default function GutBrainConnection() {
             <div className="max-w-2xl mx-auto">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to Heal Your Gut-Brain Connection?</h3>
               <p className="text-lg mb-6 opacity-90">Book a complimentary 15-minute discovery call to discuss your symptoms and learn how functional nutrition can transform your health.</p>
-              <Link href="https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone" target="_blank" className="inline-flex items-center gap-2 bg-[#FCAF15] text-[#183B10] px-8 py-4 rounded-xl hover:bg-yellow-300 transition-all duration-300 text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105">
+              <Link href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone" target="_blank" className="inline-flex items-center gap-2 bg-[#FCAF15] text-[#183B10] px-8 py-4 rounded-xl hover:bg-yellow-300 transition-all duration-300 text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>

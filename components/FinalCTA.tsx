@@ -103,18 +103,18 @@ export function FinalCTA() {
                 Start Your Healing Journey Today
               </h3>
               <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Schedule your free 15-minute discovery call to learn how functional testing
+                Schedule your complimentary 15-minute Wellness Clarity Call to learn how functional testing
                 can reveal the root causes of your symptoms and create your personalized path to wellness.
               </p>
             </div>
 
             <div className="flex flex-col lg:flex-row gap-6 justify-center items-center mb-8">
-              <Link target='_blank' href="https://calendly.com/inna-ntp/free-restart-discovery-call" className="group bg-primary text-white px-12 py-5 rounded-2xl font-bold text-xl transition-all duration-300 hover:bg-primary/90 hover:scale-105 shadow-2xl hover:shadow-primary/25">
+              <Link target='_blank' href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone" className="group bg-primary text-white px-12 py-5 rounded-2xl font-bold text-xl transition-all duration-300 hover:bg-primary/90 hover:scale-105 shadow-2xl hover:shadow-primary/25">
                 <span className="flex items-center">
                   <svg className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
-                  Schedule Free Discovery Call
+                  Book Your Wellness Clarity Call
                 </span>
               </Link>
 
@@ -191,7 +191,7 @@ export function FinalCTA() {
             </div>
             <div className="text-left">
               <div className="font-bold text-xl mb-1 text-gray-900">100% Satisfaction Guarantee</div>
-              <div className="text-gray-600">Risk-free discovery call • No pressure • No obligation</div>
+              <div className="text-gray-600">Complimentary Wellness Clarity Call • No pressure • No obligation</div>
             </div>
           </div>
         </div>
