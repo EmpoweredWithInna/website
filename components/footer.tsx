@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { SITE } from '../lib/site';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -229,8 +230,8 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Call us</p>
-                  <a href="tel:+13124044675" className="text-gray-900 hover:text-green-600 transition-colors font-medium">
-                    (312) 404-4675
+                  <a href={`tel:${SITE.phoneE164}`} className="text-gray-900 hover:text-green-600 transition-colors font-medium">
+                    {SITE.phoneDisplay}
                   </a>
                 </div>
               </div>

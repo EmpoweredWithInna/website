@@ -30,7 +30,8 @@ export const metadata: Metadata = {
     'brain fog treatment',
     'IBS functional nutrition'
   ],
-  creator: SITE.name,
+  authors: [{ name: SITE.practitionerName, url: SITE.origin }],
+  creator: SITE.practitionerName,
   publisher: SITE.name,
   metadataBase: new URL(SITE.origin),
   alternates: {

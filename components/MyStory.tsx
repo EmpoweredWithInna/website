@@ -30,7 +30,7 @@ export function MyStory() {
               <div className="relative bg-[#41ab5d]/5 rounded-3xl p-8 shadow-2xl">
                 <img
                   src="/Inna_image_standing.png"
-                  alt="Inna Topiler, Functional Nutritionist"
+                  alt="Inna Benyukhis, Certified Nutritional Therapy Practitioner"
                   width={400}
                   height={500}
                   className="rounded-2xl w-full shadow-xl"

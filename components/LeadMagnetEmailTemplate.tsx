@@ -250,7 +250,7 @@ export const LeadMagnetEmailTemplate: React.FC<LeadMagnetEmailTemplateProps> = (
       <body>
         <div className="container">
           <div className="header">
-            <div className="logo">Empowered Wellness</div>
+            <div className="logo">Empowered Wellness with Inna</div>
             <div className="tagline">with Inna</div>
           </div>
 
