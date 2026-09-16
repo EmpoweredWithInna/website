@@ -1,4 +1,9 @@
-import { BUSINESS_NAME, PRACTITIONER_NAME, SITE_URL } from "../lib/site";
+import {
+  BUSINESS_NAME,
+  PHONE_E164,
+  PRACTITIONER_NAME,
+  SITE_URL,
+} from "../lib/site";
 
 export function StructuredData() {
   const structuredData = {
@@ -18,6 +23,7 @@ export function StructuredData() {
         name: BUSINESS_NAME,
         url: SITE_URL,
         email: "healthy@empoweredwithinna.com",
+        telephone: PHONE_E164,
         logo: {
           "@type": "ImageObject",
           url: `${SITE_URL}/Empowered_SQ_logo.png`,

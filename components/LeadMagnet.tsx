@@ -122,7 +122,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
                 aria-label="Preview of the 7-Day Gut-Hormones Reset Meal Plan"
               >
                 <div className="lead-guide-cover-top">
-                  <span>Empowered Wellness</span>
+                  <span>Empowered Wellness with Inna</span>
                   <BookOpen size={21} aria-hidden="true" />
                 </div>
                 <div className="lead-guide-cover-copy">

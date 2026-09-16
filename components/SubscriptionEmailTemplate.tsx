@@ -311,7 +311,7 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
       <body>
         <div className="container">
           <div className="header">
-            <div className="logo">Empowered Wellness</div>
+            <div className="logo">Empowered Wellness with Inna</div>
             <div className="tagline">with Inna</div>
           </div>
 
@@ -326,7 +326,7 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
             </h1>
             
             <p className="description">
-              Great news! You have a new subscriber to your Empowered Wellness newsletter.
+              Great news! You have a new subscriber to your Empowered Wellness with Inna newsletter.
               Someone is excited to receive your weekly health tips, recipes, and insights.
             </p>
 
@@ -389,7 +389,7 @@ export const SubscriptionEmailTemplate: React.FC<SubscriptionEmailTemplateProps>
           {/* Footer */}
           <div className="footer">
             <p className="footer-text">
-              This notification was sent from your Empowered Wellness website newsletter subscription form.
+              This notification was sent from your Empowered Wellness with Inna website newsletter subscription form.
             </p>
             
             

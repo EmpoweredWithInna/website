@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
-import { CONSULTATION_URL } from "../lib/site";
+import { CONSULTATION_URL, PHONE_DISPLAY, PHONE_E164 } from "../lib/site";
 
 const navigation = [
   ["About", "/#about"],
@@ -129,8 +129,8 @@ export function Footer() {
             <a href="mailto:healthy@empoweredwithinna.com">
               <Mail size={16} /> healthy@empoweredwithinna.com
             </a>
-            <a href="tel:+13124044675">
-              <Phone size={16} /> (312) 404-4675
+            <a href={`tel:${PHONE_E164}`}>
+              <Phone size={16} /> {PHONE_DISPLAY}
             </a>
             <p>
               <MapPin size={16} /> Virtual care available nationwide
