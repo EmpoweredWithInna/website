@@ -7,6 +7,7 @@
     "build": "next build",
     "check:seo": "npm run build && node scripts/check-seo.mjs",
     "test:email": "node scripts/check-email-service.mjs",
+    "promote:production": "bash scripts/promote-production.sh",
     "start": "next start",
     "lint": "eslint"
   },
