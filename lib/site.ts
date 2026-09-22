@@ -3,7 +3,13 @@ export const SITE_URL = "https://www.empoweredwithinna.com";
 export const CONSULTATION_URL =
   "https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone";
 
+export const RESTART_CONSULTATION_URL =
+  "https://calendly.com/inna-ntp/restart-sugar-detox-5-week-program-info-call";
+
 export const FULLSCRIPT_URL = "https://us.fullscript.com/welcome/inna";
+
+export const GUIDE_FILE_NAME = "7_Day_Gut_Hormones_Reset_Meal_Plan.pdf";
+export const GUIDE_PATH = `/${GUIDE_FILE_NAME}`;
 
 export const PRACTITIONER_NAME = "Inna Benyukhis";
 export const BUSINESS_NAME = "Empowered Wellness with Inna";

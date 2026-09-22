@@ -43,7 +43,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
       const response = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, intent: "guide" }),
       });
       const data = await response.json();
 

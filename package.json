@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "check:seo": "npm run build && node scripts/check-seo.mjs",
+    "test:email": "node scripts/check-email-service.mjs",
     "start": "next start",
     "lint": "eslint"
   },

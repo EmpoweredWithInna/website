@@ -16,7 +16,11 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
-import { CONSULTATION_URL, FULLSCRIPT_URL } from "../lib/site";
+import {
+  CONSULTATION_URL,
+  FULLSCRIPT_URL,
+  RESTART_CONSULTATION_URL,
+} from "../lib/site";
 import { downloadMealPlanGuide } from "../utils/downloadUtils";
 
 function SectionIntro({
@@ -175,6 +179,8 @@ const services = [
       "Supplement protocols",
       "Progress reviews",
     ],
+    ctaHref: CONSULTATION_URL,
+    ctaLabel: "Explore this option",
   },
   {
     number: "02",
@@ -189,6 +195,8 @@ const services = [
       "Recipes and shopping lists",
     ],
     featured: true,
+    ctaHref: RESTART_CONSULTATION_URL,
+    ctaLabel: "RESTART Sugar Detox 5-week Program info call",
   },
   {
     number: "03",
@@ -202,6 +210,8 @@ const services = [
       "Results interpretation",
       "Follow-up consultation",
     ],
+    ctaHref: CONSULTATION_URL,
+    ctaLabel: "Explore this option",
   },
 ];
 
@@ -246,8 +256,8 @@ export function Services() {
                   </li>
                 ))}
               </ul>
-              <Link href={CONSULTATION_URL} target="_blank" rel="noreferrer">
-                Explore this option <ArrowUpRight size={16} />
+              <Link href={service.ctaHref} target="_blank" rel="noreferrer">
+                {service.ctaLabel} <ArrowUpRight size={16} />
               </Link>
             </article>
           ))}
@@ -464,7 +474,7 @@ export function QuickTips() {
       const response = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, intent: "newsletter" }),
       });
       const data = await response.json();
       setStatus(response.ok ? data.message : data.error);

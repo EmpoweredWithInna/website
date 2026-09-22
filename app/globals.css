@@ -400,12 +400,14 @@
 }
 .fullscript-row {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   gap: 1.5rem;
   align-items: center;
   margin-top: 1px;
   padding: 2rem 2.5rem;
+  border: 2px solid #f4c36e;
   background: #285146;
+  box-shadow: 0 1rem 2.5rem rgba(23, 59, 50, 0.22);
 }
 .fullscript-row > div:first-child {
   display: grid;
@@ -437,12 +439,21 @@
   display: inline-flex;
   gap: 0.5rem;
   align-items: center;
-  color: #fff;
+  justify-content: center;
+  justify-self: start;
+  grid-column: 2;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.2rem;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: #f4c36e;
+  color: #173b32;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-decoration: none;
   text-transform: uppercase;
+  box-shadow: 0 0.6rem 1.4rem rgba(0, 0, 0, 0.18);
 }
 
 /* Story */
@@ -2997,6 +3008,19 @@ section[id] {
   color: #4f625c;
   font-size: clamp(1.05rem, 1.45vw, 1.23rem);
   line-height: 1.75;
+}
+
+.hero-virtual-banner {
+  display: inline-flex;
+  margin-top: 1.35rem;
+  padding: 0.72rem 1rem;
+  border: 1px solid rgba(49, 95, 82, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  color: #173b32;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
 
 .hero-actions {

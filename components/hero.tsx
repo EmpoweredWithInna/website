@@ -14,7 +14,7 @@ export function Hero() {
         <div className="hero-copy">
           <p className="hero-eyebrow">
             <Sparkles aria-hidden="true" size={15} />
-            Functional nutrition for women 40+
+            100% virtual functional nutrition for women 40+
           </p>
 
           <h1 id="hero-heading" className="hero-title">
@@ -23,10 +23,14 @@ export function Hero() {
           </h1>
 
           <p className="hero-description">
-            Discover the root causes of fatigue, bloating, brain fog, and
-            hormone symptoms through advanced functional testing and
-            personalized nutrition protocols designed for lasting
-            transformation.
+            Work with Inna virtually from Buda, Kyle, Austin, San Marcos, or
+            surrounding Central Texas communities. Explore the root causes of
+            fatigue, bloating, brain fog, and hormone symptoms through
+            personalized nutrition support.
+          </p>
+
+          <p className="hero-virtual-banner">
+            Virtual appointments — expert support from the comfort of home
           </p>
 
           <div className="hero-actions">
@@ -53,7 +57,8 @@ export function Hero() {
               <Check aria-hidden="true" size={15} /> Functional testing
             </li>
             <li>
-              <Check aria-hidden="true" size={15} /> Virtual support
+              <Check aria-hidden="true" size={15} /> Serving the
+              Buda–Kyle–Austin–San Marcos corridor
             </li>
           </ul>
         </div>
