@@ -1,34 +1,43 @@
 import Link from "next/link";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { LOCAL_SERVICE_PAGE, SERVICE_AREAS, SITE } from "../lib/site";
 
 export function CentralTexasServiceArea() {
   return (
-    <section className="bg-[#183B10] py-16 text-white" aria-labelledby="central-texas-heading">
-      <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-        <div>
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-[#FCAF15]">
-            Central Texas virtual nutrition support
+    <section
+      className="local-service-section"
+      aria-labelledby="central-texas-heading"
+    >
+      <div className="section-wrap local-service-card">
+        <div className="local-service-copy">
+          <p className="local-service-kicker">
+            <MapPin size={14} aria-hidden="true" /> Local perspective, virtual
+            care
           </p>
-          <h2 id="central-texas-heading" className="text-3xl font-bold leading-tight md:text-4xl">
-            Serving Buda, Kyle, Austin, San Marcos, and Central Texas
+          <h2 id="central-texas-heading">
+            Virtual nutrition support, <em>rooted in Central Texas.</em>
           </h2>
-          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-white/85">
-            {SITE.practitioner.name} offers virtual functional nutrition consultations for clients across the Central Texas corridor. Learn how appointments work, which services may fit your goals, and what to expect before booking.
+          <p>
+            {SITE.practitioner.name} works virtually with clients throughout the
+            Buda–Kyle–Austin–San Marcos corridor, bringing personalized
+            functional nutrition support directly to your home.
           </p>
-          <Link
-            href={LOCAL_SERVICE_PAGE}
-            className="mt-6 inline-flex rounded-full bg-white px-6 py-3 font-semibold text-[#183B10] transition hover:bg-[#FCAF15]"
-          >
+          <Link href={LOCAL_SERVICE_PAGE} className="local-service-link">
             Explore Central Texas support
+            <ArrowUpRight size={17} aria-hidden="true" />
           </Link>
         </div>
-        <ul className="grid grid-cols-2 gap-3 text-base" aria-label="Cities served">
-          {SERVICE_AREAS.map((area) => (
-            <li key={area.name} className="rounded-2xl border border-white/20 bg-white/10 px-5 py-4 font-semibold">
-              {area.name}, {area.region}
-            </li>
-          ))}
-        </ul>
+        <div className="local-service-places">
+          <span>Core service area</span>
+          <ul aria-label="Cities served">
+            {SERVICE_AREAS.map((area) => (
+              <li key={area.name}>
+                <strong>{area.name}</strong>
+                <small>{area.region}</small>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );
