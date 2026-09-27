@@ -2,7 +2,7 @@
 
 ## Promote staging to production
 
-Run the promotion from either the staging or production checkout:
+Run the promotion from either the staging or production checkout: 
 
 ```bash
 npm run promote:production -- --dry-run
