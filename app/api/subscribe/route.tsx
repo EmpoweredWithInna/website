@@ -17,8 +17,7 @@ const PDF_URL = `${SITE_URL}${GUIDE_PATH}`;
 type SubscriptionIntent = "guide" | "newsletter";
 
 function getResendClient(apiKey: string) {
-  const baseUrl = process.env.RESEND_API_BASE_URL;
-  return new Resend(apiKey, baseUrl ? { baseUrl } : undefined);
+  return new Resend(apiKey);
 }
 
 export async function POST(req: NextRequest) {
